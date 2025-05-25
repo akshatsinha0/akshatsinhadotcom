@@ -1,0 +1,70 @@
+.skills-section {
+  padding: 4rem 2rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.skill-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 15px;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.skill-name {
+  color: var(--skill-color);
+  font-weight: 600;
+}
+
+.skill-percent {
+  color: #a0a9c1;
+}
+
+.skill-progress {
+  height: 8px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar {
+  width: var(--skill-level);
+  height: 100%;
+  background: linear-gradient(90deg, var(--skill-color), #fff);
+  border-radius: 4px;
+  transition: width 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.progress-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05));
+}
+
+.skill-orb {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, var(--skill-color) 0%, transparent 60%);
+  opacity: 0.1;
+  filter: blur(40px);
+  pointer-events: none;
+}

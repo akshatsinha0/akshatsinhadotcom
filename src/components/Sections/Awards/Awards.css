@@ -1,0 +1,81 @@
+.awards-section {
+  padding: 4rem 2rem;
+}
+
+.awards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.award-card {
+  background: rgba(255,255,255,0.03);
+  border-radius: 20px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  animation: awardFloat 4s ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+@keyframes awardFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.award-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.trophy-icon {
+  font-size: 2rem;
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+}
+
+h3 {
+  font-size: 1.3rem;
+  background: linear-gradient(45deg, #fff, #f093fb);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.organization {
+  color: #a0a9c1;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.year {
+  color: #667eea;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.award-rays {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, 
+    rgba(255, 215, 0, 0.1) 0%, transparent 60%);
+  pointer-events: none;
+  animation: raySpin 20s linear infinite;
+}
+
+@keyframes raySpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
