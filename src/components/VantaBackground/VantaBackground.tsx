@@ -5,7 +5,8 @@ import './VantaBackground.css';
 
 const VantaBackground: React.FC = () => {
   const vantaRef = useRef<HTMLDivElement>(null);
-  const [vantaEffect, setVantaEffect] = useState<any>(null);
+  type VantaEffectInstance = { destroy: () => void };
+  const [vantaEffect, setVantaEffect] = useState<VantaEffectInstance | null>(null);
 
   useEffect(() => {
     if (vantaRef.current && !vantaEffect) {

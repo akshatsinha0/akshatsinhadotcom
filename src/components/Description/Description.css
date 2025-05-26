@@ -615,7 +615,7 @@
   opacity: 0.1;
 }
 
-/* Education Timeline */
+  
 .education-section {
   margin-bottom: 3rem;
   opacity: 0;
@@ -724,7 +724,7 @@
   opacity: 0.05;
 }
 
-/* Interactive Particles */
+  
 .interactive-particles {
   position: absolute;
   top: 0;
@@ -816,7 +816,7 @@
   animation-delay: 7.5s;
 }
 
-/* Enhanced Responsive Design */
+  
 @media (max-width: 1200px) {
   .description-content {
     grid-template-columns: 1fr;
@@ -918,4 +918,10 @@
 
 .profile-image-container:hover .image-overlay {
   opacity: 1;
+}
+
+.wave-emoji {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline-block;
 }

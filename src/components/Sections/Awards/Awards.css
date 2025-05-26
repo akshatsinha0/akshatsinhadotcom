@@ -79,3 +79,10 @@ h3 {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.trophy-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+}

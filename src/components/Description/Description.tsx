@@ -169,7 +169,8 @@ const Description: React.FC = () => {
           
           <div className="text-section">
             <div className="greeting">
-              <span className="wave">👋</span>
+              <span className="wave"><img src="/src/assets/wavinghandemoji.png" alt="👋" className="wave-emoji" /></span>
+
               <span className="greeting-text">Hello, I'm</span>
             </div>
             

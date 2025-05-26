@@ -98,7 +98,7 @@
   opacity: 1;
 }
 
-/* Floating animation */
+   
 .terminal-icon {
   animation: float 4s ease-in-out infinite;
 }

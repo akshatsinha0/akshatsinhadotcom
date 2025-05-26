@@ -74,7 +74,7 @@
   }
 }
 
-/* NEW COUNTER STYLES */
+   
 .loading-counter {
   position: relative;
   margin: 0 auto 3rem;
@@ -149,7 +149,7 @@
   filter: drop-shadow(0 0 10px rgba(102, 126, 234, 0.5));
 }
 
-/* Add gradient definition for progress bar */
+   
 .progress-svg::before {
   content: '';
   position: absolute;
@@ -161,7 +161,7 @@
   mask: radial-gradient(circle, transparent 47px, black 50px);
 }
 
-/* Alternative approach for gradient stroke */
+   
 .progress-bar {
   stroke: #667eea;
   animation: progressGlow 2s ease-in-out infinite alternate;
@@ -182,7 +182,7 @@
   }
 }
 
-/* EXISTING STYLES REMAIN UNCHANGED */
+   
 .loading-text {
   font-size: 2.5rem;
   font-weight: 700;
@@ -243,7 +243,7 @@
   }
 }
 
-/* Responsive Design */
+   
 @media (max-width: 768px) {
   .loading-counter {
     width: 100px;
