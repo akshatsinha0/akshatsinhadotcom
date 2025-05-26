@@ -155,7 +155,7 @@
   align-items: center;
   gap: 0.8rem;
   padding: 1rem;
-  background: rgba(102, 126, 234, 0.1);
+  background: rgba(255, 255, 255, 0.236);
   border-radius: 10px;
   transition: transform 0.3s ease;
 }

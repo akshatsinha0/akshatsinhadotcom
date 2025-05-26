@@ -1,0 +1,109 @@
+.terminal-icon {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 60px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 999;
+  transform-origin: center;
+  transition: all 0.3s ease;
+}
+
+.terminal-icon:hover {
+  transform: scale(1.1);
+}
+
+.terminal-icon.spinning {
+  animation: terminalSpin 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+@keyframes terminalSpin {
+  0% { transform: scale(1) rotate(0deg) translateX(0) translateY(0); }
+  25% { transform: scale(1.2) rotate(180deg) translateX(-200px) translateY(100px); }
+  50% { transform: scale(1.5) rotate(360deg) translateX(-400px) translateY(200px); }
+  75% { transform: scale(1.8) rotate(540deg) translateX(-200px) translateY(100px); }
+  100% { transform: scale(2) rotate(720deg) translateX(0) translateY(0); }
+}
+
+.terminal-icon-content {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+  border-radius: 6px;
+  border: 2px solid #404040;
+  padding: 8px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.icon-screen {
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  padding: 4px;
+}
+
+.icon-line {
+  height: 2px;
+  background: #00ff41;
+  border-radius: 1px;
+  animation: iconBlink 2s infinite;
+}
+
+.icon-line:nth-child(1) { width: 80%; }
+.icon-line:nth-child(2) { width: 60%; }
+.icon-line:nth-child(3) { width: 40%; }
+
+@keyframes iconBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.3; }
+}
+
+.terminal-tail {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #404040;
+}
+
+.tooltip {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  font-family: "Fira Sans", sans-serif;
+}
+
+.terminal-icon:hover .tooltip {
+  opacity: 1;
+}
+
+/* Floating animation */
+.terminal-icon {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}

@@ -11,10 +11,15 @@ import Skills from './components/Sections/Skills/Skills'
 import Certifications from './components/Sections/Certifications/Certifications'
 import Awards from './components/Sections/Awards/Awards'
 import Contact from './components/Contact/Contact'
+// import QuantumBackground from './components/QuantumBackground/QuantumBackground';
+import VantaBackground from './components/VantaBackground/VantaBackground'
+import InteractiveTerminal from './components/InteractiveTerminal/InteractiveTerminal'
+import TerminalIcon from './components/TerminalIcon/TerminalIcon'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
   const [activeSection, setActiveSection] = useState('description')
+  const [isTerminalOpen, setIsTerminalOpen] = useState(false)
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -38,6 +43,8 @@ function App() {
 
   return (
     <div className="app">
+      <VantaBackground />
+      {/* <QuantumBackground /> */}
       <FloatingAmoeba />
       <MouseTrail />
       <Navigation activeSection={activeSection} setActiveSection={setActiveSection} />
@@ -49,6 +56,11 @@ function App() {
       </main>
       
       <Contact />
+      <TerminalIcon onClick={() => setIsTerminalOpen(true)} />
+      <InteractiveTerminal 
+        isOpen={isTerminalOpen} 
+        onClose={() => setIsTerminalOpen(false)} 
+      />
     </div>
   )
 }
