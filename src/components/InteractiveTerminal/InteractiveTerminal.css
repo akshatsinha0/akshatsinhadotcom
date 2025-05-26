@@ -173,3 +173,35 @@
     padding: 15px;
   }
 }
+
+.terminal-line svg {
+  vertical-align: -3px;
+  margin-right: 0.5rem;
+}
+
+.terminal-prompt svg {
+  margin-right: 0.3rem;
+}
+
+/* Icon Styling */
+.icon {
+  vertical-align: middle;
+  margin-right: 0.5rem;
+  color: var(--accent-color);
+  flex-shrink: 0;
+}
+
+.terminal-title svg {
+  margin-right: 0.5rem;
+  animation: iconPulse 2s infinite;
+}
+
+@keyframes iconPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.terminal-prompt svg {
+  color: #43e97b;
+  margin-right: 0.5rem;
+}
