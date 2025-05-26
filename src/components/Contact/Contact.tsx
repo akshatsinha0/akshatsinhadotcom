@@ -1,36 +1,38 @@
 import React from 'react'
 import './Contact.css'
+import { FaLinkedin, FaGithub, FaEnvelope, FaFileAlt } from 'react-icons/fa'
+import { SiLeetcode } from 'react-icons/si'
 
 const Contact: React.FC = () => {
   const socialLinks = [
     {
       name: 'LinkedIn',
       url: 'https://www.linkedin.com/in/akshat-sinha-248805214',
-      icon: '💼',
+      icon: <FaLinkedin />,
       color: '#0077b5'
     },
     {
       name: 'GitHub',
       url: 'https://github.com/akshatsinha0',
-      icon: '🐱',
+      icon: <FaGithub />,
       color: '#333'
     },
     {
       name: 'Resume',
       url: 'https://drive.google.com/file/d/1LOYFiX2UF9wMsxSucTfbHYJxnkAlLyKE/view?usp=sharing',
-      icon: '📄',
+      icon: <FaFileAlt />,
       color: '#667eea'
     },
     {
       name: 'Email',
       url: 'mailto:akshatsinhasramhardy@gmail.com',
-      icon: '✉️',
+      icon: <FaEnvelope />,
       color: '#ea4335'
     },
     {
       name: 'LeetCode',
       url: 'https://leetcode.com/u/akshatsinha0/',
-      icon: '⚡',
+      icon: <SiLeetcode />,
       color: '#ffa116'
     }
   ]
