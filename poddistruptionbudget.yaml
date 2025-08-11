@@ -1,10 +1,11 @@
-apiVersion: policy/v1
-kind: PodDisruptionBudget
-metadata:
-  name: portfolio-pdb
-  namespace: portfolio
-spec:
-  minAvailable: 1
-  selector:
-    matchLabels:
-      app: portfolio
+# DevOps configuration commented out - not needed for portfolio website
+# apiVersion: policy/v1
+# kind: PodDisruptionBudget
+# metadata:
+#   name: portfolio-pdb
+#   namespace: portfolio
+# spec:
+#   minAvailable: 1
+#   selector:
+#     matchLabels:
+#       app: portfolio

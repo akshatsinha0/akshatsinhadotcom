@@ -1,13 +1,14 @@
-resources:
-  - namespace.yaml
-  - resourcequota.yaml
-  - limitrange.yaml
-  - configmap.yaml
-  - secret.yaml
-  - serviceaccount.yaml
-  - rbac.yaml
-  - deployment.yaml
-  - service.yaml
-  - hpa.yaml
-  - pdb.yaml
-  - networkpolicy.yaml
+# DevOps configuration commented out - not needed for portfolio website
+# resources:
+#   - namespace.yaml
+#   - resourcequota.yaml
+#   - limitrange.yaml
+#   - configmap.yaml
+#   - secret.yaml
+#   - serviceaccount.yaml
+#   - rbac.yaml
+#   - deployment.yaml
+#   - service.yaml
+#   - hpa.yaml
+#   - pdb.yaml
+#   - networkpolicy.yaml

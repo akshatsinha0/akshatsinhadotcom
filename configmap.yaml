@@ -1,8 +1,9 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: portfolio-config
-  namespace: portfolio
-data:
-  VITE_API_URL: "https://api.example.com"
-  LOG_LEVEL: "info"
+# DevOps configuration commented out - not needed for portfolio website
+# apiVersion: v1
+# kind: ConfigMap
+# metadata:
+#   name: portfolio-config
+#   namespace: portfolio
+# data:
+#   VITE_API_URL: "https://api.example.com"
+#   LOG_LEVEL: "info"

@@ -1,18 +1,19 @@
+# DevOps configuration commented out - not needed for portfolio website
 # Stage 1: Build
-FROM node:18-alpine AS builder
+# FROM node:18-alpine AS builder
 
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci
+# WORKDIR /app
+# COPY package*.json ./
+# RUN npm ci
 
-COPY . .
-RUN npm run build
+# COPY . .
+# RUN npm run build
 
 # Stage 2: Serve with Nginx
-FROM nginx:alpine
+# FROM nginx:alpine
 
-COPY --from=builder /app/dist /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# COPY --from=builder /app/dist /usr/share/nginx/html
+# COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+# EXPOSE 80
+# CMD ["nginx", "-g", "daemon off;"]
