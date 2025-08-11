@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import './Experiences.css';
-
 const Experiences: React.FC = () => {
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
-  
   const experiences = [
     {
       id: 'xyz',
@@ -44,12 +42,10 @@ const Experiences: React.FC = () => {
       color: '#764ba2'
     }
   ];
-
   return (
     <section className="experiences-section">
       <div className="experience-container">
         <h2 className="section-title">Professional Journey</h2>
-        
         <div className="experience-grid">
           {experiences.map((exp) => (
             <div
@@ -59,13 +55,12 @@ const Experiences: React.FC = () => {
               onMouseLeave={() => setExpandedCard(null)}
               style={{ '--accent-color': exp.color } as React.CSSProperties}
             >
-              {/* Card Header */}
+              {}
               <div className="card-header">
                 <h3 className="card-title">{exp.title}</h3>
                 <div className="duration-pill">{exp.duration}</div>
               </div>
-
-              {/* Metrics Grid */}
+              {}
               <div className="metrics-grid">
                 {Object.entries(exp.metrics).map(([key, value]) => (
                   <div key={key} className="metric-item">
@@ -74,8 +69,7 @@ const Experiences: React.FC = () => {
                   </div>
                 ))}
               </div>
-
-              {/* Description List */}
+              {}
               <div className="description-section">
                 <h4>Key Achievements</h4>
                 <ul className="achievement-list">
@@ -87,8 +81,7 @@ const Experiences: React.FC = () => {
                   ))}
                 </ul>
               </div>
-
-              {/* Tech Stack */}
+              {}
               <div className="tech-section">
                 <h4>Technologies</h4>
                 <div className="tech-grid">
@@ -99,8 +92,7 @@ const Experiences: React.FC = () => {
                   ))}
                 </div>
               </div>
-
-              {/* Card Effects */}
+              {}
               <div className="card-glow"></div>
               <div className="card-particles">
                 <div className="particle particle-1"></div>
@@ -114,5 +106,4 @@ const Experiences: React.FC = () => {
     </section>
   );
 };
-
 export default Experiences;

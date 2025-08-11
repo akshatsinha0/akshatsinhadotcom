@@ -1,0 +1,8 @@
+namespace: portfolio
+resources:
+  - ../../base
+patchesStrategicMerge:
+  - patch-deployment.yaml
+images:
+  - name: akshatsinha0/portfolio
+    newTag: staging-$(GIT_SHA)

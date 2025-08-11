@@ -1,6 +1,5 @@
 import React from 'react'
 import './FloatingAmoeba.css'
-
 const FloatingAmoeba: React.FC = () => {
   return (
     <div className="floating-amoeba-container">
@@ -12,5 +11,4 @@ const FloatingAmoeba: React.FC = () => {
     </div>
   )
 }
-
 export default FloatingAmoeba

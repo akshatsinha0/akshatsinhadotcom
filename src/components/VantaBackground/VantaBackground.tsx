@@ -2,12 +2,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import CLOUDS from 'vanta/dist/vanta.clouds.min';
 import './VantaBackground.css';
-
 const VantaBackground: React.FC = () => {
   const vantaRef = useRef<HTMLDivElement>(null);
   type VantaEffectInstance = { destroy: () => void };
   const [vantaEffect, setVantaEffect] = useState<VantaEffectInstance | null>(null);
-
   useEffect(() => {
     if (vantaRef.current && !vantaEffect) {
       const effect = CLOUDS({
@@ -27,15 +25,12 @@ const VantaBackground: React.FC = () => {
       });
       setVantaEffect(effect);
     }
-
     return () => {
       if (vantaEffect) {
         vantaEffect.destroy();
       }
     };
   }, [vantaEffect]);
-
   return <div ref={vantaRef} className="vanta-container" />;
 };
-
 export default VantaBackground;

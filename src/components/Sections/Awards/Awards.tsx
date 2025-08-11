@@ -1,6 +1,5 @@
 import React from "react";
 import "./Awards.css";
-
 const Awards: React.FC = () => {
   const awards = [
     {
@@ -22,7 +21,6 @@ const Awards: React.FC = () => {
       description: "Honored for exceptional early-career achievements",
     },
   ];
-
   return (
     <section className="awards-section">
       <div className="awards-container">
@@ -40,16 +38,13 @@ const Awards: React.FC = () => {
                   className="trophy-image"
                 />
               </div>
-
               <h3>{award.title}</h3>
             </div>
-
             <div className="award-body">
               <div className="organization">{award.organization}</div>
               <div className="year">{award.year}</div>
               <p className="description">{award.description}</p>
             </div>
-
             <div className="award-rays"></div>
           </div>
         ))}
@@ -57,5 +52,4 @@ const Awards: React.FC = () => {
     </section>
   );
 };
-
 export default Awards;

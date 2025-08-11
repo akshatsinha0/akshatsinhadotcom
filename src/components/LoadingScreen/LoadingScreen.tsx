@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './LoadingScreen.css'
-
 const LoadingScreen: React.FC = () => {
   const [counter, setCounter] = useState(1)
-
   useEffect(() => {
     const timer = setInterval(() => {
       setCounter(prevCounter => {
@@ -14,10 +12,8 @@ const LoadingScreen: React.FC = () => {
         return prevCounter + 1
       })
     }, 38) // 3800ms total duration to complete before screen disappears
-
     return () => clearInterval(timer)
   }, [])
-
   return (
     <div className="loading-screen">
       <div className="loading-content">
@@ -26,7 +22,6 @@ const LoadingScreen: React.FC = () => {
           <div className="quantum-particle"></div>
           <div className="quantum-particle"></div>
         </div>
-        
         <div className="loading-counter">
           <div className="counter-container">
             <span className="counter-number">{counter}</span>
@@ -58,7 +53,6 @@ const LoadingScreen: React.FC = () => {
             </svg>
           </div>
         </div>
-        
         <div className="loading-text">
           <span className="loading-letter" style={{animationDelay: '0.1s'}}>I</span>
           <span className="loading-letter" style={{animationDelay: '0.2s'}}>n</span>
@@ -83,5 +77,4 @@ const LoadingScreen: React.FC = () => {
     </div>
   )
 }
-
 export default LoadingScreen

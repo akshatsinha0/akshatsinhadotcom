@@ -1,4 +1,10 @@
-name: "Enterprise CI/CD Pipeline"
+name: CI Pipeline
+
+# 1. When to run
+on:
+  push:
+    branches: [ main ]
+  pull_request:name: "Enterprise CI/CD Pipeline"
 
 on:
   push:
@@ -195,3 +201,25 @@ jobs:
           fields: repo,commit,author
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 2a. Checkout source code
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      # 2b. (Placeholder) Install dependencies and build
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test

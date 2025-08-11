@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import './Certifications.css'
-
 const Certifications: React.FC = () => {
   const [copiedCode, setCopiedCode] = useState<string | null>(null)
   const certifications = [
@@ -32,21 +31,19 @@ const Certifications: React.FC = () => {
       hologram: 'openjs-hologram-pattern.png'
     }
   ]
-
   const copyToClipboard = (code: string) => {
     navigator.clipboard.writeText(code)
     setCopiedCode(code)
     setTimeout(() => setCopiedCode(null), 2000)
   }
-
   return (
     <section className="certifications-section">
-      {/* Animated Particles */}
+      {}
       <div className="quantum-particles">
         {Array.from({ length: 30 }).map((_, i) => (
-          <div 
+          <div
             key={i}
-            className="particle" 
+            className="particle"
             style={{
               '--particle-delay': `${i * 0.3}s`,
               '--particle-duration': `${5 + (i % 5)}s`
@@ -54,31 +51,28 @@ const Certifications: React.FC = () => {
           />
         ))}
       </div>
-
       <div className="certification-matrix">
         {certifications.map((cert, idx) => (
-          <div 
+          <div
             key={cert.code}
             className="certification-card"
-            style={{ 
+            style={{
               '--delay': `${idx * 0.1}s`,
               '--ribbon-color': cert.ribbonColor
             } as React.CSSProperties}
           >
-            {/* Holographic Layer */}
+            {}
             <div className="holographic-overlay">
-              <div className="hologram-pattern" 
+              <div className="hologram-pattern"
                 style={{ backgroundImage: `url(${cert.hologram})` }} />
               <div className="light-refraction"></div>
             </div>
-
-            {/* Verification Ribbon */}
+            {}
             <div className="verification-ribbon">
               <span>Verified</span>
               <div className="ribbon-fold"></div>
             </div>
-
-            {/* Front Face */}
+            {}
             <div className="card-face front">
               <div className="issuer-emblem">
                 <img src={cert.logo} alt={cert.issuer} />
@@ -87,8 +81,7 @@ const Certifications: React.FC = () => {
               <div className="issuer-name" style={{ color: 'white' }}>{cert.issuer}</div>
               <div className="cert-year" style={{ color: 'white' }}>{cert.date}</div>
             </div>
-
-            {/* Back Face */}
+            {}
             <div className="card-face back">
               <div className="certificate-seal">
                 <div className="seal-inner">
@@ -96,7 +89,6 @@ const Certifications: React.FC = () => {
                   <span style={{ color: 'white' }}>Certified</span>
                 </div>
               </div>
-              
               <div className="credential-details">
                 <div className="detail-item">
                   <label style={{ color: 'white' }}>Issuer:</label>
@@ -105,10 +97,9 @@ const Certifications: React.FC = () => {
                     {cert.issuer}
                   </div>
                 </div>
-                
                 <div className="detail-item">
                   <label style={{ color: 'white' }}>Credential ID:</label>
-                  <button 
+                  <button
                     className="credential-id"
                     onClick={() => copyToClipboard(cert.code)}
                     style={{ color: 'white' }}
@@ -121,14 +112,12 @@ const Certifications: React.FC = () => {
                 </div>
               </div>
             </div>
-
-            {/* Interactive Glow */}
+            {}
             <div className="interactive-glow"></div>
           </div>
         ))}
       </div>
-
-      {/* Floating Verification Badge */}
+      {}
       <div className="verification-badge">
         <div className="animated-checkmark">
           <svg viewBox="0 0 24 24">
@@ -140,5 +129,4 @@ const Certifications: React.FC = () => {
     </section>
   )
 }
-
 export default Certifications

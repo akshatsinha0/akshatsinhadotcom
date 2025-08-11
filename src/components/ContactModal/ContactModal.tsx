@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import './ContactModal.css';
-
 interface ContactModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
-
 const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -16,40 +14,35 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
     professionalTitle: '',
     organization: '',
     linkedinProfile: '',
-    
     // Project Intent
     projectType: '',
     collaborationType: '',
     budget: '',
     timeline: '',
-    
     // Communication
     primaryMessage: '',
     specificQuestions: '',
     preferredMeeting: '',
     communicationStyle: '',
-    
     // Additional Information
     hearAboutMe: '',
     expectations: '',
     additionalComments: ''
   });
-
   const [errors, setErrors] = useState<{[key: string]: string}>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-
   const steps = [
     {
       id: 1,
       title: "Professional Credentials",
       subtitle: "Let's establish your distinguished identity",
-      icon: "🎭"
+      icon: ""
     },
     {
       id: 2,
-      title: "Collaboration Intentions", 
+      title: "Collaboration Intentions",
       subtitle: "Define the scope of our potential partnership",
-      icon: "🚀"
+      icon: ""
     },
     {
       id: 3,
@@ -64,10 +57,8 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
       icon: "✨"
     }
   ];
-
   const validateStep = (step: number): boolean => {
     const newErrors: {[key: string]: string} = {};
-    
     switch(step) {
       case 1:
         if (!formData.fullName.trim()) newErrors.fullName = "Your distinguished name is requisite";
@@ -75,53 +66,40 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.emailAddress)) newErrors.emailAddress = "Please provide a valid electronic mail format";
         if (!formData.professionalTitle.trim()) newErrors.professionalTitle = "Your professional designation is essential";
         break;
-        
       case 2:
         if (!formData.projectType) newErrors.projectType = "Please specify your collaboration intentions";
         if (!formData.timeline) newErrors.timeline = "Project timeline specification required";
         break;
-        
       case 3:
         if (!formData.primaryMessage.trim()) newErrors.primaryMessage = "Your primary discourse is mandatory";
         if (formData.primaryMessage.length < 20) newErrors.primaryMessage = "Please elaborate your message comprehensively";
         break;
     }
-    
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
     if (errors[field]) {
       setErrors(prev => ({ ...prev, [field]: '' }));
     }
   };
-
   const handleNext = () => {
     if (validateStep(currentStep)) {
       setCurrentStep(prev => Math.min(prev + 1, 4));
     }
   };
-
   const handlePrevious = () => {
     setCurrentStep(prev => Math.max(prev - 1, 1));
   };
-
   const handleSubmit = async () => {
     if (!validateStep(3)) return;
-    
     setIsSubmitting(true);
-    
     // Simulate submission
     await new Promise(resolve => setTimeout(resolve, 2000));
-    
-
     console.log('Form submitted:', formData);
-    
     setIsSubmitting(false);
     setCurrentStep(4);
-    
     setTimeout(() => {
       onClose();
       setCurrentStep(1);
@@ -134,9 +112,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
       });
     }, 3000);
   };
-
   if (!isOpen) return null;
-
   return (
     <>
       <div className="contact-modal-backdrop" onClick={onClose} />
@@ -148,10 +124,9 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
           </div>
           <button className="modal-close-btn" onClick={onClose}>✕</button>
         </div>
-
         <div className="progress-indicator">
           {steps.map((step) => (
-            <div 
+            <div
               key={step.id}
               className={`progress-step ${currentStep >= step.id ? 'active' : ''} ${currentStep === step.id ? 'current' : ''}`}
             >
@@ -160,14 +135,12 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
             </div>
           ))}
         </div>
-
         <div className="modal-body">
           <div className="step-header">
             <h3>{steps[currentStep - 1]?.title}</h3>
             <p>{steps[currentStep - 1]?.subtitle}</p>
           </div>
-
-          {/* Step 1: Professional Credentials */}
+          {}
           {currentStep === 1 && (
             <div className="form-step">
               <div className="form-grid">
@@ -182,7 +155,6 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                   />
                   {errors.fullName && <span className="error-text">{errors.fullName}</span>}
                 </div>
-
                 <div className="form-group">
                   <label>Electronic Correspondence *</label>
                   <input
@@ -194,7 +166,6 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                   />
                   {errors.emailAddress && <span className="error-text">{errors.emailAddress}</span>}
                 </div>
-
                 <div className="form-group">
                   <label>Telephonic Contact</label>
                   <input
@@ -204,7 +175,6 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                     placeholder="+XX XXXXX XXXXX"
                   />
                 </div>
-
                 <div className="form-group">
                   <label>Professional Designation *</label>
                   <input
@@ -216,7 +186,6 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                   />
                   {errors.professionalTitle && <span className="error-text">{errors.professionalTitle}</span>}
                 </div>
-
                 <div className="form-group">
                   <label>Organizational Affiliation</label>
                   <input
@@ -226,7 +195,6 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                     placeholder="Company, Institution, or Organization"
                   />
                 </div>
-
                 <div className="form-group">
                   <label>LinkedIn Professional Profile</label>
                   <input
@@ -239,8 +207,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
               </div>
             </div>
           )}
-
-          {/* Step 2: Collaboration Intentions */}
+          {}
           {currentStep === 2 && (
             <div className="form-step">
               <div className="form-grid">
@@ -263,7 +230,6 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                   </select>
                   {errors.projectType && <span className="error-text">{errors.projectType}</span>}
                 </div>
-
                 <div className="form-group">
                   <label>Engagement Methodology</label>
                   <select
@@ -279,7 +245,6 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                     <option value="long-term">Long-term Strategic Alliance</option>
                   </select>
                 </div>
-
                 <div className="form-group">
                   <label>Investment Parameters</label>
                   <select
@@ -295,7 +260,6 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                     <option value="discuss">Open for Discussion</option>
                   </select>
                 </div>
-
                 <div className="form-group">
                   <label>Project Timeline *</label>
                   <select
@@ -315,8 +279,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
               </div>
             </div>
           )}
-
-          {/* Step 3: Communication */}
+          {}
           {currentStep === 3 && (
             <div className="form-step">
               <div className="form-grid">
@@ -332,7 +295,6 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                   {errors.primaryMessage && <span className="error-text">{errors.primaryMessage}</span>}
                   <span className="character-count">{formData.primaryMessage.length}/500 characters</span>
                 </div>
-
                 <div className="form-group full-width">
                   <label>Specific Technical Inquiries</label>
                   <textarea
@@ -342,7 +304,6 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                     rows={4}
                   />
                 </div>
-
                 <div className="form-group">
                   <label>Preferred Meeting Format</label>
                   <select
@@ -357,7 +318,6 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                     <option value="messaging">Instant Messaging Platform</option>
                   </select>
                 </div>
-
                 <div className="form-group">
                   <label>Communication Style</label>
                   <select
@@ -374,8 +334,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
               </div>
             </div>
           )}
-
-          {/* Step 4: Submission Success */}
+          {}
           {currentStep === 4 && (
             <div className="form-step success-step">
               <div className="success-animation">
@@ -391,24 +350,22 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
             </div>
           )}
         </div>
-
         {currentStep < 4 && (
           <div className="modal-footer">
-            <button 
-              className="btn-secondary" 
+            <button
+              className="btn-secondary"
               onClick={handlePrevious}
               disabled={currentStep === 1}
             >
               Previous
             </button>
-            
             {currentStep < 3 ? (
               <button className="btn-primary" onClick={handleNext}>
                 Continue Forward
               </button>
             ) : (
-              <button 
-                className="btn-primary submit-btn" 
+              <button
+                className="btn-primary submit-btn"
                 onClick={handleSubmit}
                 disabled={isSubmitting}
               >
@@ -421,5 +378,4 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
     </>
   );
 };
-
 export default ContactModal;

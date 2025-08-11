@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
 import './Projects.css'
-
 const Projects: React.FC = () => {
   const [activeProject, setActiveProject] = useState(0)
   const [isFlipping, setIsFlipping] = useState(false)
@@ -8,7 +7,6 @@ const Projects: React.FC = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
   const [viewMode, setViewMode] = useState<'grid' | 'carousel' | 'timeline'>('carousel')
   const containerRef = useRef<HTMLDivElement>(null)
-
   const projects = [
     {
       id: 1,
@@ -25,7 +23,7 @@ const Projects: React.FC = () => {
       ],
       features: [
         "Real-time multiplayer chess with 60fps rendering",
-        "Interactive chessboard with drag-and-drop mechanics", 
+        "Interactive chessboard with drag-and-drop mechanics",
         "Advanced user authentication & session management",
         "Comprehensive game history & replay system",
         "AI-powered move suggestions & analysis",
@@ -91,7 +89,6 @@ const Projects: React.FC = () => {
       status: "Live & Evolving"
     }
   ]
-
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (containerRef.current) {
@@ -102,28 +99,24 @@ const Projects: React.FC = () => {
         })
       }
     }
-
     const container = containerRef.current
     if (container) {
       container.addEventListener('mousemove', handleMouseMove)
       return () => container.removeEventListener('mousemove', handleMouseMove)
     }
   }, [])
-
   const handleImageFlip = (e: React.MouseEvent) => {
     e.stopPropagation()
     setIsFlipping(true)
     setTimeout(() => setIsFlipping(false), 600)
   }
-
   const handleCardHover = (index: number | null) => {
     setHoveredCard(index)
   }
-
   return (
     <section className="projects-section" ref={containerRef}>
-      {/* Dynamic Background */}
-      <div 
+      {}
+      <div
         className="projects-background"
         style={{
           '--mouse-x': `${mousePosition.x}%`,
@@ -138,9 +131,8 @@ const Projects: React.FC = () => {
           ))}
         </div>
       </div>
-
       <div className="projects-container">
-        {/* Glitch Header */}
+        {}
         <div className="section-header">
           <h2 className="section-title glitch-text" data-text="DIGITAL MASTERPIECES">
             <span className="glitch-layer">DIGITAL MASTERPIECES</span>
@@ -150,8 +142,7 @@ const Projects: React.FC = () => {
           <p className="section-subtitle typewriter-reveal">
             Innovative solutions engineered with passion, precision & cutting-edge technology
           </p>
-          
-          {/* View Mode Selector */}
+          {}
           <div className="view-selector">
             {(['grid', 'carousel', 'timeline'] as const).map((mode) => (
               <button
@@ -165,11 +156,10 @@ const Projects: React.FC = () => {
             ))}
           </div>
         </div>
-
-        {/* Projects Showcase */}
+        {}
         <div className={`projects-showcase view-${viewMode}`}>
           {projects.map((project, index) => (
-            <div 
+            <div
               key={project.id}
               className={`project-card ${activeProject === index ? 'active' : ''} ${hoveredCard === index ? 'hovered' : ''}`}
               onClick={() => setActiveProject(index)}
@@ -177,16 +167,14 @@ const Projects: React.FC = () => {
               onMouseLeave={() => handleCardHover(null)}
               style={{ '--card-index': index } as React.CSSProperties}
             >
-              {/* Holographic Border */}
+              {}
               <div className="holographic-border"></div>
-              
-              {/* Status Badge */}
+              {}
               <div className={`status-badge ${project.status.toLowerCase().replace(/\s+/g, '-')}`}>
                 <span className="status-dot"></span>
                 {project.status}
               </div>
-
-              {/* Project Images with Advanced Flip */}
+              {}
               {project.images && (
                 <div className="project-images">
                   <div className={`notebook-container ${isFlipping ? 'flipping' : ''}`}>
@@ -211,16 +199,14 @@ const Projects: React.FC = () => {
                   </button>
                 </div>
               )}
-              
-              {/* Project Content */}
+              {}
               <div className="project-content">
                 <div className="project-header">
                   <h3 className="project-title">
                     <span className="title-main">{project.title}</span>
                     <span className="title-sub">{project.subtitle}</span>
                   </h3>
-                  
-                  {/* Metrics Dashboard */}
+                  {}
                   <div className="metrics-grid">
                     {Object.entries(project.metrics).map(([key, value]) => (
                       <div key={key} className="metric-item">
@@ -230,10 +216,8 @@ const Projects: React.FC = () => {
                     ))}
                   </div>
                 </div>
-
                 <p className="project-description">{project.description}</p>
-                
-                {/* Enhanced Features */}
+                {}
                 <div className="project-features">
                   <h4 className="features-title">Core Features</h4>
                   <div className="features-grid">
@@ -248,14 +232,13 @@ const Projects: React.FC = () => {
                     ))}
                   </div>
                 </div>
-                
-                {/* Tech Stack Visualization */}
+                {}
                 <div className="tech-stack">
                   <h4 className="tech-title">Technology Stack</h4>
                   <div className="tech-constellation">
                     {project.technologies.map((tech, idx) => (
-                      <div 
-                        key={idx} 
+                      <div
+                        key={idx}
                         className="tech-node"
                         style={{ '--delay': `${idx * 0.1}s` } as React.CSSProperties}
                       >
@@ -266,7 +249,7 @@ const Projects: React.FC = () => {
                     <svg className="tech-connections" viewBox="0 0 100 100">
                       {project.technologies.map((_, idx) => (
                         idx < project.technologies.length - 1 && (
-                          <line 
+                          <line
                             key={idx}
                             x1={`${(idx + 1) * (100 / (project.technologies.length + 1))}`}
                             y1="50"
@@ -279,40 +262,37 @@ const Projects: React.FC = () => {
                     </svg>
                   </div>
                 </div>
-                
-                {/* Action Buttons */}
+                {}
                 <div className="project-actions">
                   {project.link && (
-                    <a 
-                      href={project.link} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="action-btn primary-action"
                     >
                       <span className="btn-bg"></span>
                       <span className="btn-text">Live Demo</span>
-                      <span className="btn-icon">🚀</span>
+                      <span className="btn-icon"></span>
                     </a>
                   )}
                   {project.github && (
-                    <a 
-                      href={project.github} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="action-btn secondary-action"
                     >
                       <span className="btn-bg"></span>
                       <span className="btn-text">Source Code</span>
-                      <span className="btn-icon">⚡</span>
+                      <span className="btn-icon"></span>
                     </a>
                   )}
                 </div>
               </div>
-
-              {/* Morphing Background */}
+              {}
               <div className="card-morph-bg"></div>
-              
-              {/* Floating Elements */}
+              {}
               <div className="floating-elements">
                 <div className="float-element float-1">◆</div>
                 <div className="float-element float-2">◇</div>
@@ -321,8 +301,7 @@ const Projects: React.FC = () => {
             </div>
           ))}
         </div>
-
-        {/* Project Navigation */}
+        {}
         <div className="project-navigation">
           <div className="nav-dots">
             {projects.map((_, index) => (
@@ -340,5 +319,4 @@ const Projects: React.FC = () => {
     </section>
   )
 }
-
 export default Projects

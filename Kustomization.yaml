@@ -1,0 +1,13 @@
+resources:
+  - namespace.yaml
+  - resourcequota.yaml
+  - limitrange.yaml
+  - configmap.yaml
+  - secret.yaml
+  - serviceaccount.yaml
+  - rbac.yaml
+  - deployment.yaml
+  - service.yaml
+  - hpa.yaml
+  - pdb.yaml
+  - networkpolicy.yaml

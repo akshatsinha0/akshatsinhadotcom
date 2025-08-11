@@ -2,7 +2,6 @@ import React from 'react'
 import './Contact.css'
 import { FaLinkedin, FaGithub, FaEnvelope, FaFileAlt } from 'react-icons/fa'
 import { SiLeetcode } from 'react-icons/si'
-
 const Contact: React.FC = () => {
   const socialLinks = [
     {
@@ -36,14 +35,12 @@ const Contact: React.FC = () => {
       color: '#ffa116'
     }
   ]
-
   return (
     <div className="contact-container">
       <div className="contact-header">
         <h3>Let's Create Something Extraordinary Together</h3>
         <p>Ready to transform ideas into digital masterpieces?</p>
       </div>
-      
       <div className="social-links">
         {socialLinks.map((link, index) => (
           <a
@@ -63,5 +60,4 @@ const Contact: React.FC = () => {
     </div>
   )
 }
-
 export default Contact

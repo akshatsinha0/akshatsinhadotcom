@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './Description.css'
 import ContactModal from '../ContactModal/ContactModal'
-
 const Description: React.FC = () => {
   const [typewriterText, setTypewriterText] = useState('')
   const [isDeleting, setIsDeleting] = useState(false)
@@ -11,10 +10,9 @@ const Description: React.FC = () => {
   const [clickedStat, setClickedStat] = useState<string | null>(null)
   const [educationHover, setEducationHover] = useState<string | null>(null)
   const [isContactModalOpen, setIsContactModalOpen] = useState(false)
-
   const textArray = [
     'Full-Stack Developer',
-    'Problem Solver', 
+    'Problem Solver',
     'Innovation Enthusiast',
     'Code Architect',
     'Digital Creator',
@@ -22,11 +20,10 @@ const Description: React.FC = () => {
     'AI Prompt Engineer',
     'Mathematical Thinker'
   ]
-
   const expertiseAreas = [
     {
       id: 'programming',
-      title: '🚀 Programming Knowledge',
+      title: 'Programming Knowledge',
       subtitle: 'Java & Beyond',
       details: [
         'Advanced Java Development & OOP Mastery',
@@ -38,7 +35,7 @@ const Description: React.FC = () => {
     },
     {
       id: 'mathematics',
-      title: '🧮 Mathematical Foundation',
+      title: 'Mathematical Foundation',
       subtitle: 'Logical Reasoning',
       details: [
         'Advanced Mathematics & Statistics',
@@ -50,7 +47,7 @@ const Description: React.FC = () => {
     },
     {
       id: 'management',
-      title: '👥 Leadership & Communication',
+      title: 'Leadership & Communication',
       subtitle: 'People Skills',
       details: [
         'Project Management & Team Leadership',
@@ -62,7 +59,7 @@ const Description: React.FC = () => {
     },
     {
       id: 'ai',
-      title: '🤖 AI & Emerging Tech',
+      title: 'AI & Emerging Tech',
       subtitle: 'Future-Ready',
       details: [
         'AI Prompt Engineering & Optimization',
@@ -73,7 +70,6 @@ const Description: React.FC = () => {
       color: '#43e97b'
     }
   ]
-
   const educationTimeline = [
     {
       id: 'vit',
@@ -83,7 +79,7 @@ const Description: React.FC = () => {
       degree: 'B.Tech in Computer Science Core',
       achievement: 'Current CGPA: 8.79/10',
       status: 'Pursuing',
-      icon: '🎓',
+      icon: '',
       color: '#667eea'
     },
     {
@@ -94,7 +90,7 @@ const Description: React.FC = () => {
       degree: 'Senior Secondary Education',
       achievement: 'Class XII: 89.6% | Class X: 95%',
       status: 'Completed',
-      icon: '📚',
+      icon: '',
       color: '#f093fb'
     },
     {
@@ -105,23 +101,19 @@ const Description: React.FC = () => {
       degree: 'Competitive Exam Preparation',
       achievement: 'PCM + Mental Ability + Quantitative Aptitude',
       status: 'Completed',
-      icon: '🔬',
+      icon: '',
       color: '#4facfe'
     }
   ]
-
   useEffect(() => {
     const handleTyping = () => {
       const i = loopNum % textArray.length
       const fullText = textArray[i]
-
-      setTypewriterText(isDeleting 
+      setTypewriterText(isDeleting
         ? fullText.substring(0, typewriterText.length - 1)
         : fullText.substring(0, typewriterText.length + 1)
       )
-
       setTypingSpeed(isDeleting ? 30 : 150)
-
       if (!isDeleting && typewriterText === fullText) {
         setTimeout(() => setIsDeleting(true), 1000)
       } else if (isDeleting && typewriterText === '') {
@@ -129,28 +121,22 @@ const Description: React.FC = () => {
         setLoopNum(loopNum + 1)
       }
     }
-
     const timer = setTimeout(handleTyping, typingSpeed)
     return () => clearTimeout(timer)
   }, [typewriterText, isDeleting, loopNum, typingSpeed, textArray])
-
   const handleStatClick = (statType: string) => {
     setClickedStat(statType)
     setTimeout(() => setClickedStat(null), 1000)
   }
-
   const handleExpertiseClick = (id: string) => {
     setActiveExpertise(activeExpertise === id ? null : id)
   }
-
   const handleResumeClick = () => {
-    window.open('https://drive.google.com/file/d/1LOYFiX2UF9wMsxSucTfbHYJxnkAlLyKE/view?usp=sharing', '_blank')
+    window.open('https://drive.google.com/file/d/1Uet3riDOGna4d3JUR2jxRvpNAP76OEcU/view?usp=sharing', '_blank')
   }
-
   const handleConnectClick = () => {
     setIsContactModalOpen(true)
   }
-
   return (
     <section className="description-section">
       <div className="description-container">
@@ -158,27 +144,23 @@ const Description: React.FC = () => {
           <div className="profile-section">
             <div className="profile-image-container">
               <div className="image-glow"></div>
-              <img 
-                src="/src/assets/AKSHATSINHAPHOTO.jpg" 
-                alt="Akshat Sinha" 
+              <img
+                src="/src/assets/AKSHATSINHAPHOTO.jpg"
+                alt="Akshat Sinha"
                 className="profile-image"
               />
               <div className="image-overlay"></div>
             </div>
           </div>
-          
           <div className="text-section">
             <div className="greeting">
               <span className="wave"><img src="/src/assets/wavinghandemoji.png" alt="👋" className="wave-emoji" /></span>
-
               <span className="greeting-text">Hello, I'm</span>
             </div>
-            
             <h1 className="name">
               <span className="first-name">Akshat</span>
               <span className="last-name">Sinha</span>
             </h1>
-            
             <div className="title-container">
               <span className="title-prefix">I am a </span>
               <span className="typewriter-text">
@@ -186,29 +168,25 @@ const Description: React.FC = () => {
                 <span className="cursor">|</span>
               </span>
             </div>
-            
             <div className="description-text">
               <p className="intro">
-                Passionate <strong>Computer Science</strong> student at <em>VIT Vellore</em> with a relentless 
-                drive for innovation and excellence. I craft sophisticated digital solutions that bridge 
+                Passionate <strong>Computer Science</strong> student at <em>VIT Vellore</em> with a relentless
+                drive for innovation and excellence. I craft sophisticated digital solutions that bridge
                 the gap between imagination and implementation.
               </p>
-              
               <p className="philosophy">
-                My philosophy revolves around <strong>continuous learning</strong>, <strong>creative problem-solving</strong>, 
-                and building technologies that make a meaningful impact. Every line of code I write is 
+                My philosophy revolves around <strong>continuous learning</strong>, <strong>creative problem-solving</strong>,
+                and building technologies that make a meaningful impact. Every line of code I write is
                 a step towards creating something extraordinary.
               </p>
-
               <p className="expertise-intro">
-                <strong>Java enthusiast</strong> with deep knowledge in <em>mathematics</em>, <em>DSA</em>, and 
-                <em>software development</em>. Currently mastering <strong>AI prompt engineering</strong> while 
+                <strong>Java enthusiast</strong> with deep knowledge in <em>mathematics</em>, <em>DSA</em>, and
+                <em>software development</em>. Currently mastering <strong>AI prompt engineering</strong> while
                 excelling in <em>public speaking</em> and <em>team leadership</em>.
               </p>
             </div>
-            
             <div className="stats-container">
-              <div 
+              <div
                 className={`stat-item ${clickedStat === 'cgpa' ? 'clicked' : ''}`}
                 onClick={() => handleStatClick('cgpa')}
               >
@@ -216,7 +194,7 @@ const Description: React.FC = () => {
                 <div className="stat-label">CGPA</div>
                 <div className="stat-detail">VIT Vellore</div>
               </div>
-              <div 
+              <div
                 className={`stat-item ${clickedStat === 'projects' ? 'clicked' : ''}`}
                 onClick={() => handleStatClick('projects')}
               >
@@ -224,7 +202,7 @@ const Description: React.FC = () => {
                 <div className="stat-label">Projects</div>
                 <div className="stat-detail">Developed</div>
               </div>
-              <div 
+              <div
                 className={`stat-item ${clickedStat === 'certs' ? 'clicked' : ''}`}
                 onClick={() => handleStatClick('certs')}
               >
@@ -232,7 +210,7 @@ const Description: React.FC = () => {
                 <div className="stat-label">Certifications</div>
                 <div className="stat-detail">Achieved</div>
               </div>
-              <div 
+              <div
                 className={`stat-item ${clickedStat === 'score' ? 'clicked' : ''}`}
                 onClick={() => handleStatClick('score')}
               >
@@ -241,16 +219,15 @@ const Description: React.FC = () => {
                 <div className="stat-detail">DPS Ranchi</div>
               </div>
             </div>
-
-            {/* Expertise Areas */}
+            {}
             <div className="expertise-section">
               <h3 className="section-title">
-                <span className="title-icon">💎</span>
+                <span className="title-icon"></span>
                 Standard Areas
               </h3>
               <div className="expertise-grid">
                 {expertiseAreas.map((area) => (
-                  <div 
+                  <div
                     key={area.id}
                     className={`expertise-card ${activeExpertise === area.id ? 'active' : ''}`}
                     onClick={() => handleExpertiseClick(area.id)}
@@ -260,7 +237,6 @@ const Description: React.FC = () => {
                       <h4>{area.title}</h4>
                       <span className="card-subtitle">{area.subtitle}</span>
                     </div>
-                    
                     <div className="card-content">
                       <ul className="expertise-details">
                         {area.details.map((detail, idx) => (
@@ -268,22 +244,20 @@ const Description: React.FC = () => {
                         ))}
                       </ul>
                     </div>
-                    
                     <div className="card-glow"></div>
                   </div>
                 ))}
               </div>
             </div>
-
-            {/* Education Timeline */}
+            {}
             <div className="education-section">
               <h3 className="section-title">
-                <span className="title-icon">🎯</span>
+                <span className="title-icon"></span>
                 Educational Journey
               </h3>
               <div className="education-timeline">
                 {educationTimeline.map((edu) => (
-                  <div 
+                  <div
                     key={edu.id}
                     className={`timeline-item ${educationHover === edu.id ? 'hovered' : ''}`}
                     onMouseEnter={() => setEducationHover(edu.id)}
@@ -308,7 +282,6 @@ const Description: React.FC = () => {
                 ))}
               </div>
             </div>
-            
             <div className="action-buttons">
               <button className="primary-btn" onClick={handleResumeClick}>
                 <span>View Resume</span>
@@ -320,17 +293,15 @@ const Description: React.FC = () => {
             </div>
           </div>
         </div>
-        
         <div className="floating-elements">
-          <div className="element element-1">⚡</div>
-          <div className="element element-2">🚀</div>
-          <div className="element element-3">💡</div>
-          <div className="element element-4">🎯</div>
-          <div className="element element-5">🔥</div>
-          <div className="element element-6">✨</div>
+          <div className="element element-1"></div>
+          <div className="element element-2"></div>
+          <div className="element element-3"></div>
+          <div className="element element-4"></div>
+          <div className="element element-5"></div>
+          <div className="element element-6"></div>
         </div>
-
-        {/* Interactive Particles */}
+        {}
         <div className="interactive-particles">
           <div className="particle particle-1"></div>
           <div className="particle particle-2"></div>
@@ -339,14 +310,12 @@ const Description: React.FC = () => {
           <div className="particle particle-5"></div>
         </div>
       </div>
-
-      {/* Contact Modal */}
-      <ContactModal 
-        isOpen={isContactModalOpen} 
-        onClose={() => setIsContactModalOpen(false)} 
+      {}
+      <ContactModal
+        isOpen={isContactModalOpen}
+        onClose={() => setIsContactModalOpen(false)}
       />
     </section>
   )
 }
-
 export default Description

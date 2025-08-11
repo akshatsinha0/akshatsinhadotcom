@@ -1,50 +1,47 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './InteractiveTerminal.css';
-
 interface TerminalProps {
   isOpen: boolean;
   onClose: () => void;
 }
-
 const InteractiveTerminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
   const [input, setInput] = useState('');
   const [history, setHistory] = useState<string[]>([]);
   const [commandHistory, setCommandHistory] = useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
   const terminalRef = useRef<HTMLDivElement>(null);
-
   const aboutAkshat = {
     bio: [
-      "🚀 Akshat Sinha - Full-Stack Developer & Innovation Enthusiast",
-      "📍 Currently pursuing Computer Science at VIT Vellore",
-      "🎯 CGPA: 8.79/10 - Academic Excellence in Technical Domain",
-      "💡 Passionate about creating cutting-edge digital solutions",
-      "🏆 Award-winning developer with multiple certifications",
-      "🌟 Specializes in React, Node.js, Python, and Qt Creator",
-      "🔬 Research interests: AI/ML, Web Technologies, Chess Analytics"
+      "Akshat Sinha - Full-Stack Developer & Innovation Enthusiast",
+      "Currently pursuing Computer Science at VIT Vellore",
+      "CGPA: 8.79/10 - Academic Excellence in Technical Domain",
+      "Passionate about creating cutting-edge digital solutions",
+      "Award-winning developer with multiple certifications",
+      "Specializes in React, Node.js, Python, and Qt Creator",
+      "Research interests: AI/ML, Web Technologies, Chess Analytics"
     ],
     experience: [
-      "💼 BACKEND DEVELOPER @ XYZ Corporation",
+      "BACKEND DEVELOPER @ XYZ Corporation",
       "   ├─ Architected scalable microservices using Node.js & TypeScript",
       "   ├─ Implemented real-time analytics with WebSocket & Redis",
       "   ├─ Designed CI/CD pipelines reducing deployment time by 60%",
       "   └─ Led cross-functional team of 5 developers in agile environment",
       "",
-      "🚀 SOFTWARE TECH INTERN @ Freecharge",
+      "SOFTWARE TECH INTERN @ Freecharge",
       "   ├─ Developed payment gateway integrations handling 100K+ transactions",
       "   ├─ Optimized API response times by 40% using advanced caching",
       "   ├─ Implemented fraud detection algorithms with 95% accuracy",
       "   └─ Created automated testing framework reducing QA time by 50%"
     ],
     projects: [
-      "♟️  TAKESTAKESTAKES - Revolutionary Chess Platform",
+      "TAKESTAKESTAKES - Revolutionary Chess Platform",
       "   ├─ Real-time multiplayer chess with advanced game engine",
       "   ├─ Secure user authentication and session management",
       "   ├─ Interactive chessboard with drag-and-drop functionality",
       "   ├─ Live URL: https://takestakestakes.netlify.app/",
       "   └─ Tech Stack: React, Node.js, WebSockets, MongoDB",
       "",
-      "🔍 CHESS CHEAT DETECTION ENGINE",
+      "CHESS CHEAT DETECTION ENGINE",
       "   ├─ AI-powered suspicious gameplay pattern detection",
       "   ├─ Real-time move analysis using Stockfish integration",
       "   ├─ Machine Learning anomaly detection with 98% precision",
@@ -52,53 +49,52 @@ const InteractiveTerminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
       "   └─ Tech Stack: Python, TensorFlow, OpenCV, Docker"
     ],
     skills: [
-      "🖥️  PROGRAMMING LANGUAGES:",
-      "   ├─ JavaScript/TypeScript (Expert) ⭐⭐⭐⭐⭐",
-      "   ├─ Python (Advanced) ⭐⭐⭐⭐⭐",
-      "   ├─ Java (Intermediate) ⭐⭐⭐⭐",
-      "   ├─ C++ (Intermediate) ⭐⭐⭐⭐",
-      "   └─ Qt Creator (Advanced) ⭐⭐⭐⭐",
+      "PROGRAMMING LANGUAGES:",
+      "   ├─ JavaScript/TypeScript (Expert)",
+      "   ├─ Python (Advanced)",
+      "   ├─ Java (Intermediate)",
+      "   ├─ C++ (Intermediate)",
+      "   └─ Qt Creator (Advanced)",
       "",
-      "🌐 FRAMEWORKS & LIBRARIES:",
+      "FRAMEWORKS & LIBRARIES:",
       "   ├─ React.js + Next.js (Expert)",
-      "   ├─ Node.js + Express (Expert)", 
+      "   ├─ Node.js + Express (Expert)",
       "   ├─ Spring Boot (Intermediate)",
       "   └─ TensorFlow + PyTorch (Learning)",
       "",
-      "☁️  CLOUD & DEVOPS:",
+      "CLOUD & DEVOPS:",
       "   ├─ AWS (EC2, S3, Lambda, RDS)",
       "   ├─ Docker + Kubernetes",
       "   ├─ GitHub Actions CI/CD",
       "   └─ MongoDB + PostgreSQL"
     ],
     achievements: [
-      "🏆 TECHNICAL ACHIEVEMENTS:",
+      "TECHNICAL ACHIEVEMENTS:",
       "   ├─ Best Innovation Award - TechCrunch Disrupt 2024",
       "   ├─ Top Open Source Contributor - GitHub Universe 2023",
       "   ├─ Young Engineer of the Year - IEEE 2022",
       "   ├─ Hackathon Winner - 3 consecutive competitions",
       "   └─ LeetCode Rating: 1850+ (Top 5% globally)",
       "",
-      "📜 CERTIFICATIONS:",
+      "CERTIFICATIONS:",
       "   ├─ AWS Certified Developer Associate (2024)",
       "   ├─ Meta React Professional Certificate (2023)",
       "   ├─ Google Cloud Professional Developer (2023)",
       "   └─ MongoDB Certified Developer (2022)"
     ],
     contact: [
-      "📞 CONNECT WITH AKSHAT:",
-      "   ├─ 📧 Email: akshatsinhasramhardy@gmail.com",
-      "   ├─ 💼 LinkedIn: linkedin.com/in/akshat-sinha-248805214",
-      "   ├─ 🐱 GitHub: github.com/akshatsinha0",
-      "   ├─ ⚡ LeetCode: leetcode.com/u/akshatsinha0",
-      "   ├─ 📄 Resume: [Google Drive Link]",
-      "   └─ 🌐 Portfolio: You're already here! 🎉"
+      "CONNECT WITH AKSHAT:",
+      "   ├─ Email: akshatsinhasramhardy@gmail.com",
+      "   ├─ LinkedIn: linkedin.com/in/akshat-sinha-248805214",
+      "   ├─ GitHub: github.com/akshatsinha0",
+      "   ├─ LeetCode: leetcode.com/u/akshatsinha0",
+      "   ├─ Resume: [Google Drive Link]",
+      "   └─ Portfolio: You're already here!"
     ]
   };
-
   const commands = {
     help: () => [
-      "🔧 AVAILABLE COMMANDS:",
+      "AVAILABLE COMMANDS:",
       "├─ about        → Learn about Akshat Sinha",
       "├─ experience   → Professional work history",
       "├─ projects     → Showcased development projects",
@@ -118,18 +114,18 @@ const InteractiveTerminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
     skills: () => aboutAkshat.skills,
     achievements: () => aboutAkshat.achievements,
     contact: () => aboutAkshat.contact,
-    whoami: () => ["👨‍💻 akshat@portfolio:~$ You are viewing Akshat Sinha's interactive terminal"],
+    whoami: () => ["akshat@portfolio:~$ You are viewing Akshat Sinha's interactive terminal"],
     date: () => [new Date().toLocaleString()],
     quote: () => [
-      "💡 \"The best way to predict the future is to invent it.\" - Alan Kay",
-      "🚀 \"Code is like humor. When you have to explain it, it's bad.\" - Cory House",
-      "⚡ \"First, solve the problem. Then, write the code.\" - John Johnson"
+      "\"The best way to predict the future is to invent it.\" - Alan Kay",
+      "\"Code is like humor. When you have to explain it, it's bad.\" - Cory House",
+      "\"First, solve the problem. Then, write the code.\" - John Johnson"
     ],
     matrix: () => [
-      "🔴 Taking the red pill...",
-      "⚡ Accessing the Matrix...",
-      "🌐 Welcome to the real world, Neo.",
-      "💊 There is no spoon. Only code."
+      "Taking the red pill...",
+      "Accessing the Matrix...",
+      "Welcome to the real world, Neo.",
+      "There is no spoon. Only code."
     ],
     clear: () => {
       setHistory([]);
@@ -137,20 +133,17 @@ const InteractiveTerminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
     },
     exit: () => {
       onClose();
-      return ["👋 Thanks for visiting Akshat's terminal! Come back soon!"];
+      return ["Thanks for visiting Akshat's terminal! Come back soon!"];
     }
   };
-
   const executeCommand = (cmd: string) => {
     const trimmedCmd = cmd.trim().toLowerCase();
     setCommandHistory(prev => [...prev, cmd]);
     setHistoryIndex(-1);
-
     if (trimmedCmd === '') {
       setHistory(prev => [...prev, 'akshat@portfolio:~$ ']);
       return;
     }
-
     if (commands[trimmedCmd as keyof typeof commands]) {
       const output = commands[trimmedCmd as keyof typeof commands]();
       setHistory(prev => [
@@ -168,7 +161,6 @@ const InteractiveTerminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
       ]);
     }
   };
-
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
       executeCommand(input);
@@ -192,27 +184,23 @@ const InteractiveTerminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
       }
     }
   };
-
   useEffect(() => {
     if (isOpen) {
       setHistory([
-        "🎉 Welcome to Akshat Sinha's Interactive Terminal v2.0",
-        "🚀 Portfolio System initialized successfully",
-        "💡 Type 'help' to see available commands",
-        "⚡ Type 'about' to learn more about Akshat",
+        "Welcome to Akshat Sinha's Interactive Terminal v2.0",
+        "Portfolio System initialized successfully",
+        "Type 'help' to see available commands",
+        "Type 'about' to learn more about Akshat",
         ""
       ]);
     }
   }, [isOpen]);
-
   useEffect(() => {
     if (terminalRef.current) {
       terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
     }
   }, [history]);
-
   if (!isOpen) return null;
-
   return (
     <>
       <div className="terminal-backdrop" onClick={onClose} />
@@ -225,14 +213,12 @@ const InteractiveTerminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
           </div>
           <div className="terminal-title">akshat@portfolio:~</div>
         </div>
-        
         <div className="terminal-body" ref={terminalRef}>
           {history.map((line, index) => (
             <div key={index} className="terminal-line">
               {line}
             </div>
           ))}
-          
           <div className="terminal-input-line">
             <span className="terminal-prompt">akshat@portfolio:~$ </span>
             <input
@@ -250,5 +236,4 @@ const InteractiveTerminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
     </>
   );
 };
-
 export default InteractiveTerminal;
