@@ -1,5 +1,11 @@
 import React, { useState } from 'react'
 import './Skills.css'
+import reactLogo from '../../../assets/reactjs.png'
+import tsLogo from '../../../assets/typescript.png'
+import nodeLogo from '../../../assets/nodejs.png'
+import qtLogo from '../../../assets/qt.png'
+import awsLogo from '../../../assets/aws.png'
+import gqlLogo from '../../../assets/graphql.png'
 const Skills: React.FC = () => {
   const [activeSkill, setActiveSkill] = useState<string | null>(null)
   const skills = [
@@ -7,42 +13,42 @@ const Skills: React.FC = () => {
       name: 'React',
       level: 95,
       color: '#61DAFB',
-      logo: '/src/assets/reactjs.png',
+      logo: reactLogo,
       particles: ['Hooks', 'Context', 'Fibre', 'Suspense']
     },
     {
       name: 'TypeScript',
       level: 90,
       color: '#3178C6',
-      logo: '/src/assets/typescript.png',
+      logo: tsLogo,
       particles: ['Types', 'Enums', 'Generics', 'Decorators']
     },
     {
       name: 'Node.js',
       level: 88,
       color: '#68A063',
-      logo: '/src/assets/nodejs.png',
+      logo: nodeLogo,
       particles: ['Express', 'Streams', 'Cluster', 'NPM']
     },
     {
       name: 'Qt Creator',
       level: 85,
       color: '#41CD52',
-      logo: '/src/assets/qt.png',
+      logo: qtLogo,
       particles: ['QML', 'Widgets', 'Signals', 'Multithreading']
     },
     {
       name: 'AWS',
       level: 82,
       color: '#FF9900',
-      logo: '/src/assets/aws.png',
+      logo: awsLogo,
       particles: ['EC2', 'S3', 'Lambda', 'DynamoDB']
     },
     {
       name: 'GraphQL',
       level: 80,
       color: '#E535AB',
-      logo: '/src/assets/graphql.png',
+      logo: gqlLogo,
       particles: ['Schemas', 'Resolvers', 'Apollo', 'Federation']
     }
   ]
