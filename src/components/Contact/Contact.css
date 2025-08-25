@@ -1,9 +1,4 @@
-.contact-container {
-  position: relative;
-  padding: 4rem 2rem;
-  background: radial-gradient(circle at 50% 100%, #0f172a 0%, #0d1929 100%);
-  border-top: 1px solid rgba(102, 126, 234, 0.1);
-}
+.contact-container{position:relative;padding:4rem 2rem;background:radial-gradient(circle at 50% 50%, #000 0%, #0a0a0a 50%, #111 100%);border-top:1px solid rgba(255,255,255,.05)}
 
 .contact-header {
   text-align: center;
@@ -36,23 +31,7 @@
   margin: 0 auto;
 }
 
-.social-link {
-  position: relative;
-  padding: 1.5rem 2.5rem;
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  text-decoration: none;
-  overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-  border: 2px solid var(--link-color);
-  background: rgba(15, 20, 25, 0.9);
-  backdrop-filter: blur(10px);
-  opacity: 0;
-  transform: translateY(20px);
-  animation: socialLinkSlideIn 0.6s ease-out var(--delay) forwards;
-}
+.social-link{position:relative;padding:1.4rem 2.5rem;border-radius:50px;display:flex;align-items:center;gap:1rem;text-decoration:none;overflow:visible;transition:all .3s ease;border:2px solid var(--link-color);background:rgba(15,20,25,.9);backdrop-filter:blur(10px);opacity:0;transform:translateY(20px);animation:socialLinkSlideIn .6s ease-out var(--delay) forwards}
 
 @keyframes socialLinkSlideIn {
   to {
@@ -66,14 +45,9 @@
   box-shadow: 0 10px 30px rgba(var(--link-color-rgb), 0.3);
 }
 
-.social-icon {
-  font-size: 1.8rem;
-  transition: transform 0.3s ease;
-}
-
-.social-link:hover .social-icon {
-  transform: rotate(15deg) scale(1.2);
-}
+.social-icon-img{width:76px;height:76px;display:inline-flex;align-items:center;justify-content:center;transform:translateY(-12px);z-index:3}
+.social-icon-img img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 12px 22px rgba(0,0,0,.6))}
+.social-link:hover .social-icon-img{transform:translateY(-18px) scale(1.35)}
 
 .social-name {
   font-size: 1.1rem;
@@ -102,11 +76,3 @@
 }
 
    
-@keyframes floatEmoji {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-10px) rotate(10deg); }
-}
-
-.social-icon {
-  animation: floatEmoji 4s ease-in-out infinite;
-}

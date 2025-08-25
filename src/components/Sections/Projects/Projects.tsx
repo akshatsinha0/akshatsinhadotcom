@@ -67,7 +67,7 @@ const Projects: React.FC = () => {
       id: 3,
       title: "Neural akshatsinhadotdom Portfolio",
       subtitle: "AI-Driven Personal Website",
-      description: "This very portfolio - featuring advanced animations, AI integrations, and cutting-edge web technologies",
+      description: "This very portfolio - featuring advanced animations, AI integrations, and modern web technologies",
       category: "Personal Project",
       technologies: ["React", "TypeScript", "CSS3", "Vite", "Three.js", "Babylon.js"],
       github: "https://github.com/akshatsinha0/portfolio",
@@ -124,12 +124,6 @@ const Projects: React.FC = () => {
         } as React.CSSProperties}
       >
         <div className="bg-gradient-1"></div>
-        <div className="bg-gradient-2"></div>
-        <div className="bg-particles">
-          {Array.from({ length: 50 }).map((_, i) => (
-            <div key={i} className={`particle particle-${i % 5}`}></div>
-          ))}
-        </div>
       </div>
       <div className="projects-container">
         {}
@@ -140,7 +134,7 @@ const Projects: React.FC = () => {
             <span className="glitch-layer">DIGITAL MASTERPIECES</span>
           </h2>
           <p className="section-subtitle typewriter-reveal">
-            Innovative solutions engineered with passion, precision & cutting-edge technology
+            Innovative solutions engineered with passion and precision
           </p>
           {}
           <div className="view-selector">

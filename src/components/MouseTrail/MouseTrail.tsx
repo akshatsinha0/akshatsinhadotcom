@@ -1,42 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React,{useEffect,useRef,useState} from 'react'
 import './MouseTrail.css'
-const MouseTrail: React.FC = () => {
-  const trailRef = useRef<HTMLDivElement>(null)
-  const cursorRef = useRef<HTMLDivElement>(null)
-  useEffect(() => {
-    let mouseX = 0
-    let mouseY = 0
-    let trailX = 0
-    let trailY = 0
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseX = e.clientX
-      mouseY = e.clientY
-    }
-    const animateTrail = () => {
-      const speed = 0.1
-      trailX += (mouseX - trailX) * speed
-      trailY += (mouseY - trailY) * speed
-      if (cursorRef.current) {
-        cursorRef.current.style.left = `${mouseX}px`
-        cursorRef.current.style.top = `${mouseY}px`
-      }
-      if (trailRef.current) {
-        trailRef.current.style.left = `${trailX}px`
-        trailRef.current.style.top = `${trailY}px`
-      }
-      requestAnimationFrame(animateTrail)
-    }
-    window.addEventListener('mousemove', handleMouseMove)
-    animateTrail()
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove)
-    }
-  }, [])
-  return (
-    <>
-      <div ref={cursorRef} className="custom-cursor"></div>
-      <div ref={trailRef} className="mouse-trail"></div>
-    </>
-  )
-}
+const MouseTrail:React.FC=()=>{const trailRef=useRef<HTMLDivElement>(null);const cursorRef=useRef<HTMLDivElement>(null);const[enabled,setEnabled]=useState(false);useEffect(()=>{const fine=window.matchMedia&&window.matchMedia('(pointer:fine)').matches;const reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;if(!fine||reduce)return;setEnabled(true);let mx=0,my=0,tx=0,ty=0,raf=0;const onMove=(e:MouseEvent)=>{mx=e.clientX;my=e.clientY};const loop=()=>{tx+=(mx-tx)*0.2;ty+=(my-ty)*0.2;if(cursorRef.current)cursorRef.current.style.transform=`translate3d(${mx}px,${my}px,0)`;if(trailRef.current)trailRef.current.style.transform=`translate3d(${tx}px,${ty}px,0)`;raf=requestAnimationFrame(loop)};window.addEventListener('mousemove',onMove,{passive:true});raf=requestAnimationFrame(loop);return()=>{window.removeEventListener('mousemove',onMove);cancelAnimationFrame(raf)}},[]);if(!enabled)return null;return(<><div ref={cursorRef} className="custom-cursor"/><div ref={trailRef} className="mouse-trail"/></>)}
 export default MouseTrail

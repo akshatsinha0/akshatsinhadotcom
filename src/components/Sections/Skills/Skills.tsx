@@ -67,7 +67,7 @@ const Skills: React.FC = () => {
             <span className="title-gradient">Technical Mastery</span>
             <span className="title-shadow">Technical Mastery</span>
           </h2>
-          <p className="section-subtitle">Fluency in cutting-edge technologies</p>
+          <p className="section-subtitle">Yah, technologies</p>
         </div>
         <div className="skills-grid">
           {skills.map((skill) => (

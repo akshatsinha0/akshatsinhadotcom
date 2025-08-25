@@ -14,8 +14,8 @@ const InteractiveTerminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
     bio: [
       "Akshat Sinha - Full-Stack Developer & Innovation Enthusiast",
       "Currently pursuing Computer Science at VIT Vellore",
-      "CGPA: 8.79/10 - Academic Excellence in Technical Domain",
-      "Passionate about creating cutting-edge digital solutions",
+      "CGPA: 8.85/10 - Academic Excellence in Technical Domain",
+      "Passionate about creating modern digital solutions",
       "Award-winning developer with multiple certifications",
       "Specializes in React, Node.js, Python, and Qt Creator",
       "Research interests: AI/ML, Web Technologies, Chess Analytics"
@@ -212,6 +212,7 @@ const InteractiveTerminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
             <span className="btn-maximize"></span>
           </div>
           <div className="terminal-title">akshat@portfolio:~</div>
+          <button className="terminal-cancel" onClick={onClose}>Cancel</button>
         </div>
         <div className="terminal-body" ref={terminalRef}>
           {history.map((line, index) => (

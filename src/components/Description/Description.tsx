@@ -77,7 +77,7 @@ const Description: React.FC = () => {
       location: 'Vellore Campus, Tamil Nadu',
       duration: 'Aug 2022 - May 2026 (Expected)',
       degree: 'B.Tech in Computer Science Core',
-      achievement: 'Current CGPA: 8.79/10',
+      achievement: 'Current CGPA: 8.85/10',
       status: 'Pursuing',
       icon: '',
       color: '#667eea'
@@ -143,20 +143,10 @@ const Description: React.FC = () => {
         <div className="description-content">
           <div className="profile-section">
             <div className="profile-image-container">
-              <div className="image-glow"></div>
-              <img
-                src="/src/assets/AKSHATSINHAPHOTO.jpg"
-                alt="Akshat Sinha"
-                className="profile-image"
-              />
-              <div className="image-overlay"></div>
+              <img src="/src/assets/AKSHATSINHAPHOTO.jpg" alt="Akshat Sinha" className="profile-image"/>
             </div>
           </div>
           <div className="text-section">
-            <div className="greeting">
-              <span className="wave"><img src="/src/assets/wavinghandemoji.png" alt="👋" className="wave-emoji" /></span>
-              <span className="greeting-text">Hello, I'm</span>
-            </div>
             <h1 className="name">
               <span className="first-name">Akshat</span>
               <span className="last-name">Sinha</span>
@@ -177,7 +167,7 @@ const Description: React.FC = () => {
               <p className="philosophy">
                 My philosophy revolves around <strong>continuous learning</strong>, <strong>creative problem-solving</strong>,
                 and building technologies that make a meaningful impact. Every line of code I write is
-                a step towards creating something extraordinary.
+                a step towards creating something meaningful.
               </p>
               <p className="expertise-intro">
                 <strong>Java enthusiast</strong> with deep knowledge in <em>mathematics</em>, <em>DSA</em>, and
@@ -253,7 +243,7 @@ const Description: React.FC = () => {
             <div className="education-section">
               <h3 className="section-title">
                 <span className="title-icon"></span>
-                Educational Journey
+                Education
               </h3>
               <div className="education-timeline">
                 {educationTimeline.map((edu) => (

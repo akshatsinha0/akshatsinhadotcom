@@ -41,11 +41,11 @@
 
 .profile-image-container {
   position: relative;
-  width: 350px;
-  height: 350px;
+  width: 280px;
+  height: 280px;
 }
 
-.image-glow {
+.image-glow--disabled {
   position: absolute;
   top: -20px;
   left: -20px;
@@ -127,58 +127,51 @@
 }
 
 .greeting-text {
-  color: #a0a9c1;
-  font-weight: 400;
+  color: #ffffff;
+  font-weight: 500;
 }
 
 .name {
-  font-size: 4rem;
-  font-weight: 700;
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  font-weight: 900;
+  color: #ffffff;
   margin-bottom: 1rem;
   opacity: 0;
   animation: fadeInUp 1s ease-out 0.5s forwards;
 }
 
 .first-name {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ffffff;
   display: inline-block;
   margin-right: 1rem;
 }
 
 .last-name {
-  background: linear-gradient(135deg, #f093fb, #f5576c);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ffffff;
   display: inline-block;
 }
 
 .title-container {
-  font-size: 1.8rem;
+  font-size: clamp(1.2rem, 2.8vw, 1.8rem);
   margin-bottom: 2rem;
   min-height: 60px;
   opacity: 0;
   animation: fadeInUp 1s ease-out 0.7s forwards;
+  color: #ffffff;
 }
 
 .title-prefix {
-  color: #a0a9c1;
-  font-weight: 400;
+  color: #ffffff;
+  font-weight: 500;
 }
 
 .typewriter-text {
-  background: linear-gradient(135deg, #4facfe, #00f2fe);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 600;
+  color: #ffffff;
+  font-weight: 700;
 }
 
 .cursor {
-  color: #667eea;
+  color: #ffffff;
   animation: blink 1s infinite;
 }
 
@@ -194,19 +187,19 @@
 }
 
 .description-text p {
-  font-size: 1.1rem;
-  line-height: 1.8;
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  line-height: 1.9;
   margin-bottom: 1.5rem;
-  color: #c9d1d9;
+  color: #ffffff;
 }
 
 .description-text strong {
-  color: #667eea;
-  font-weight: 600;
+  color: #ffffff;
+  font-weight: 700;
 }
 
 .description-text em {
-  color: #f093fb;
+  color: #ffffff;
   font-style: italic;
 }
 
@@ -225,18 +218,15 @@
 
 .stat-number {
   font-size: 2rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, #43e97b, #38f9d7);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  color: #ffffff;
   margin-bottom: 0.5rem;
 }
 
 .stat-label {
   font-size: 0.9rem;
-  color: #a0a9c1;
-  font-weight: 400;
+  color: #ffffff;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -397,7 +387,7 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
-  background: radial-gradient(ellipse at center, rgba(102, 126, 234, 0.03) 0%, transparent 50%);
+  background: transparent;
 }
 
 .description-container {
@@ -418,8 +408,8 @@
 
 .profile-image-container {
   position: relative;
-  width: 350px;
-  height: 350px;
+  width: 280px;
+  height: 280px;
 }
 
 .profile-badge {
@@ -492,8 +482,8 @@
 }
 
 .stat-detail {
-  font-size: 0.7rem;
-  color: #a0a9c1;
+  font-size: 0.8rem;
+  color: #ffffff;
   margin-top: 0.3rem;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -516,10 +506,8 @@
   gap: 1rem;
   font-size: 1.8rem;
   margin-bottom: 2rem;
-  background: linear-gradient(135deg, #667eea, #f093fb);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ffffff;
+  font-weight: 800;
 }
 
 .title-icon {
@@ -559,12 +547,13 @@
 .card-header h4 {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
-  color: var(--accent-color);
+  color: #ffffff;
+  font-weight: 700;
 }
 
 .card-subtitle {
   font-size: 0.9rem;
-  color: #a0a9c1;
+  color: #ffffff;
   font-style: italic;
 }
 
@@ -595,7 +584,7 @@
   content: '▸';
   position: absolute;
   left: 0;
-  color: var(--accent-color);
+  color: #ffffff;
   font-weight: bold;
 }
 
@@ -667,7 +656,7 @@
 
 .timeline-header h4 {
   font-size: 1.3rem;
-  color: var(--timeline-color);
+  color: #ffffff;
 }
 
 .timeline-status {
@@ -690,19 +679,19 @@
 }
 
 .timeline-location {
-  color: #a0a9c1;
+  color: #ffffff;
   font-style: italic;
 }
 
 .timeline-duration {
-  color: #667eea;
-  font-weight: 500;
+  color: #ffffff;
+  font-weight: 600;
 }
 
 .timeline-achievement {
-  color: var(--timeline-color);
-  font-weight: 600;
-  background: rgba(var(--timeline-color-rgb), 0.1);
+  color: #ffffff;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.06);
   padding: 0.5rem;
   border-radius: 8px;
   margin-top: 0.5rem;
@@ -856,6 +845,8 @@
     gap: 1rem;
   }
 }
+
+.description-section,.description-container,.description-content{background:transparent}
 
 
 @keyframes contentSlideUp {
