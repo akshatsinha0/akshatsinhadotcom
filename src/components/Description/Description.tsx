@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './Description.css'
 import ContactModal from '../ContactModal/ContactModal'
+import profileImg from '../../assets/AKSHATSINHAPHOTO.jpg'
 const Description: React.FC = () => {
   const [typewriterText, setTypewriterText] = useState('')
   const [isDeleting, setIsDeleting] = useState(false)
@@ -143,7 +144,7 @@ const Description: React.FC = () => {
         <div className="description-content">
           <div className="profile-section">
             <div className="profile-image-container">
-              <img src="/src/assets/AKSHATSINHAPHOTO.jpg" alt="Akshat Sinha" className="profile-image"/>
+              <img src={profileImg} alt="Akshat Sinha" className="profile-image"/>
             </div>
           </div>
           <div className="text-section">
