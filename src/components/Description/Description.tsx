@@ -180,7 +180,7 @@ const Description: React.FC = () => {
                 className={`stat-item ${clickedStat === 'cgpa' ? 'clicked' : ''}`}
                 onClick={() => handleStatClick('cgpa')}
               >
-                <div className="stat-number">8.79</div>
+                <div className="stat-number">8.85</div>
                 <div className="stat-label">CGPA</div>
                 <div className="stat-detail">VIT Vellore</div>
               </div>
