@@ -30,10 +30,10 @@ const Projects: React.FC = () => {
         "Tournament bracket management system"
       ],
       metrics: {
-        users: "10K+",
-        games: "50K+",
+        users: "5",
+        games: "10",
         uptime: "99.9%",
-        rating: "4.8/5"
+        rating: "5/5"
       },
       year: "2024",
       status: "Live Production"
@@ -58,7 +58,7 @@ const Projects: React.FC = () => {
         accuracy: "99.5%",
         speed: "<100ms",
         detection: "95%+",
-        platforms: "5+"
+        platforms: "LocalHost"
       },
       year: "2024",
       status: "In Development"
