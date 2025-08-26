@@ -1,6 +1,6 @@
 import takesProject from '../assets/takestakestakesproject.png'
 import takes2 from '../assets/takestakestakes2.png'
-import {Project} from '../types/project'
+import type { Project } from '../types/project'
 
 export const projects:Project[]=[
   {
