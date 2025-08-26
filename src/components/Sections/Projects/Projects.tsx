@@ -1,12 +1,17 @@
 import React, { useState, useRef, useEffect } from 'react'
 import './Projects.css'
+import ElectricBorder from './ElectricBorder'
+import takesProject from '../../../assets/takestakestakesproject.png'
+import takes2 from '../../../assets/takestakestakes2.png'
+
 const Projects: React.FC = () => {
   const [activeProject, setActiveProject] = useState(0)
-  const [isFlipping, setIsFlipping] = useState(false)
+  const [turned, setTurned] = useState<Record<number, boolean>>({})
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
   const [viewMode, setViewMode] = useState<'grid' | 'carousel' | 'timeline'>('carousel')
   const containerRef = useRef<HTMLDivElement>(null)
+
   const projects = [
     {
       id: 1,
@@ -18,8 +23,8 @@ const Projects: React.FC = () => {
       link: "https://takestakestakes.netlify.app/",
       github: "https://github.com/akshatsinha0/takestakestakes-chessified.git",
       images: [
-        "/src/assets/takestakestakesproject.png",
-        "/src/assets/takestakestakes2.png"
+        takesProject,
+        takes2
       ],
       features: [
         "Real-time multiplayer chess with 60fps rendering",
@@ -65,7 +70,7 @@ const Projects: React.FC = () => {
     },
     {
       id: 3,
-      title: "Neural akshatsinhadotdom Portfolio",
+      title: "Altrude akshatsinhadotdom Portfolio",
       subtitle: "AI-Driven Personal Website",
       description: "This very portfolio - featuring advanced animations, AI integrations, and modern web technologies",
       category: "Personal Project",
@@ -89,6 +94,7 @@ const Projects: React.FC = () => {
       status: "Live & Evolving"
     }
   ]
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (containerRef.current) {
@@ -105,17 +111,18 @@ const Projects: React.FC = () => {
       return () => container.removeEventListener('mousemove', handleMouseMove)
     }
   }, [])
-  const handleImageFlip = (e: React.MouseEvent) => {
+
+  const handleImageFlip = (e: React.MouseEvent, idx:number) => {
     e.stopPropagation()
-    setIsFlipping(true)
-    setTimeout(() => setIsFlipping(false), 600)
+    setTurned(prev=>({...prev,[idx]:!prev[idx]}))
   }
+
   const handleCardHover = (index: number | null) => {
     setHoveredCard(index)
   }
+
   return (
     <section className="projects-section" ref={containerRef}>
-      {}
       <div
         className="projects-background"
         style={{
@@ -125,18 +132,13 @@ const Projects: React.FC = () => {
       >
         <div className="bg-gradient-1"></div>
       </div>
+
       <div className="projects-container">
-        {}
         <div className="section-header">
-          <h2 className="section-title glitch-text" data-text="DIGITAL MASTERPIECES">
-            <span className="glitch-layer">DIGITAL MASTERPIECES</span>
-            <span className="glitch-layer">DIGITAL MASTERPIECES</span>
-            <span className="glitch-layer">DIGITAL MASTERPIECES</span>
-          </h2>
-          <p className="section-subtitle typewriter-reveal">
+          <h2 className="section-title">PROJECT</h2>
+          <p className="section-subtitle">
             Innovative solutions engineered with passion and precision
           </p>
-          {}
           <div className="view-selector">
             {(['grid', 'carousel', 'timeline'] as const).map((mode) => (
               <button
@@ -150,30 +152,30 @@ const Projects: React.FC = () => {
             ))}
           </div>
         </div>
-        {}
+
         <div className={`projects-showcase view-${viewMode}`}>
           {projects.map((project, index) => (
-            <div
-              key={project.id}
-              className={`project-card ${activeProject === index ? 'active' : ''} ${hoveredCard === index ? 'hovered' : ''}`}
-              onClick={() => setActiveProject(index)}
-              onMouseEnter={() => handleCardHover(index)}
-              onMouseLeave={() => handleCardHover(null)}
-              style={{ '--card-index': index } as React.CSSProperties}
-            >
-              {}
-              <div className="holographic-border"></div>
-              {}
-              <div className={`status-badge ${project.status.toLowerCase().replace(/\s+/g, '-')}`}>
-                <span className="status-dot"></span>
-                {project.status}
-              </div>
-              {}
-              {project.images && (
-                <div className="project-images">
-                  <div className={`notebook-container ${isFlipping ? 'flipping' : ''}`}>
-                    <div className="page page-front">
-                      <img src={project.images[0]} alt={`${project.title} - View 1`} />
+            <ElectricBorder key={project.id} color="#7df9ff" speed={1} chaos={0.5} thickness={2} style={{borderRadius:0}}>
+              <div
+                className={`project-card ${activeProject === index ? 'active' : ''} ${hoveredCard === index ? 'hovered' : ''}`}
+                onClick={() => setActiveProject(index)}
+                onMouseEnter={() => handleCardHover(index)}
+                onMouseLeave={() => handleCardHover(null)}
+                style={{ '--card-index': index } as React.CSSProperties}
+              >
+                <div className={`status-badge ${project.status.toLowerCase().replace(/\s+/g, '-')}`}>
+                  <span className="status-dot"></span>
+                  {project.status}
+                </div>
+
+                {project.images && (
+                  <div className="project-images">
+                    <div className="notebook-container simple">
+                      <img
+                        className="project-image"
+                        src={turned[index] ? project.images[1] : project.images[0]}
+                        alt={`${project.title} - ${turned[index] ? 'View 2' : 'View 1'}`}
+                      />
                       <div className="image-overlay">
                         <div className="overlay-content">
                           <span className="category-tag">{project.category}</span>
@@ -181,121 +183,87 @@ const Projects: React.FC = () => {
                         </div>
                       </div>
                     </div>
-                    {project.images[1] && (
-                      <div className="page page-back">
-                        <img src={project.images[1]} alt={`${project.title} - View 2`} />
-                      </div>
+                    <button className="flip-btn liquid-btn" onClick={(e)=>handleImageFlip(e,index)}>
+                      <span className="btn-liquid"></span>
+                      <span className="btn-text">Turn Page</span>
+                    </button>
+                  </div>
+                )}
+
+                <div className="project-content">
+                  <div className="project-header">
+                    <h3 className="project-title">
+                      <span className="title-main">{project.title}</span>
+                      <span className="title-sub">{project.subtitle}</span>
+                    </h3>
+
+                    <div className="metrics-grid">
+                      {Object.entries(project.metrics).map(([key, value]) => (
+                        <div key={key} className="metric-item">
+                          <div className="metric-value">{value}</div>
+                          <div className="metric-label">{key}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <p className="project-description">{project.description}</p>
+
+                  <div className="project-features">
+                    <h4 className="features-title">Core Features</h4>
+                    <div className="features-grid">
+                      {project.features.map((feature, idx) => (
+                        <div key={idx} className="feature-item">
+                          <div className="feature-icon">✦</div>
+                          <span className="feature-text">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="tech-stack">
+                    <h4 className="tech-title">Technology Stack</h4>
+                    <div className="tech-constellation">
+                      {project.technologies.map((tech, idx) => (
+                        <div key={idx} className="tech-node" style={{ '--delay': `${idx * 0.1}s` } as React.CSSProperties}>
+                          <div className="node-core">{tech}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="project-actions">
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="action-btn primary-action"
+                      >
+                        <span className="btn-bg"></span>
+                        <span className="btn-text">Live Demo</span>
+                        <span className="btn-icon"></span>
+                      </a>
+                    )}
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="action-btn secondary-action"
+                      >
+                        <span className="btn-bg"></span>
+                        <span className="btn-text">Source Code</span>
+                        <span className="btn-icon"></span>
+                      </a>
                     )}
                   </div>
-                  <button className="flip-btn liquid-btn" onClick={handleImageFlip}>
-                    <span className="btn-liquid"></span>
-                    <span className="btn-text">Turn Page</span>
-                  </button>
-                </div>
-              )}
-              {}
-              <div className="project-content">
-                <div className="project-header">
-                  <h3 className="project-title">
-                    <span className="title-main">{project.title}</span>
-                    <span className="title-sub">{project.subtitle}</span>
-                  </h3>
-                  {}
-                  <div className="metrics-grid">
-                    {Object.entries(project.metrics).map(([key, value]) => (
-                      <div key={key} className="metric-item">
-                        <div className="metric-value">{value}</div>
-                        <div className="metric-label">{key}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <p className="project-description">{project.description}</p>
-                {}
-                <div className="project-features">
-                  <h4 className="features-title">Core Features</h4>
-                  <div className="features-grid">
-                    {project.features.map((feature, idx) => (
-                      <div key={idx} className="feature-item">
-                        <div className="feature-icon">
-                          <div className="icon-pulse"></div>
-                          ✦
-                        </div>
-                        <span className="feature-text">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                {}
-                <div className="tech-stack">
-                  <h4 className="tech-title">Technology Stack</h4>
-                  <div className="tech-constellation">
-                    {project.technologies.map((tech, idx) => (
-                      <div
-                        key={idx}
-                        className="tech-node"
-                        style={{ '--delay': `${idx * 0.1}s` } as React.CSSProperties}
-                      >
-                        <div className="node-core">{tech}</div>
-                        <div className="node-orbit"></div>
-                      </div>
-                    ))}
-                    <svg className="tech-connections" viewBox="0 0 100 100">
-                      {project.technologies.map((_, idx) => (
-                        idx < project.technologies.length - 1 && (
-                          <line
-                            key={idx}
-                            x1={`${(idx + 1) * (100 / (project.technologies.length + 1))}`}
-                            y1="50"
-                            x2={`${(idx + 2) * (100 / (project.technologies.length + 1))}`}
-                            y2="50"
-                            className="connection-line"
-                          />
-                        )
-                      ))}
-                    </svg>
-                  </div>
-                </div>
-                {}
-                <div className="project-actions">
-                  {project.link && (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="action-btn primary-action"
-                    >
-                      <span className="btn-bg"></span>
-                      <span className="btn-text">Live Demo</span>
-                      <span className="btn-icon"></span>
-                    </a>
-                  )}
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="action-btn secondary-action"
-                    >
-                      <span className="btn-bg"></span>
-                      <span className="btn-text">Source Code</span>
-                      <span className="btn-icon"></span>
-                    </a>
-                  )}
                 </div>
               </div>
-              {}
-              <div className="card-morph-bg"></div>
-              {}
-              <div className="floating-elements">
-                <div className="float-element float-1">◆</div>
-                <div className="float-element float-2">◇</div>
-                <div className="float-element float-3">◈</div>
-              </div>
-            </div>
+            </ElectricBorder>
           ))}
         </div>
-        {}
+
         <div className="project-navigation">
           <div className="nav-dots">
             {projects.map((_, index) => (
