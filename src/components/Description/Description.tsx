@@ -13,7 +13,7 @@ const Description: React.FC = () => {
       title: 'Programming Knowledge',
       subtitle: 'Java & Beyond',
       details: [
-        'Advanced Java Development & OOP Mastery',
+        'Java Development & OOP Mastery',
         'Data Structures & Algorithms Expertise',
         'Software Development Life Cycle',
         'Clean Code Architecture & Design Patterns'
@@ -25,7 +25,7 @@ const Description: React.FC = () => {
       title: 'Mathematical Foundation',
       subtitle: 'Logical Reasoning',
       details: [
-        'Advanced Mathematics & Statistics',
+        'Mathematics & Statistics',
         'Quantitative Aptitude & Mental Ability',
         'Mathematical Modeling & Problem Solving',
         'Algorithmic Complexity Analysis'

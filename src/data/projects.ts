@@ -35,7 +35,7 @@ export const projects:Project[]=[
     github:'https://github.com/akshatsinha0/CheatDetect.git',
     features:[
       'Real-time move analysis with 99.5% accuracy',
-      'Advanced ML anomaly detection algorithms',
+      'ML anomaly detection algorithms',
       'Dynamic warning system with threat levels',
       'Scalable Docker microservices architecture',
       'Integration with major chess platforms',
@@ -54,7 +54,7 @@ export const projects:Project[]=[
     technologies:['React','TypeScript','CSS3','Vite','Three.js','Babylon.js'],
     github:'https://github.com/akshatsinha0/portfolio',
     features:[
-      'Advanced 3D animations & particle systems',
+      '3D animations & particle systems',
       'Interactive terminal with AI responses',
       'Dynamic background with physics simulation',
       'Responsive design with mobile optimization',
