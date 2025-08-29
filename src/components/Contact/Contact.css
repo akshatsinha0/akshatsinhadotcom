@@ -1,4 +1,4 @@
-.contact-container{position:relative;padding:4rem 2rem;background:radial-gradient(circle at 50% 50%, #000 0%, #0a0a0a 50%, #111 100%);border-top:1px solid rgba(255,255,255,.05)}
+.contact-container{position:relative;padding:4rem 2rem;background:#fff;border-top:1px solid #e5e7eb}
 
 .contact-header {
   text-align: center;
@@ -7,20 +7,9 @@
   animation: slideUpFadeIn 1s ease-out 0.3s forwards;
 }
 
-.contact-header h3 {
-  font-size: 2.5rem;
-  background: linear-gradient(45deg, #667eea, #f093fb);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 1rem;
-}
+.contact-header h3{font-size:2.5rem;color:#1f2937;margin-bottom:1rem}
 
-.contact-header p {
-  font-size: 1.2rem;
-  color: #a0a9c1;
-  font-style: italic;
-}
+.contact-header p{font-size:1.2rem;color:#4b5563;font-style:italic}
 
 .social-links {
   display: flex;
@@ -31,7 +20,7 @@
   margin: 0 auto;
 }
 
-.social-link{position:relative;padding:1.4rem 2.5rem;border-radius:50px!important;display:flex;align-items:center;gap:1rem;text-decoration:none;overflow:visible;transition:all .3s ease;border:2px solid var(--link-color);background:rgba(15,20,25,.9);backdrop-filter:blur(10px);opacity:0;transform:translateY(20px);animation:socialLinkSlideIn .6s ease-out var(--delay) forwards}
+.social-link{position:relative;padding:1.1rem 2rem;border-radius:50px!important;display:flex;align-items:center;gap:1rem;text-decoration:none;overflow:visible;transition:all .3s ease;border:1.5px solid #e5e7eb;background:#fff;opacity:0;transform:translateY(20px);animation:socialLinkSlideIn .6s ease-out var(--delay) forwards}
 
 @keyframes socialLinkSlideIn {
   to {
@@ -40,39 +29,18 @@
   }
 }
 
-.social-link:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 10px 30px rgba(var(--link-color-rgb), 0.3);
-}
+.social-link:hover{transform:none}
+.social-link:active{transform:scale(1.02)}
+.social-link::before{content:"";position:absolute;inset:-2px;padding:2px;border-radius:50px;background:conic-gradient(from 0deg,#ff6ad5,#ff5b7b,#ffb77a,#ff8a3d,#ff6ad5);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .2s ease;pointer-events:none;z-index:0;filter:saturate(1.25) brightness(1.2)}
+.social-link:hover::before{opacity:1}
+.social-link::after{content:"";position:absolute;inset:-10px;border-radius:50px;background:conic-gradient(from 0deg,#ff6ad5,#ff5b7b,#ffb77a,#ff8a3d,#ff6ad5);filter:blur(14px) saturate(1.15) brightness(1.1);opacity:0;transition:opacity .2s ease;pointer-events:none;z-index:-1}
+.social-link:hover::after{opacity:.55}
 
-.social-icon-img{width:76px;height:76px;display:inline-flex;align-items:center;justify-content:center;transform:translateY(-12px);z-index:3}
+.social-icon-img{width:64px;height:64px;display:inline-flex;align-items:center;justify-content:center;transform:translateY(-6px);z-index:3}
 .social-icon-img img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 12px 22px rgba(0,0,0,.6))}
-.social-link:hover .social-icon-img{transform:translateY(-18px) scale(1.35)}
+.social-link:hover .social-icon-img{transform:none}
+.social-icon-img:hover{transform:scale(1.18)}
 
-.social-name {
-  font-size: 1.1rem;
-  color: white;
-  font-weight: 600;
-  position: relative;
-  z-index: 2;
-}
+.social-name{font-size:1.1rem;color:#1f2937;font-weight:700;position:relative;z-index:2}
 
-.social-glow {
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at center, 
-    var(--link-color) 0%, 
-    transparent 70%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 1;
-}
-
-.social-link:hover .social-glow {
-  opacity: 0.15;
-}
-
-   
+.social-glow{display:none}

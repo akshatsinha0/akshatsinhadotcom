@@ -10,14 +10,9 @@
   margin: 0 auto;
 }
 
-.skill-card {
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 15px;
-  padding: 1.5rem;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(102, 126, 234, 0.1);
-}
+.skill-card{background:#fff;border-radius:15px;padding:1.5rem;position:relative;overflow:hidden;border:1px solid #e5e7eb}
+.skill-card::before{content:"";position:absolute;inset:-2px;border-radius:15px;background:radial-gradient(120% 120% at 10% 10%,rgba(255,0,255,.35) 0,transparent 50%),radial-gradient(120% 120% at 90% 10%,rgba(255,0,0,.35) 0,transparent 50%),radial-gradient(120% 120% at 10% 90%,rgba(255,165,0,.35) 0,transparent 50%),radial-gradient(120% 120% at 90% 90%,rgba(238,130,238,.35) 0,transparent 50%);filter:blur(8px);opacity:0;transition:opacity .25s ease;pointer-events:none}
+.skill-card:hover::before{opacity:.9}
 
 .skill-header {
   display: flex;
@@ -25,30 +20,15 @@
   margin-bottom: 1rem;
 }
 
-.skill-name {
-  color: var(--skill-color);
-  font-weight: 600;
-}
+.skill-name{color:#111;font-weight:700}
 
 .skill-percent {
   color: #a0a9c1;
 }
 
-.skill-progress {
-  height: 8px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 4px;
-  position: relative;
-  overflow: hidden;
-}
+.skill-progress{height:8px;background:#e5e7eb;border-radius:4px;position:relative;overflow:hidden}
 
-.progress-bar {
-  width: var(--skill-level);
-  height: 100%;
-  background: linear-gradient(90deg, var(--skill-color), #fff);
-  border-radius: 4px;
-  transition: width 1s cubic-bezier(0.23, 1, 0.32, 1);
-}
+.progress-bar{width:var(--skill-level);height:100%;background:#111;border-radius:4px;transition:width 1s cubic-bezier(.23,1,.32,1)}
 
 .progress-glow {
   position: absolute;
@@ -144,12 +124,7 @@
   gap: 0.3rem;
 }
 
-.skill-name {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--skill-color);
-  transition: color 0.3s ease;
-}
+.skill-name{font-size:1.2rem;font-weight:700;color:#111;transition:color .3s ease}
 
 .skill-percent {
   font-size: 0.9rem;
@@ -163,10 +138,7 @@
   filter: drop-shadow(0 0 15px var(--skill-color));
 }
 
-.skill-card:hover .skill-name {
-  color: #ffffff;
-  text-shadow: 0 0 10px var(--skill-color);
-}
+.skill-card:hover .skill-name{color:#111}
 
    
 .progress-bar {
@@ -257,21 +229,8 @@
 }
 
     
-.skill-card {
-  position: relative;
-  background: rgba(15, 23, 42, 0.9);
-  border-radius: 2rem;
-  padding: 2rem;
-  border: 1px solid rgba(102, 126, 234, 0.2);
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  overflow: visible;
-  backdrop-filter: blur(20px);
-}
-
-.skill-card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
+.skill-card{position:relative;background:#fff;border-radius:2rem;padding:2rem;border:1px solid #e5e7eb;transition:all .6s cubic-bezier(.23,1,.32,1);overflow:visible}
+.skill-card:hover{transform:translateY(-10px) scale(1.02);box-shadow:0 20px 40px rgba(0,0,0,.12)}
 
     
 .particle-orbit {
@@ -394,21 +353,9 @@
 }
 
     
-.progress-constellation {
-  position: relative;
-  height: 8px;
-  background: rgba(102, 126, 234, 0.1);
-  border-radius: 4px;
-  overflow: hidden;
-}
+.progress-constellation{position:relative;height:8px;background:#e5e7eb;border-radius:4px;overflow:hidden}
 
-.progress-fill {
-  width: var(--skill-level);
-  height: 100%;
-  background: linear-gradient(90deg, var(--skill-color), #fff);
-  border-radius: 4px;
-  transition: width 1s cubic-bezier(0.23, 1, 0.32, 1);
-}
+.progress-fill{width:var(--skill-level);height:100%;background:#111;border-radius:4px;transition:width 1s cubic-bezier(.23,1,.32,1)}
 
 .progress-sparkles {
   position: absolute;
@@ -455,21 +402,16 @@
   .skills-grid {
     grid-template-columns: 1fr;
   }
-  
-  .skill-card {
-    padding: 1.5rem;
-  }
-  
-  .skill-core {
-    width: 100px;
-    height: 100px;
-  }
-  
-  .skill-name {
-    font-size: 1.2rem;
-  }
-  
-  .skill-level {
-    font-size: 1.5rem;
-  }
+  .skill-card{padding:1.5rem}
+  .skill-core{width:100px;height:100px}
+  .skill-name{font-size:1.2rem}
+  .skill-level{font-size:1.5rem}
 }
+
+/* overrides */
+.skill-card{background:rgb(43,8,10)!important;border-color:rgba(255,255,255,.08)}
+.skill-name{color:#fff}
+.skill-percent,.skill-difficulty{color:#e5e7eb}
+.progress-constellation{background:rgba(255,255,255,.2)}
+.progress-fill{background:#fff}
+.orbiting-particle{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);color:#fff}

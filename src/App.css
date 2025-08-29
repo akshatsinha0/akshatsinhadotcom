@@ -1,4 +1,31 @@
-.app{min-height:100vh;background:radial-gradient(circle at 50% 50%, #000 0%, #0a0a0a 40%, #111 100%);background-attachment:fixed;position:relative;overflow-x:hidden}
+.app{min-height:100vh;background:#fff;background-attachment:fixed;position:relative;overflow-x:hidden}
+
+/* Top color patch */
+/* Register animatable angle for conic gradient */
+@property --angle{syntax:'<angle>';initial-value:220deg;inherits:false}
+.top-color-patch{
+  position:fixed;
+  top:0;left:0;right:0;
+  height:clamp(90px,12vh,160px);
+  pointer-events:none;
+  z-index:3;
+  filter:blur(18px) saturate(1.15);
+  opacity:.9;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.08), rgba(0,0,0,.02) 70%, rgba(0,0,0,0) 100%),
+    radial-gradient(80% 120% at 5% 0%, var(--c1, rgba(186,230,253,.55)) 0%, rgba(186,230,253,0) 60%),
+    radial-gradient(60% 100% at 20% 0%, var(--c2, rgba(167,243,208,.5)) 0%, rgba(167,243,208,0) 60%),
+    radial-gradient(60% 100% at 40% 0%, var(--c3, rgba(244,114,182,.45)) 0%, rgba(244,114,182,0) 60%),
+    radial-gradient(60% 100% at 65% 0%, var(--c4, rgba(253,186,116,.45)) 0%, rgba(253,186,116,0) 60%),
+    radial-gradient(60% 100% at 85% 0%, var(--c5, rgba(147,197,253,.5)) 0%, rgba(147,197,253,0) 60%),
+    conic-gradient(from var(--angle,220deg) at 50% 30%, var(--c6, rgba(168,85,247,.20)), var(--c7, rgba(59,130,246,.20)), var(--c8, rgba(34,197,94,.20)), var(--c9, rgba(239,68,68,.20)), var(--c10, rgba(249,115,22,.20)), var(--c11, rgba(139,92,246,.20)), var(--c6, rgba(168,85,247,.20)));
+  -webkit-mask:linear-gradient(to bottom,#000 40%,rgba(0,0,0,.65) 75%, transparent 100%);
+          mask:linear-gradient(to bottom,#000 40%,rgba(0,0,0,.65) 75%, transparent 100%);
+  animation:hueSpin var(--patch-speed,36s) linear infinite, angleDrift 28s linear infinite alternate;
+}
+
+@keyframes hueSpin{from{filter:hue-rotate(0deg) blur(18px) saturate(1.1) brightness(.88)}to{filter:hue-rotate(360deg) blur(18px) saturate(1.1) brightness(.88)}}
+@keyframes angleDrift{to{--angle:540deg}}
 
 .main-content {
   position: relative;

@@ -22,7 +22,32 @@
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.2s ease;
+  position: relative;
 }
+
+.terminal-buttons span::after{
+  content: "";
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  font-weight:700;
+  font-family: system-ui, "Fira Sans", sans-serif;
+  color: rgba(0,0,0,0.8);
+  font-size: 10px;
+  opacity:0;
+  transition: opacity .15s ease, transform .15s ease;
+  transform: scale(0.9);
+  pointer-events:none;
+  z-index:1;
+  border-radius:50%;
+  line-height:1;
+  text-shadow: 0 0 0.5px rgba(0,0,0,.3);
+}
+.btn-close::after{content:"×"}
+.btn-minimize::after{content:"–"; font-size:12px}
+.btn-maximize::after{content:"⤢"; font-size:11px}
+.terminal-buttons span:hover::after{opacity:1; transform:scale(1)}
 
 .btn-close {
   background: #ff5f57;
@@ -46,7 +71,7 @@
 .terminal-title{color:#fff;font-size:14px;font-weight:500;font-family:"Fira Sans",sans-serif!important;margin-left:auto}
 
    
-.terminal-body{background:#000;color:#d1f7c4;padding:20px;height:calc(100% - 56px);overflow-y:auto;font-family:"Fira Sans",monospace!important;font-size:14px;line-height:1.6}
+.terminal-body{background:rgb(35,43,55);color:#d1f7c4;padding:20px;height:calc(100% - 56px);overflow-y:auto;font-family:"Fira Sans",monospace!important;font-size:14px;line-height:1.6}
 
 .terminal-line {
   margin-bottom: 4px;

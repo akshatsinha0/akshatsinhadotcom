@@ -17,7 +17,7 @@
   transform: translate(-50%, -50%);
   width: 90vw;
   max-width: 800px;
-  max-height: 90vh; /* KEY FIX: Limit modal height */
+  max-height: 90vh; 
   background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
   border-radius: 20px;
   border: 1px solid rgba(102, 126, 234, 0.3);
@@ -26,8 +26,8 @@
   animation: modalSlideIn 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   overflow: hidden;
   font-family: "Fira Sans", sans-serif;
-  display: flex; /* KEY FIX: Use flexbox */
-  flex-direction: column; /* KEY FIX: Column layout */
+  display: flex; 
+  flex-direction: column; 
 }
 
 @keyframes modalSlideIn {
@@ -48,7 +48,7 @@
   padding: 2rem;
   background: linear-gradient(135deg, #667eea, #764ba2);
   color: white;
-  flex-shrink: 0; /* KEY FIX: Prevent header from shrinking */
+  flex-shrink: 0; 
 }
 
 .modal-title-section h2 {
@@ -85,7 +85,7 @@
   padding: 1.5rem 2rem;
   background: rgba(15, 20, 25, 0.8);
   border-bottom: 1px solid rgba(102, 126, 234, 0.1);
-  flex-shrink: 0; /* KEY FIX: Prevent progress from shrinking */
+  flex-shrink: 0; 
 }
 
 .progress-step {
@@ -137,12 +137,12 @@
 .modal-body {
   padding: 2rem;
   color: white;
-  flex: 1; /* KEY FIX: Take remaining space */
-  overflow-y: auto; /* KEY FIX: Enable scrolling */
-  min-height: 0; /* KEY FIX: Allow flex shrinking */
+  flex: 1; 
+  overflow-y: auto; 
+  min-height: 0; 
 }
 
-/* Custom scrollbar for modal body */
+
 .modal-body::-webkit-scrollbar {
   width: 8px;
 }
@@ -303,7 +303,7 @@
   padding: 1.5rem 2rem;
   background: rgba(15, 20, 25, 0.5);
   border-top: 1px solid rgba(102, 126, 234, 0.1);
-  flex-shrink: 0; /* KEY FIX: Prevent footer from shrinking */
+  flex-shrink: 0; 
 }
 
 .btn-primary,
@@ -368,7 +368,7 @@
   left: 100%;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
   .contact-modal-container {
     width: 95vw;
@@ -403,7 +403,7 @@
   }
 }
 
-/* Backdrop fade in animation */
+
 @keyframes backdropFadeIn {
   from { 
     opacity: 0; 

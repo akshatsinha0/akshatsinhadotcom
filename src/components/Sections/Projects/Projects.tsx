@@ -9,7 +9,7 @@ const Projects: React.FC<ProjectsProps> = ({ enableFlip = false }) => {
   const [turned, setTurned] = useState<Record<number, boolean>>({})
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
-  const [viewMode, setViewMode] = useState<'grid' | 'carousel' | 'timeline'>('carousel')
+  const [viewMode, setViewMode] = useState<'carousel' | 'timeline'>('carousel')
   const containerRef = useRef<HTMLDivElement>(null)
 
   const projects: Project[] = projectsData
@@ -59,13 +59,13 @@ const Projects: React.FC<ProjectsProps> = ({ enableFlip = false }) => {
             Innovative solutions engineered with passion and precision
           </p>
           <div className="view-selector">
-            {(['grid', 'carousel', 'timeline'] as const).map((mode) => (
+            {(['carousel', 'timeline'] as const).map((mode) => (
               <button
                 key={mode}
                 className={`view-btn ${viewMode === mode ? 'active' : ''}`}
                 onClick={() => setViewMode(mode)}
               >
-                <span className="btn-icon">{mode === 'grid' ? '⚏' : mode === 'carousel' ? '◉' : '▤'}</span>
+                <span className="btn-icon">{mode === 'carousel' ? '◉' : '▤'}</span>
                 <span className="btn-text">{mode.charAt(0).toUpperCase() + mode.slice(1)}</span>
               </button>
             ))}

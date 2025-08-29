@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import React,{useState} from 'react'
 import './Description.css'
 import ContactModal from '../ContactModal/ContactModal'
 import profileImg from '../../assets/AKSHATSINHAPHOTO.jpg'
-const Description: React.FC = () => {
-  const [activeExpertise, setActiveExpertise] = useState<string | null>(null)
-  const [clickedStat, setClickedStat] = useState<string | null>(null)
-  const [educationHover, setEducationHover] = useState<string | null>(null)
-  const [isContactModalOpen, setIsContactModalOpen] = useState(false)
-  const expertiseAreas = [
+const Description:React.FC=()=>{
+  const[activeExpertise,setActiveExpertise]=useState<string|null>(null)
+  const[clickedStat,setClickedStat]=useState<string|null>(null)
+  const[cardsState,setCardsState]=useState<'stack'|'scatter'|'open'>('stack')
+  const[isContactModalOpen,setIsContactModalOpen]=useState(false)
+  const expertiseAreas=[
     {
       id: 'programming',
       title: 'Programming Knowledge',
@@ -57,55 +57,20 @@ const Description: React.FC = () => {
       color: '#43e97b'
     }
   ]
-  const educationTimeline = [
-    {
-      id: 'vit',
-      institution: 'Vellore Institute of Technology',
-      location: 'Vellore Campus, Tamil Nadu',
-      duration: 'Aug 2022 - May 2026 (Expected)',
-      degree: 'B.Tech in Computer Science Core',
-      achievement: 'Current CGPA: 8.85/10',
-      status: 'Pursuing',
-      icon: '',
-      color: '#667eea'
-    },
-    {
-      id: 'dps',
-      institution: 'Delhi Public School Ranchi',
-      location: 'Ranchi, Jharkhand',
-      duration: '2015 - 2022',
-      degree: 'Senior Secondary Education',
-      achievement: 'Class XII: 89.6% | Class X: 95%',
-      status: 'Completed',
-      icon: '',
-      color: '#f093fb'
-    },
-    {
-      id: 'fiitjee',
-      institution: 'FIITJEE Ranchi',
-      location: 'Ranchi, Jharkhand',
-      duration: '2019 - 2022',
-      degree: 'Competitive Exam Preparation',
-      achievement: 'PCM + Mental Ability + Quantitative Aptitude',
-      status: 'Completed',
-      icon: '',
-      color: '#4facfe'
-    }
-  ]
-  const handleStatClick = (statType: string) => {
+  const handleStatClick=(statType:string)=>{
     setClickedStat(statType)
-    setTimeout(() => setClickedStat(null), 1000)
+    setTimeout(()=>setClickedStat(null),1000)
   }
-  const handleExpertiseClick = (id: string) => {
-    setActiveExpertise(activeExpertise === id ? null : id)
+  const handleExpertiseClick=(id:string)=>{
+    setActiveExpertise(activeExpertise===id?null:id)
   }
-  const handleResumeClick = () => {
-    window.open('https://drive.google.com/file/d/1Uet3riDOGna4d3JUR2jxRvpNAP76OEcU/view?usp=sharing', '_blank')
+  const handleResumeClick=()=>{
+    window.open('https://drive.google.com/file/d/1Uet3riDOGna4d3JUR2jxRvpNAP76OEcU/view?usp=sharing','_blank')
   }
-  const handleConnectClick = () => {
+  const handleConnectClick=()=>{
     setIsContactModalOpen(true)
   }
-  return (
+  return(
     <section className="description-section">
       <div className="description-container">
         <div className="description-content">
@@ -120,68 +85,44 @@ const Description: React.FC = () => {
               <span className="last-name">Sinha</span>
             </h1>
             <div className="description-text">
-              <p className="intro">
-                
-              </p>
-              <p className="philosophy">
-                {/* My philosophy revolves around <strong>continuous learning</strong>, <strong>creative problem-solving</strong>,
-                and building technologies that make a meaningful impact. Every line of code I write is
-                a step towards creating something meaningful. */}
-                Ready and suprised student.
-              </p>
-              <p className="expertise-intro">
-                {/* <strong>Java enthusiast</strong> with deep knowledge in <em>mathematics</em>, <em>DSA</em>, and
-                <em>software development</em>. Currently mastering <strong>AI prompt engineering</strong> while
-                excelling in <em>public speaking</em> and <em>team leadership</em>. */}
-              </p>
+              <p className="intro"></p>
+              <p className="philosophy">Ready and suprised student.</p>
+              <p className="expertise-intro"></p>
             </div>
             <div className="stats-container">
-              <div
-                className={`stat-item ${clickedStat === 'cgpa' ? 'clicked' : ''}`}
-                onClick={() => handleStatClick('cgpa')}
-              >
+              <div className={`stat-item ${clickedStat==='cgpa'?'clicked':''}`} onClick={()=>handleStatClick('cgpa')}>
                 <div className="stat-number">8.85</div>
                 <div className="stat-label">CGPA</div>
                 <div className="stat-detail">VIT Vellore</div>
               </div>
-              <div
-                className={`stat-item ${clickedStat === 'projects' ? 'clicked' : ''}`}
-                onClick={() => handleStatClick('projects')}
-              >
+              <div className={`stat-item ${clickedStat==='projects'?'clicked':''}`} onClick={()=>handleStatClick('projects')}>
                 <div className="stat-number">15+</div>
                 <div className="stat-label">Projects</div>
                 <div className="stat-detail">Developed</div>
               </div>
-              <div
-                className={`stat-item ${clickedStat === 'certs' ? 'clicked' : ''}`}
-                onClick={() => handleStatClick('certs')}
-              >
+              <div className={`stat-item ${clickedStat==='certs'?'clicked':''}`} onClick={()=>handleStatClick('certs')}>
                 <div className="stat-number">3+</div>
                 <div className="stat-label">Certifications</div>
                 <div className="stat-detail">Achieved</div>
               </div>
-              <div
-                className={`stat-item ${clickedStat === 'score' ? 'clicked' : ''}`}
-                onClick={() => handleStatClick('score')}
-              >
+              <div className={`stat-item ${clickedStat==='score'?'clicked':''}`} onClick={()=>handleStatClick('score')}>
                 <div className="stat-number">95%</div>
                 <div className="stat-label">Class X</div>
                 <div className="stat-detail">DPS Ranchi</div>
               </div>
             </div>
-            {}
             <div className="expertise-section">
               <h3 className="section-title">
                 <span className="title-icon"></span>
                 Standard Areas
               </h3>
-              <div className="expertise-grid">
-                {expertiseAreas.map((area) => (
+              <div className={`expertise-grid ${cardsState}`}>
+                {expertiseAreas.map((area,idx)=>(
                   <div
                     key={area.id}
-                    className={`expertise-card ${activeExpertise === area.id ? 'active' : ''}`}
-                    onClick={() => handleExpertiseClick(area.id)}
-                    style={{ '--accent-color': area.color } as React.CSSProperties}
+                    className={`expertise-card ${activeExpertise===area.id?'active':''}`}
+                    onClick={()=>{if(cardsState==='stack'&&idx===0)setCardsState('scatter');else if(cardsState==='scatter')setCardsState('stack');else handleExpertiseClick(area.id)}}
+                    style={{'--accent-color':area.color} as React.CSSProperties}
                   >
                     <div className="card-header">
                       <h4>{area.title}</h4>
@@ -189,45 +130,12 @@ const Description: React.FC = () => {
                     </div>
                     <div className="card-content">
                       <ul className="expertise-details">
-                        {area.details.map((detail, idx) => (
-                          <li key={idx}>{detail}</li>
+                        {area.details.map((detail,idx2)=>(
+                          <li key={idx2}>{detail}</li>
                         ))}
                       </ul>
                     </div>
                     <div className="card-glow"></div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            {}
-            <div className="education-section">
-              <h3 className="section-title">
-                <span className="title-icon"></span>
-                Education
-              </h3>
-              <div className="education-timeline">
-                {educationTimeline.map((edu) => (
-                  <div
-                    key={edu.id}
-                    className={`timeline-item ${educationHover === edu.id ? 'hovered' : ''}`}
-                    onMouseEnter={() => setEducationHover(edu.id)}
-                    onMouseLeave={() => setEducationHover(null)}
-                    style={{ '--timeline-color': edu.color } as React.CSSProperties}
-                  >
-                    <div className="timeline-icon">{edu.icon}</div>
-                    <div className="timeline-content">
-                      <div className="timeline-header">
-                        <h4>{edu.institution}</h4>
-                        <span className="timeline-status">{edu.status}</span>
-                      </div>
-                      <div className="timeline-details">
-                        <p className="timeline-degree">{edu.degree}</p>
-                        <p className="timeline-location">{edu.location}</p>
-                        <p className="timeline-duration">{edu.duration}</p>
-                        <p className="timeline-achievement">{edu.achievement}</p>
-                      </div>
-                    </div>
-                    <div className="timeline-glow"></div>
                   </div>
                 ))}
               </div>
@@ -251,7 +159,6 @@ const Description: React.FC = () => {
           <div className="element element-5"></div>
           <div className="element element-6"></div>
         </div>
-        {}
         <div className="interactive-particles">
           <div className="particle particle-1"></div>
           <div className="particle particle-2"></div>
@@ -260,11 +167,7 @@ const Description: React.FC = () => {
           <div className="particle particle-5"></div>
         </div>
       </div>
-      {}
-      <ContactModal
-        isOpen={isContactModalOpen}
-        onClose={() => setIsContactModalOpen(false)}
-      />
+      <ContactModal isOpen={isContactModalOpen} onClose={()=>setIsContactModalOpen(false)}/>
     </section>
   )
 }
