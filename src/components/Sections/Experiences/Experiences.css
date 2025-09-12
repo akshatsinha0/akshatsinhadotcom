@@ -1,8 +1,8 @@
 .experiences-section{padding:3rem 1rem;background:transparent;position:relative;overflow:hidden;--grid:80px}
-.experience-container{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.experience-container{max-width:1100px;margin:0 auto;position:relative;z-index:1;box-sizing:border-box;padding-left:calc(env(safe-area-inset-left,0px) + 12px);padding-right:calc(env(safe-area-inset-right,0px) + 12px)}
 .experiences-section .section-title{text-align:center;font-size:2rem;line-height:1.2;margin-bottom:1.5rem;color:#fff;font-weight:800}
 .experience-grid{display:grid;grid-template-columns:1fr;gap:1.25rem}
-.experience-card{background:linear-gradient(90deg,#ff89ee 0%,#7ea4ff 40%,#00d4df 70%,#a2fff7 100%);border:0;border-radius:16px;padding:1.25rem;transition:none;position:relative}
+.experience-card{background:linear-gradient(90deg,#ff89ee 0%,#7ea4ff 40%,#00d4df 70%,#a2fff7 100%);border:0;border-radius:16px;padding:1.25rem;transition:none;position:relative;width:100%;box-sizing:border-box}
 .experience-card::before{display:none}
 .experience-card:hover{transform:none;box-shadow:none}
 .card-header{display:flex;justify-content:space-between;gap:.75rem;align-items:center;margin-bottom:.75rem;flex-wrap:wrap}
@@ -20,6 +20,20 @@ filter:blur(14px);opacity:0;transition:opacity .06s ease;pointer-events:none;z-i
 .tech-tag:hover{border-color:#111;box-shadow:0 0 0 1px #111;transform:translateZ(0)}
 .tech-tag:hover::before{opacity:1}
 @media(max-width:768px){.experiences-section .section-title{font-size:1.5rem}.experience-card{padding:1rem}}
+
+/* Android/phone optimizations */
+@media(max-width:480px){
+  .experiences-section{padding:1.25rem .5rem}
+  .experience-container{max-width:100%;padding-left:calc(env(safe-area-inset-left,0px)+10px);padding-right:calc(env(safe-area-inset-right,0px)+10px)}
+  .experience-grid{gap:.75rem}
+  .experience-card{padding:.875rem;border-radius:12px}
+  .card-header{flex-direction:column;align-items:flex-start;gap:.4rem}
+  .duration-pill{align-self:flex-start;margin-top:.15rem}
+  .achievement-list{padding-left:1rem}
+  .achievement-item{overflow-wrap:anywhere;word-break:break-word;hyphens:auto}
+  .tech-grid{gap:.3rem}
+  .tech-tag{font-size:.75rem;padding:.2rem .5rem}
+}
 
 .experiences-section::before{
   content:"";position:absolute;left:0;top:0;width:100%;height:25vh;min-height:180px;z-index:0;pointer-events:none;

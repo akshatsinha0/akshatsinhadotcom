@@ -87,7 +87,6 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection, setActiveSection
             </div>
           ))}
         </div>
-        <div className="nav-indicator"></div>
       </nav>
     </>
   )

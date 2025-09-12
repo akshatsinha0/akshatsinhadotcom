@@ -104,22 +104,6 @@
 
 .nav-item:hover .nav-glow{opacity:0}
 
-.nav-indicator {
-  position: absolute;
-  bottom: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 30px;
-  height: 3px;
-  background: linear-gradient(90deg, #667eea, #764ba2);
-  border-radius: 2px;
-  animation: indicatorPulse 2s infinite;
-}
-
-@keyframes indicatorPulse {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
-}
 
 @media (max-width: 1024px) {
   .navigation {
