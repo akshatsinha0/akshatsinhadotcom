@@ -46,7 +46,7 @@ const Certifications: React.FC = () => {
   }
   return (
     <section className="certifications-section">
-      <div className="cert-note">Still in creation, so dummy hifi objects are functioning</div>
+      {}
       <div className="quantum-particles">
         {Array.from({ length: 30 }).map((_, i) => (
           <div

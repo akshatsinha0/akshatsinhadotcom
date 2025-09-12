@@ -4,7 +4,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-
+  /* Base dark background matching the lower-right tone */
   background: linear-gradient(165deg,#14021c 0%,#0b0013 100%);
   display: flex;
   align-items: center;
@@ -14,6 +14,7 @@
   overflow: hidden;
 }
 
+/* Magenta/purple diagonal like the provided image */
 .loading-screen::before {
   content: '';
   position: absolute;
@@ -23,6 +24,7 @@
   opacity: 0.95;
 }
 
+/* Deep purple lower section */
 .loading-screen::after {
   content: '';
   position: absolute;
@@ -181,6 +183,7 @@
   filter: drop-shadow(0 0 10px rgba(102, 126, 234, 0.5));
 }
 
+   
 .progress-svg::before {
   content: '';
   position: absolute;
@@ -192,6 +195,7 @@
   mask: radial-gradient(circle, transparent 47px, black 50px);
 }
 
+   
 .progress-bar {
   stroke: #667eea;
   animation: progressGlow 2s ease-in-out infinite alternate;
@@ -212,6 +216,7 @@
   }
 }
 
+   
 .loading-text {
   font-size: 2.5rem;
   font-weight: 700;
@@ -272,30 +277,31 @@
   }
 }
 
+   
 @media (max-width: 768px) {
   .loading-counter {
     width: 100px;
     height: 100px;
     margin: 0 auto 2rem;
   }
-
+  
   .counter-number {
     font-size: 2.2rem;
   }
-
+  
   .counter-percent {
     font-size: 1.2rem;
   }
-
+  
   .progress-svg {
     width: 100px;
     height: 100px;
   }
-
+  
   .loading-text {
     font-size: 2rem;
   }
-
+  
   .loading-subtitle {
     font-size: 1rem;
   }
@@ -306,13 +312,12 @@
     width: 80px;
     height: 80px;
   }
-
+  
   .counter-number {
     font-size: 1.8rem;
   }
-
+  
   .counter-percent {
     font-size: 1rem;
   }
 }
-

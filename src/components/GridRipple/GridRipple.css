@@ -1,4 +1,0 @@
-html,body,#root,.app{position:relative}
-.grid-ripple{position:fixed;inset:0;z-index:1;pointer-events:none;mix-blend-mode:screen;opacity:.25}
-@media(prefers-reduced-motion:reduce){.grid-ripple{display:none}}
-

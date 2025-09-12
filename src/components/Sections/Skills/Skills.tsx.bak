@@ -55,6 +55,18 @@ const Skills: React.FC = () => {
   return (
     <section className="skills-section">
       {}
+      <div className="quantum-canvas">
+        {Array.from({ length: 50 }).map((_, i) => (
+          <div
+            key={i}
+            className="quantum-particle"
+            style={{
+              '--particle-delay': `${i * 0.1}s`,
+              '--particle-duration': `${5 + (i % 5)}s`
+            } as React.CSSProperties}
+          />
+        ))}
+      </div>
       <div className="skills-container">
         <div className="section-header">
           <h2 className="section-title">

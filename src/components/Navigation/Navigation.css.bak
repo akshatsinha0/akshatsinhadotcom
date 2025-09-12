@@ -128,7 +128,7 @@
     transform: translate(-140%, -50%);
     pointer-events: none;
   }
-
+  
   .navigation.expanded {
     width: 200px;
     transform: translate(0, -50%);
@@ -147,5 +147,4 @@
 @media (max-width: 1024px){
   .mobile-nav-toggle{display:flex}
 }
-
 

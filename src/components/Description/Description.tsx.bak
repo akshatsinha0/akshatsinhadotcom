@@ -151,6 +151,21 @@ const Description:React.FC=()=>{
             </div>
           </div>
         </div>
+        <div className="floating-elements">
+          <div className="element element-1"></div>
+          <div className="element element-2"></div>
+          <div className="element element-3"></div>
+          <div className="element element-4"></div>
+          <div className="element element-5"></div>
+          <div className="element element-6"></div>
+        </div>
+        <div className="interactive-particles">
+          <div className="particle particle-1"></div>
+          <div className="particle particle-2"></div>
+          <div className="particle particle-3"></div>
+          <div className="particle particle-4"></div>
+          <div className="particle particle-5"></div>
+        </div>
       </div>
       <ContactModal isOpen={isContactModalOpen} onClose={()=>setIsContactModalOpen(false)}/>
     </section>
