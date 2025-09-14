@@ -45,6 +45,12 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection, setActiveSection
       icon: Awards3D,
       label: 'Awards',
       color: '#fa709a'
+    },
+    {
+      id: 'images',
+      icon: Projects3D,
+      label: 'Images',
+      color: '#38bdf8'
     }
   ]
   return (
