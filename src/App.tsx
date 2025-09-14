@@ -18,7 +18,7 @@ const Certifications = React.lazy(
   () => import("./components/Sections/Certifications/Certifications")
 );
 const Awards = React.lazy(() => import("./components/Sections/Awards/Awards"));
-const Images = React.lazy(() => import("./components/Sections/Images/Images"));
+// Images page moved to standalone /images.html
 const InteractiveTerminal = React.lazy(
   () => import("./components/InteractiveTerminal/InteractiveTerminal")
 );
@@ -93,7 +93,7 @@ function App() {
             {activeSection === "skills" && <Skills />}
             {activeSection === "certifications" && <Certifications />}
             {activeSection === "awards" && <Awards />}
-            {activeSection === "images" && <Images />}
+            {}
           </Suspense>
         </div>
       </main>

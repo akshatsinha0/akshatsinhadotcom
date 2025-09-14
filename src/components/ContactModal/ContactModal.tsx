@@ -379,3 +379,4 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
   );
 };
 export default ContactModal;
+

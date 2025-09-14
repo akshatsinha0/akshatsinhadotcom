@@ -6,10 +6,14 @@ import Projects3D from '../../3dIcons/NAVIGATION/PROJECTS3D.png'
 import Skills3D from '../../3dIcons/NAVIGATION/SKILLS3D.png'
 import Certs3D from '../../3dIcons/NAVIGATION/CERTIFICATIONS3D.png'
 import Awards3D from '../../3dIcons/NAVIGATION/STARS3D.png'
+import { Image as GalleryIcon } from 'lucide-react'
 interface NavigationProps{activeSection:string;setActiveSection:(section:string)=>void}
+
+type Section={id:string;label:string;color:string;icon?:string;IconCmp?:React.ComponentType<{className?:string}>}
+
 const Navigation: React.FC<NavigationProps> = ({ activeSection, setActiveSection }) => {
   const [isExpanded, setIsExpanded] = useState(false)
-  const sections = [
+  const sections:Section[] = [
     {
       id: 'description',
       icon: About3D,
@@ -48,7 +52,7 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection, setActiveSection
     },
     {
       id: 'images',
-      icon: Projects3D,
+      IconCmp: GalleryIcon,
       label: 'Images',
       color: '#38bdf8'
     }
@@ -76,17 +80,25 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection, setActiveSection
               key={section.id}
               className={`nav-item ${activeSection === section.id ? 'active' : ''}`}
               onClick={() => {
-                setActiveSection(section.id)
+                if(section.id==='images'){
+window.open((import.meta as any).env?.BASE_URL? `${(import.meta as any).env.BASE_URL}gallery.html`:'/gallery.html','_blank','noopener')
+                }else{
+                  setActiveSection(section.id)
+                }
                 setIsExpanded(false)
               }}
               style={{ '--item-color': section.color, '--delay': `${index * 0.1}s` } as React.CSSProperties}
             >
               <div className="nav-icon">
-                <img
-                  src={section.icon}
-                  alt={section.label}
-                  className="nav-icon-image"
-                />
+                {section.IconCmp? (
+                  <section.IconCmp className="nav-icon-svg" />
+                ):(
+                  <img
+                    src={section.icon}
+                    alt={section.label}
+                    className="nav-icon-image"
+                  />
+                )}
               </div>
               <div className="nav-label">{section.label}</div>
               <div className="nav-glow"></div>
@@ -98,3 +110,4 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection, setActiveSection
   )
 }
 export default Navigation
+

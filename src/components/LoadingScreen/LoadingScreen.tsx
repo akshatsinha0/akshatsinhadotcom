@@ -11,7 +11,7 @@ const LoadingScreen: React.FC = () => {
         }
         return prevCounter + 1
       })
-    }, 38) // 3800ms total duration to complete before screen disappears
+    }, 38) 
     return () => clearInterval(timer)
   }, [])
   return (

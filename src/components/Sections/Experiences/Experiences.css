@@ -21,7 +21,7 @@ filter:blur(14px);opacity:0;transition:opacity .06s ease;pointer-events:none;z-i
 .tech-tag:hover::before{opacity:1}
 @media(max-width:768px){.experiences-section .section-title{font-size:1.5rem}.experience-card{padding:1rem}}
 
-/* Android/phone optimizations */
+
 @media(max-width:480px){
   .experiences-section{padding:1.25rem .5rem}
   .experience-container{max-width:100%;padding-left:calc(env(safe-area-inset-left,0px)+10px);padding-right:calc(env(safe-area-inset-right,0px)+10px)}
@@ -78,4 +78,5 @@ filter:blur(14px);opacity:0;transition:opacity .06s ease;pointer-events:none;z-i
   .experiences-section{--grid:64px}
   .experiences-section::before{height:22vh;min-height:140px;background-size:auto,auto,18vh 14vh,12vh 9vh,6vh 6vh,18vh 18vh,auto}
 }
+
 

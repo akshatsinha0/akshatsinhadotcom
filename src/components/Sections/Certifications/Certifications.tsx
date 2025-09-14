@@ -153,3 +153,4 @@ const Certifications: React.FC = () => {
   )
 }
 export default Certifications
+

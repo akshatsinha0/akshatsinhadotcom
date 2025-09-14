@@ -71,3 +71,4 @@ const ElectricBorder:React.FC<Props>=({children,color="#5227FF",speed=1,chaos=1,
 };
 export default ElectricBorder;
 
+

@@ -143,10 +143,12 @@ const Description:React.FC=()=>{
             <div className="action-buttons">
               <button className="primary-btn" onClick={handleResumeClick}>
                 <span>View Resume</span>
+                <span className="btn-fill" aria-hidden="true"></span>
                 <div className="btn-glow"></div>
               </button>
               <button className="secondary-btn" onClick={handleConnectClick}>
                 <span>Let's Connect</span>
+                <span className="btn-fill" aria-hidden="true"></span>
               </button>
             </div>
           </div>
@@ -157,3 +159,4 @@ const Description:React.FC=()=>{
   )
 }
 export default Description
+

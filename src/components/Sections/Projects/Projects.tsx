@@ -228,3 +228,4 @@ const Projects: React.FC<ProjectsProps> = ({ enableFlip = false }) => {
   )
 }
 export default Projects
+

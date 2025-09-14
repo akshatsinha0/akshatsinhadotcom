@@ -125,11 +125,14 @@
 .mobile-nav-toggle .nav-toggle-icon{width:22px;height:16px}
 
 .nav-icon-image{width:64px;height:64px;object-fit:contain;transition:transform .25s ease,filter .25s ease;filter:drop-shadow(0 12px 22px rgba(0,0,0,.55))}
+.nav-icon-svg{width:64px;height:64px;color:#fff;filter:drop-shadow(0 12px 22px rgba(0,0,0,.55))}
 .nav-item:hover .nav-icon-image{transform:none;filter:drop-shadow(0 12px 22px rgba(0,0,0,.55))}
 .nav-item.active .nav-icon-image{transform:scale(1.22);filter:brightness(1.05) drop-shadow(0 0 12px rgb(149,203,197))}
+.nav-item.active .nav-icon-svg{transform:scale(1.22)}
 
 @media (max-width: 1024px){
   .mobile-nav-toggle{display:flex}
 }
+
 
 
