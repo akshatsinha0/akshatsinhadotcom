@@ -1,4 +1,4 @@
-.navigation{position:fixed;left:2rem;top:50%;transform:translateY(-50%);z-index:1000;width:84px;transition:width .4s ease;background:rgb(15,20,26);border-radius:0 44px 44px 0;border:1px solid #e5e7eb;padding:1.1rem 0;max-height:80vh;overflow-x:visible;overflow-y:auto;box-shadow:-42px 0 0 0 rgb(15,20,26)}
+.navigation{position:fixed;left:2rem;top:50%;transform:translateY(-50%);z-index:1000;width:84px;transition:width .4s ease;background:rgb(15,20,26);border-radius:0 44px 44px 0;border:1px solid #e5e7eb;padding:.8rem 0;overflow:visible;box-shadow:-42px 0 0 0 rgb(15,20,26)}
 .navigation::before,.navigation::after{content:"";position:absolute;left:-42px;width:84px;height:84px;background:rgb(15,20,26);border:1px solid #e5e7eb;border-right:none;border-radius:50%;clip-path:inset(0 42px 0 0);pointer-events:none}
 .navigation::before{top:-42px}
 .navigation::after{bottom:-42px}
@@ -40,15 +40,15 @@
 .nav-items {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  padding: 1.25rem 0 .75rem;
+  gap: 0.4rem;
+  padding: 2rem 0 1rem;
 }
 
 .nav-item {
   position: relative;
   display: flex;
   align-items: center;
-  padding: .6rem;
+  padding: 1rem;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   border-radius: 20px;
@@ -124,8 +124,8 @@
 .mobile-nav-toggle{position:fixed;left:calc(env(safe-area-inset-left,0px) + 16px);bottom:calc(env(safe-area-inset-bottom,0px) + 16px);width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#fff176,#9dfba0,#9df2ff);z-index:4000;display:none;align-items:center;justify-content:center;box-shadow:0 10px 22px rgba(0,0,0,.15);touch-action:manipulation;cursor:pointer}
 .mobile-nav-toggle .nav-toggle-icon{width:22px;height:16px}
 
-.nav-icon-image{width:48px;height:48px;object-fit:contain;transition:transform .25s ease,filter .25s ease;filter:drop-shadow(0 12px 22px rgba(0,0,0,.55))}
-.nav-icon-svg{width:48px;height:48px;color:#fff;filter:drop-shadow(0 12px 22px rgba(0,0,0,.55))}
+.nav-icon-image{width:64px;height:64px;object-fit:contain;transition:transform .25s ease,filter .25s ease;filter:drop-shadow(0 12px 22px rgba(0,0,0,.55))}
+.nav-icon-svg{width:64px;height:64px;color:#fff;filter:drop-shadow(0 12px 22px rgba(0,0,0,.55))}
 .nav-item:hover .nav-icon-image{transform:none;filter:drop-shadow(0 12px 22px rgba(0,0,0,.55))}
 .nav-item.active .nav-icon-image{transform:scale(1.22);filter:brightness(1.05) drop-shadow(0 0 12px rgb(149,203,197))}
 .nav-item.active .nav-icon-svg{transform:scale(1.22)}
