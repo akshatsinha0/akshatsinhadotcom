@@ -275,7 +275,7 @@
 .view-btn:hover{transform:none}
 .view-btn.active{background:#fff;color:#111;border-color:#e5e7eb}
 
-.projects-showcase.view-grid{grid-template-columns:repeat(auto-fit,minmax(360px,1fr));width:100%;min-width:0}
+.projects-showcase.view-grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));width:100%;min-width:0}
 
 .projects-showcase.view-carousel {
   grid-template-columns: 1fr;
@@ -886,6 +886,6 @@
   .bg-gradient-1{opacity:.4}
 }
 
-@media (max-width: 600px){.projects-showcase{grid-template-columns:1fr}}
+@media (max-width: 600px){.projects-showcase,.projects-showcase.view-grid{grid-template-columns:1fr}}
 
 

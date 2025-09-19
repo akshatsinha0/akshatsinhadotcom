@@ -27,17 +27,16 @@
 @keyframes hueSpin{from{filter:hue-rotate(0deg) blur(18px) saturate(1.1) brightness(.88)}to{filter:hue-rotate(360deg) blur(18px) saturate(1.1) brightness(.88)}}
 @keyframes angleDrift{to{--angle:540deg}}
 
-@media (max-width: 1024px){
-  .main-content{padding-left:1rem;padding-right:1rem}
-}
-
 .main-content {
   position: relative;
   z-index: 10;
   min-height: 100vh;
   display: block;
-  padding: 2rem;
-  padding-left: calc(2rem + 148px);
+  padding: 2rem 1rem;
+}
+
+@media (min-width: 1025px){
+  .main-content{padding-left:calc(2rem + 148px);padding-right:2rem}
 }
 
 .section-container {
