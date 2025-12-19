@@ -668,7 +668,26 @@
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-@media (max-width: 768px) {
+@media only screen and (min-width: 769px) {
+  .landing-header {
+    padding: 0.75rem 3rem;
+  }
+
+  .hero-section {
+    height: 65vh;
+  }
+
+  .hero-actions {
+    flex-direction: row;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: auto;
+  }
+}
+
+@media only screen and (max-width: 768px) {
   .landing-header {
     padding: 0.75rem 1rem;
     flex-wrap: wrap;
