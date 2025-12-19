@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Suspense } from "react";
 import "./App.css";
 import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
+import LandingPage from "./components/LandingPage/LandingPage";
 import Navigation from "./components/Navigation/Navigation";
 import Contact from "./components/Contact/Contact";
 import TerminalIcon from "./components/TerminalIcon/TerminalIcon";
@@ -24,6 +25,7 @@ const InteractiveTerminal = React.lazy(
 );
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [showLanding, setShowLanding] = useState(true);
   const [activeSection, setActiveSection] = useState("description");
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
   useEffect(() => {
@@ -77,6 +79,7 @@ function App() {
     return () => clearInterval(id);
   }, []);
   if (isLoading) return <LoadingScreen />;
+  if (showLanding) return <LandingPage onEnter={() => setShowLanding(false)} />;
   return (
     <div className="app">
       <div className="top-color-patch" aria-hidden="true"></div>
