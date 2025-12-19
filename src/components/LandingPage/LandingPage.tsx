@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import './LandingPage.css'
 
 interface LandingPageProps {
@@ -7,6 +7,37 @@ interface LandingPageProps {
 
 const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
+  const [scrambledText, setScrambledText] = useState('')
+  const descriptionRef = useRef<HTMLParagraphElement>(null)
+
+  const finalText = 'Full-Stack Developer | Computer Science @ VIT Vellore | CGPA: 8.79/10'
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@|.:'
+
+  useEffect(() => {
+    let iteration = 0
+    const interval = setInterval(() => {
+      setScrambledText(
+        finalText
+          .split('')
+          .map((char, index) => {
+            if (index < iteration) {
+              return finalText[index]
+            }
+            if (char === ' ') return ' '
+            return characters[Math.floor(Math.random() * characters.length)]
+          })
+          .join('')
+      )
+
+      if (iteration >= finalText.length) {
+        clearInterval(interval)
+      }
+
+      iteration += 1 / 3
+    }, 30)
+
+    return () => clearInterval(interval)
+  }, [])
 
   const portfolioCards = [
     {
@@ -84,8 +115,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
         <div className="hero-content">
           <div className="hero-badge">Featured</div>
           <h1 className="hero-title">Akshat Sinha</h1>
-          <p className="hero-description">
-            Full-Stack Developer | Computer Science @ VIT Vellore | CGPA: 8.79/10
+          <p className="hero-description" ref={descriptionRef}>
+            {scrambledText || finalText}
           </p>
           <div className="hero-meta">
             <span className="meta-item">2024</span>
