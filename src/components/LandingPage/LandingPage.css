@@ -273,15 +273,34 @@
 
 .portfolio-card {
   background: transparent;
-  border-radius: 8px;
+  border-radius: 0;
   overflow: hidden;
   cursor: pointer;
   transition: all 0.25s ease;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+
+.portfolio-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid transparent;
+  transition: all 0.25s ease;
+  pointer-events: none;
 }
 
 .portfolio-card:hover {
   transform: scale(1.08);
+  border-color: rgb(25, 125, 206);
+  box-shadow: 0 0 20px rgba(25, 125, 206, 0.3);
+}
+
+.portfolio-card:hover::before {
+  border-color: rgb(25, 125, 206);
 }
 
 .card-image {
@@ -290,7 +309,7 @@
   height: 140px;
   background: linear-gradient(135deg, #0d1318 0%, #080d12 100%);
   overflow: hidden;
-  border-radius: 6px;
+  border-radius: 0;
 }
 
 .card-gradient {
@@ -381,15 +400,34 @@
 
 .featured-card {
   position: relative;
-  border-radius: 8px;
+  border-radius: 0;
   overflow: hidden;
   cursor: pointer;
   transition: all 0.25s ease;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.featured-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid transparent;
+  transition: all 0.25s ease;
+  pointer-events: none;
+  z-index: 10;
 }
 
 .featured-card:hover {
   transform: scale(1.08);
+  border-color: rgb(25, 125, 206);
+  box-shadow: 0 0 20px rgba(25, 125, 206, 0.3);
+}
+
+.featured-card:hover::before {
+  border-color: rgb(25, 125, 206);
 }
 
 .featured-image {
@@ -397,7 +435,7 @@
   width: 100%;
   height: 200px;
   background: linear-gradient(135deg, #0d1318 0%, #080d12 100%);
-  border-radius: 6px;
+  border-radius: 0;
 }
 
 .featured-gradient {
