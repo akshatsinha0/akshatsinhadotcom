@@ -273,12 +273,21 @@
 
 .portfolio-card {
   background: transparent;
-  border-radius: 12px;
-  overflow: hidden;
+  border-radius: 0;
+  overflow: visible;
   cursor: pointer;
   transition: all 0.25s ease;
-  border: 1px solid rgba(255, 255, 255, 0.2);
   position: relative;
+  clip-path: polygon(
+    0 8px,
+    8px 0,
+    calc(100% - 8px) 0,
+    100% 8px,
+    100% calc(100% - 8px),
+    calc(100% - 8px) 100%,
+    8px 100%,
+    0 calc(100% - 8px)
+  );
 }
 
 .portfolio-card::before {
@@ -288,20 +297,30 @@
   left: 0;
   right: 0;
   bottom: 0;
-  border: 2px solid transparent;
-  border-radius: 12px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  clip-path: polygon(
+    0 8px,
+    8px 0,
+    calc(100% - 8px) 0,
+    100% 8px,
+    100% calc(100% - 8px),
+    calc(100% - 8px) 100%,
+    8px 100%,
+    0 calc(100% - 8px)
+  );
   transition: all 0.25s ease;
   pointer-events: none;
 }
 
 .portfolio-card:hover {
   transform: scale(1.08);
-  border-color: rgb(25, 125, 206);
   box-shadow: 0 0 20px rgba(25, 125, 206, 0.3);
 }
 
 .portfolio-card:hover::before {
   border-color: rgb(25, 125, 206);
+  border-width: 2px;
 }
 
 .card-image {
@@ -310,7 +329,7 @@
   height: 140px;
   background: linear-gradient(135deg, #0d1318 0%, #080d12 100%);
   overflow: hidden;
-  border-radius: 12px 12px 0 0;
+  border-radius: 0;
 }
 
 .card-gradient {
@@ -401,11 +420,20 @@
 
 .featured-card {
   position: relative;
-  border-radius: 12px;
-  overflow: hidden;
+  border-radius: 0;
+  overflow: visible;
   cursor: pointer;
   transition: all 0.25s ease;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  clip-path: polygon(
+    0 10px,
+    10px 0,
+    calc(100% - 10px) 0,
+    100% 10px,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    10px 100%,
+    0 calc(100% - 10px)
+  );
 }
 
 .featured-card::before {
@@ -415,8 +443,18 @@
   left: 0;
   right: 0;
   bottom: 0;
-  border: 2px solid transparent;
-  border-radius: 12px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  clip-path: polygon(
+    0 10px,
+    10px 0,
+    calc(100% - 10px) 0,
+    100% 10px,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    10px 100%,
+    0 calc(100% - 10px)
+  );
   transition: all 0.25s ease;
   pointer-events: none;
   z-index: 10;
@@ -424,12 +462,12 @@
 
 .featured-card:hover {
   transform: scale(1.08);
-  border-color: rgb(25, 125, 206);
   box-shadow: 0 0 20px rgba(25, 125, 206, 0.3);
 }
 
 .featured-card:hover::before {
   border-color: rgb(25, 125, 206);
+  border-width: 2px;
 }
 
 .featured-image {
@@ -437,7 +475,7 @@
   width: 100%;
   height: 200px;
   background: linear-gradient(135deg, #0d1318 0%, #080d12 100%);
-  border-radius: 12px 12px 0 0;
+  border-radius: 0;
 }
 
 .featured-gradient {
