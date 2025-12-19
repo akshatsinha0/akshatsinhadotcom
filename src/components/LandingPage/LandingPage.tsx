@@ -159,16 +159,14 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
         <h2 className="section-title">Featured Projects</h2>
         <div className="featured-grid">
           <div
-            className={`featured-card ${hoveredCard === 100 ? 'hovered' : ''}`}
-            onMouseEnter={() => setHoveredCard(100)}
-            onMouseLeave={() => setHoveredCard(null)}
+            className="featured-card"
             onClick={onEnter}
           >
             <div className="featured-image">
               <div className="featured-gradient"></div>
               <div className="play-overlay">
                 <div className="play-button">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
                     <polygon points="5 3 19 12 5 21 5 3"/>
                   </svg>
                 </div>
@@ -181,16 +179,14 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
             </div>
           </div>
           <div
-            className={`featured-card ${hoveredCard === 101 ? 'hovered' : ''}`}
-            onMouseEnter={() => setHoveredCard(101)}
-            onMouseLeave={() => setHoveredCard(null)}
+            className="featured-card"
             onClick={onEnter}
           >
             <div className="featured-image">
               <div className="featured-gradient"></div>
               <div className="play-overlay">
                 <div className="play-button">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
                     <polygon points="5 3 19 12 5 21 5 3"/>
                   </svg>
                 </div>
@@ -203,16 +199,14 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
             </div>
           </div>
           <div
-            className={`featured-card ${hoveredCard === 102 ? 'hovered' : ''}`}
-            onMouseEnter={() => setHoveredCard(102)}
-            onMouseLeave={() => setHoveredCard(null)}
+            className="featured-card"
             onClick={onEnter}
           >
             <div className="featured-image">
               <div className="featured-gradient"></div>
               <div className="play-overlay">
                 <div className="play-button">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
                     <polygon points="5 3 19 12 5 21 5 3"/>
                   </svg>
                 </div>

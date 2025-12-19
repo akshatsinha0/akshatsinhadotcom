@@ -1,6 +1,6 @@
 .landing-page {
   min-height: 100vh;
-  background: linear-gradient(to bottom, #0f171e 0%, #1a2332 100%);
+  background: #0f171e;
   color: #ffffff;
   overflow-x: hidden;
 }
@@ -9,54 +9,52 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 3rem;
-  background: rgba(15, 23, 30, 0.95);
-  backdrop-filter: blur(10px);
+  padding: 0.75rem 3rem;
+  background: #0f171e;
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .landing-logo {
   display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .logo-text {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #00d4ff 0%, #0099ff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #00a8e1;
+  letter-spacing: -0.5px;
 }
 
 .logo-subtitle {
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.6);
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
 }
 
 .landing-nav {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
   flex: 1;
   justify-content: center;
+  margin-left: 3rem;
 }
 
 .nav-link {
   background: none;
   border: none;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
   padding: 0.5rem 0;
   position: relative;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .nav-link:hover {
@@ -66,12 +64,12 @@
 .nav-link::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -0.75rem;
   left: 0;
   width: 0;
-  height: 2px;
-  background: #00d4ff;
-  transition: width 0.3s ease;
+  height: 3px;
+  background: #00a8e1;
+  transition: width 0.2s ease;
 }
 
 .nav-link:hover::after {
@@ -102,29 +100,28 @@
 }
 
 .enter-btn {
-  background: linear-gradient(135deg, #00d4ff 0%, #0099ff 100%);
+  background: #00a8e1;
   border: none;
   color: #ffffff;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
+  padding: 0.65rem 1.75rem;
+  border-radius: 6px;
   font-weight: 600;
+  font-size: 0.95rem;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+  transition: all 0.2s ease;
 }
 
 .enter-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+  background: #0095cc;
 }
 
 .hero-section {
   position: relative;
-  height: 70vh;
+  height: 65vh;
   display: flex;
   align-items: flex-end;
   padding: 0 3rem 3rem;
-  background: linear-gradient(to bottom, transparent 0%, rgba(15, 23, 30, 0.8) 100%);
+  background: linear-gradient(to bottom, transparent 0%, #0f171e 100%);
 }
 
 .hero-content {
@@ -250,7 +247,7 @@
   right: 0;
   bottom: 0;
   z-index: 1;
-  background: linear-gradient(135deg, #1a2332 0%, #0f171e 100%);
+  background: linear-gradient(135deg, #1a2530 0%, #0f171e 100%);
 }
 
 .hero-gradient {
@@ -259,47 +256,48 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to bottom, transparent 0%, rgba(15, 23, 30, 0.9) 100%);
+  background: linear-gradient(to bottom, transparent 0%, #0f171e 100%);
 }
 
 .portfolio-picks {
-  padding: 3rem;
+  padding: 2.5rem 3rem;
+  background: #0f171e;
 }
 
 .section-title {
-  font-size: 1.75rem;
-  font-weight: 700;
-  margin: 0 0 2rem 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem 0;
   color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .cards-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
 }
 
 .portfolio-card {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
+  background: transparent;
+  border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.25s ease;
+  border: none;
 }
 
 .portfolio-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 30px rgba(0, 212, 255, 0.3);
-  border-color: rgba(0, 212, 255, 0.5);
+  transform: scale(1.08);
 }
 
 .card-image {
   position: relative;
   width: 100%;
-  height: 180px;
-  background: linear-gradient(135deg, #1a2332 0%, #0f171e 100%);
+  height: 140px;
+  background: linear-gradient(135deg, #1e2a35 0%, #141d26 100%);
   overflow: hidden;
+  border-radius: 6px;
 }
 
 .card-gradient {
@@ -308,12 +306,12 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.2) 0%, rgba(0, 153, 255, 0.2) 100%);
+  background: rgba(0, 0, 0, 0.4);
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.25s ease;
 }
 
-.portfolio-card.hovered .card-gradient {
+.portfolio-card:hover .card-gradient {
   opacity: 1;
 }
 
@@ -325,86 +323,88 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.25s ease;
 }
 
-.portfolio-card.hovered .play-overlay {
+.portfolio-card:hover .play-overlay {
   opacity: 1;
 }
 
 .play-button {
-  width: 50px;
-  height: 50px;
-  background: rgba(255, 255, 255, 0.95);
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.98);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0f171e;
-  transition: all 0.3s ease;
+  color: #000000;
+  transition: all 0.2s ease;
 }
 
-.portfolio-card.hovered .play-button {
-  transform: scale(1.1);
+.portfolio-card:hover .play-button {
+  transform: scale(1.05);
 }
 
 .play-text {
   color: #ffffff;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  letter-spacing: 0.3px;
 }
 
 .card-content {
-  padding: 1rem;
+  padding: 0.75rem 0.25rem;
 }
 
 .card-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 0 0.25rem 0;
   color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .card-category {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
   margin: 0;
+  font-weight: 400;
 }
 
 .featured-section {
-  padding: 3rem;
-  background: rgba(0, 0, 0, 0.2);
+  padding: 2.5rem 3rem;
+  background: #0f171e;
 }
 
 .featured-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
 }
 
 .featured-card {
   position: relative;
-  border-radius: 12px;
+  border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.25s ease;
+  border: none;
 }
 
 .featured-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 12px 40px rgba(0, 212, 255, 0.4);
-  border-color: rgba(0, 212, 255, 0.6);
+  transform: scale(1.08);
 }
 
 .featured-image {
   position: relative;
   width: 100%;
-  height: 250px;
-  background: linear-gradient(135deg, #1a2332 0%, #0f171e 100%);
+  height: 200px;
+  background: linear-gradient(135deg, #1e2a35 0%, #141d26 100%);
+  border-radius: 6px;
 }
 
 .featured-gradient {
@@ -413,37 +413,44 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.3) 0%, rgba(0, 153, 255, 0.3) 100%);
+  background: rgba(0, 0, 0, 0.4);
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.25s ease;
 }
 
-.featured-card.hovered .featured-gradient {
+.featured-card:hover .featured-gradient {
+  opacity: 1;
+}
+
+.featured-card:hover .play-overlay {
   opacity: 1;
 }
 
 .featured-info {
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.05);
+  padding: 0.75rem 0.25rem;
+  background: transparent;
 }
 
 .featured-badge {
   display: inline-block;
-  background: rgba(0, 212, 255, 0.2);
-  color: #00d4ff;
-  padding: 0.4rem 0.8rem;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-  border: 1px solid rgba(0, 212, 255, 0.3);
+  background: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 0.3rem 0.6rem;
+  border-radius: 3px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .featured-title {
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 500;
   margin: 0;
   color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 @media (max-width: 768px) {
