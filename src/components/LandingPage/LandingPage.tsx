@@ -23,7 +23,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
             if (index < iteration) {
               return finalText[index]
             }
-            if (char === ' ') return ' '
+            if (char === ' ' || char === '|' || char === '@' || char === ':' || char === '.') return char
             return characters[Math.floor(Math.random() * characters.length)]
           })
           .join('')
@@ -33,8 +33,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
         clearInterval(interval)
       }
 
-      iteration += 1 / 3
-    }, 30)
+      iteration += 1
+    }, 20)
 
     return () => clearInterval(interval)
   }, [])
