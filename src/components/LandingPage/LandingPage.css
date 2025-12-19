@@ -670,27 +670,127 @@
 
 @media (max-width: 768px) {
   .landing-header {
-    padding: 1rem;
+    padding: 0.75rem 1rem;
     flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .landing-logo {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .logo-text {
+    font-size: 1.5rem;
+  }
+
+  .logo-subtitle {
+    font-size: 0.85rem;
   }
 
   .landing-nav {
     display: none;
   }
 
+  .landing-actions {
+    gap: 0.5rem;
+  }
+
+  .enter-btn {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .search-btn,
+  .bookmark-btn {
+    padding: 0.5rem;
+  }
+
+  .hero-section {
+    height: auto;
+    min-height: 50vh;
+    padding: 2rem 1.5rem;
+  }
+
   .hero-content {
     max-width: 100%;
+  }
+
+  .hero-badge {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
   }
 
   .hero-title {
     font-size: 2.5rem;
   }
 
+  .hero-description {
+    font-size: 1.1rem;
+  }
+
+  .hero-meta {
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    justify-content: center;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  .btn-icon {
+    display: none;
+  }
+
+  .portfolio-picks,
+  .featured-section {
+    padding: 2rem 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
   .cards-container {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .card-category {
+    font-size: 0.85rem;
+  }
+
+  .card-image {
+    height: 100px;
   }
 
   .featured-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .featured-title {
+    font-size: 1.1rem;
+  }
+
+  .featured-badge {
+    font-size: 0.75rem;
+  }
+
+  .featured-image {
+    height: 150px;
   }
 }
