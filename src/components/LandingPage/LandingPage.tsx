@@ -7,29 +7,28 @@ interface LandingPageProps {
 
 const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
-  const [scrambledText, setScrambledText] = useState('')
-  const descriptionRef = useRef<HTMLParagraphElement>(null)
+  const [scrambledCGPA, setScrambledCGPA] = useState('')
 
-  const finalText = 'Full-Stack Developer | Computer Science @ VIT Vellore | CGPA: 8.79/10'
-  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@|.:'
+  const cgpaText = '8.79/10'
+  const characters = '0123456789./'
 
   useEffect(() => {
     let iteration = 0
     const interval = setInterval(() => {
-      setScrambledText(
-        finalText
+      setScrambledCGPA(
+        cgpaText
           .split('')
           .map((char, index) => {
             if (index < iteration) {
-              return finalText[index]
+              return cgpaText[index]
             }
-            if (char === ' ' || char === '|' || char === '@' || char === ':' || char === '.') return char
+            if (char === '/' || char === '.') return char
             return characters[Math.floor(Math.random() * characters.length)]
           })
           .join('')
       )
 
-      if (iteration >= finalText.length) {
+      if (iteration >= cgpaText.length) {
         clearInterval(interval)
       }
 
@@ -115,8 +114,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
         <div className="hero-content">
           <div className="hero-badge">Featured</div>
           <h1 className="hero-title">Akshat Sinha</h1>
-          <p className="hero-description" ref={descriptionRef}>
-            {scrambledText || finalText}
+          <p className="hero-description">
+            Full-Stack Developer | Computer Science @ VIT Vellore | CGPA: {scrambledCGPA || cgpaText}
           </p>
           <div className="hero-meta">
             <span className="meta-item">2024</span>
