@@ -9,7 +9,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
   const [scrambledCGPA, setScrambledCGPA] = useState('')
 
-  const cgpaText = '8.79/10'
+  const cgpaText = '8.84/10'
   const characters = '0123456789./'
 
   useEffect(() => {
@@ -115,7 +115,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
           <div className="hero-badge">Featured</div>
           <h1 className="hero-title">Akshat Sinha</h1>
           <p className="hero-description">
-            Full-Stack Developer | Computer Science @ VIT Vellore | CGPA: {scrambledCGPA || cgpaText}
+            Fragment Developer | Computer Science @ VIT Vellore | CGPA: {scrambledCGPA || cgpaText}
           </p>
           <div className="hero-meta">
             <span className="meta-item">2024</span>

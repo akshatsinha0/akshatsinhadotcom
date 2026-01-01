@@ -12,9 +12,9 @@ const InteractiveTerminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
   const terminalRef = useRef<HTMLDivElement>(null);
   const aboutAkshat = {
     bio: [
-      "Akshat Sinha - Full-Stack Developer & Innovation Enthusiast",
+      "Akshat Sinha - Fragment Developer & Innovation Enthusiast",
       "Currently pursuing Computer Science at VIT Vellore",
-      "CGPA: 8.85/10 - Academic Excellence in Technical Domain",
+      "CGPA: 8.84/10 - Academic Excellence in Technical Domain",
       "Passionate about creating modern digital solutions",
       "Award-winning developer with multiple certifications",
       "Specializes in React, Node.js, Python, and Qt Creator",

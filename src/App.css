@@ -44,17 +44,4 @@
   max-width: 1400px;
   position: relative;
   margin: 0 auto;
-  animation: sectionSlideIn 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-  will-change: opacity;
-}
-
-@keyframes sectionSlideIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: none; /* allow position: sticky descendants to work */
-  }
 }
