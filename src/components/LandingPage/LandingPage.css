@@ -190,7 +190,6 @@
 .btn-primary:hover {
   background: rgb(25, 125, 206);
   color: #ffffff;
-  transform: scale(1.05);
 }
 
 .btn-secondary {
