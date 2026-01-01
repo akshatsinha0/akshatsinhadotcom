@@ -588,12 +588,6 @@
 
 .tech-node {
   position: relative;
-  animation: nodeAppear 0.6s ease-out var(--delay) forwards;
-  opacity: 0;
-}
-
-@keyframes nodeAppear {
-  to { opacity: 1; }
 }
 
 .node-core {
