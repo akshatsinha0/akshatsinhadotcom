@@ -39,8 +39,8 @@ const LoadingScreen: React.FC = () => {
       setCounter(currentCount)
       setLineProgress(normalizedProgress * 100)
       
-      if (currentCount >= 86) {
-        const squeezeProgress = Math.min((currentCount - 86) / 14, 1)
+      if (currentCount >= 84) {
+        const squeezeProgress = Math.min((currentCount - 84) / 16, 1)
         const squeezeAmount = squeezeProgress * 88
         setLineSqueeze(squeezeAmount)
       }
