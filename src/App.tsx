@@ -29,7 +29,7 @@ function App() {
   const [activeSection, setActiveSection] = useState("description");
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
   useEffect(() => {
-    const t = setTimeout(() => setIsLoading(false), 1200);
+    const t = setTimeout(() => setIsLoading(false), 6500);
     return () => clearTimeout(t);
   }, []);
   useEffect(() => {
