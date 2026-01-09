@@ -122,14 +122,14 @@
 
 @media (max-width: 768px) {
   .loading-counter {
-    bottom: 40px;
-    right: 40px;
+    bottom: 50px;
+    right: 50px;
   }
   
   .counter-number,
   .counter-percent {
-    font-size: 100px;
-    letter-spacing: -4px;
+    font-size: 120px;
+    letter-spacing: -5px;
   }
   
   .top-lines {
@@ -137,18 +137,37 @@
     gap: 6px;
     padding: 8px 0;
   }
+  
+  .line-1 {
+    height: 2.5px;
+  }
+  
+  .line-2,
+  .line-3,
+  .line-4 {
+    height: 2px;
+  }
+  
+  .vertical-line-container {
+    top: 60px;
+    height: calc(100vh - 60px);
+  }
+  
+  .vertical-line {
+    width: 3px;
+  }
 }
 
 @media (max-width: 480px) {
   .loading-counter {
-    bottom: 30px;
-    right: 30px;
+    bottom: 40px;
+    right: 40px;
   }
   
   .counter-number,
   .counter-percent {
-    font-size: 80px;
-    letter-spacing: -3px;
+    font-size: 90px;
+    letter-spacing: -4px;
   }
   
   .top-lines {
@@ -157,8 +176,61 @@
     padding: 6px 0;
   }
   
+  .line-1 {
+    height: 2px;
+  }
+  
+  .line-2,
+  .line-3,
+  .line-4 {
+    height: 1.5px;
+  }
+  
   .vertical-line-container {
-    width: 3px;
+    top: 50px;
+    height: calc(100vh - 50px);
+  }
+  
+  .vertical-line {
+    width: 2.5px;
+  }
+}
+
+@media (max-width: 360px) {
+  .loading-counter {
+    bottom: 30px;
+    right: 30px;
+  }
+  
+  .counter-number,
+  .counter-percent {
+    font-size: 70px;
+    letter-spacing: -3px;
+  }
+  
+  .top-lines {
+    height: 45px;
+    gap: 4px;
+    padding: 5px 0;
+  }
+  
+  .line-1 {
+    height: 2px;
+  }
+  
+  .line-2,
+  .line-3,
+  .line-4 {
+    height: 1.5px;
+  }
+  
+  .vertical-line-container {
+    top: 45px;
+    height: calc(100vh - 45px);
+  }
+  
+  .vertical-line {
+    width: 2px;
   }
 }
 
