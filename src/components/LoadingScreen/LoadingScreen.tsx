@@ -3,6 +3,7 @@ import './LoadingScreen.css'
 const LoadingScreen: React.FC = () => {
   const [counter, setCounter] = useState(0)
   const [lineProgress, setLineProgress] = useState(0)
+  const [lineSqueeze, setLineSqueeze] = useState(0)
   useEffect(() => {
     let currentCount = 0
     const duration = 6000
@@ -38,6 +39,11 @@ const LoadingScreen: React.FC = () => {
       setCounter(currentCount)
       setLineProgress(normalizedProgress * 100)
       
+      if (currentCount >= 90) {
+        const squeezeProgress = Math.min((currentCount - 90) / 10, 1)
+        setLineSqueeze(squeezeProgress * 100)
+      }
+      
       if (rawProgress < 1) {
         requestAnimationFrame(animate)
       }
@@ -48,10 +54,34 @@ const LoadingScreen: React.FC = () => {
   return (
     <div className="loading-screen">
       <div className="top-lines">
-        <div className="line line-1"></div>
-        <div className="line line-2"></div>
-        <div className="line line-3"></div>
-        <div className="line line-4"></div>
+        <div 
+          className="line line-1" 
+          style={{ 
+            marginLeft: `${lineSqueeze}%`,
+            transition: 'margin-left 0.3s ease-out'
+          }}
+        ></div>
+        <div 
+          className="line line-2" 
+          style={{ 
+            marginLeft: `${lineSqueeze}%`,
+            transition: 'margin-left 0.3s ease-out'
+          }}
+        ></div>
+        <div 
+          className="line line-3" 
+          style={{ 
+            marginLeft: `${lineSqueeze}%`,
+            transition: 'margin-left 0.3s ease-out'
+          }}
+        ></div>
+        <div 
+          className="line line-4" 
+          style={{ 
+            marginLeft: `${lineSqueeze}%`,
+            transition: 'margin-left 0.3s ease-out'
+          }}
+        ></div>
       </div>
       
       <div className="vertical-line-container">
