@@ -55,9 +55,9 @@
 .vertical-line-container {
   position: absolute;
   left: 0;
-  top: 0;
+  top: 80px;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 80px);
   background: transparent;
   overflow: visible;
   pointer-events: none;
