@@ -5,33 +5,40 @@ const LoadingScreen: React.FC = () => {
   const [lineProgress, setLineProgress] = useState(0)
   useEffect(() => {
     let currentCount = 0
-    let currentProgress = 0
-    const duration = 3800
+    const duration = 6000
     const startTime = Date.now()
+    
+    const customEasing = (t: number): number => {
+      if (t < 0.25) {
+        return t * 3.2
+      } else if (t < 0.45) {
+        return 0.8 + (t - 0.25) * 0.6
+      } else if (t < 0.7) {
+        return 0.92 + (t - 0.45) * 2.8
+      } else if (t < 0.85) {
+        return 1.62 + (t - 0.7) * 0.4
+      } else {
+        return 1.68 + (t - 0.85) * 2.13
+      }
+    }
     
     const animate = () => {
       const elapsed = Date.now() - startTime
-      const progress = Math.min(elapsed / duration, 1)
+      const rawProgress = Math.min(elapsed / duration, 1)
       
-      const easeInOutCubic = (t: number): number => {
-        const cycles = 3
-        const cycleProgress = (t * cycles) % 1
-        return cycleProgress < 0.5 
-          ? 4 * cycleProgress * cycleProgress * cycleProgress 
-          : 1 - Math.pow(-2 * cycleProgress + 2, 3) / 2
-      }
+      const easedProgress = customEasing(rawProgress)
+      const normalizedProgress = Math.min(easedProgress / 2, 1)
       
-      currentProgress = progress * 100
-      setLineProgress(currentProgress)
+      currentCount = Math.floor(normalizedProgress * 100)
       
-      if (progress < 0.95) {
-        currentCount = Math.floor(progress * 100)
-      } else {
+      if (rawProgress >= 0.95) {
         currentCount = 100
       }
-      setCounter(currentCount)
       
-      if (progress < 1) {
+      setCounter(currentCount)
+      setLineProgress(normalizedProgress * 100)
+      
+      if (rawProgress < 1) {
         requestAnimationFrame(animate)
       }
     }
@@ -51,7 +58,7 @@ const LoadingScreen: React.FC = () => {
         <div 
           className="vertical-line" 
           style={{ 
-            height: `${lineProgress}%`,
+            left: `${lineProgress}%`,
             transition: 'none'
           }}
         ></div>
