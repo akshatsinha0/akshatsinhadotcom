@@ -36,3 +36,6 @@ HANDOFF.md
 
 # Angular cache
 .angular/
+
+# TS build info
+*.tsbuildinfo

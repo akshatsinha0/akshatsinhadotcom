@@ -1,9 +1,0 @@
-# DevOps configuration commented out - not needed for portfolio website
-# namespace: portfolio
-# resources:
-#   - ../../base
-# patchesStrategicMerge:
-#   - patch-deployment.yaml
-# images:
-#   - name: akshatsinha0/portfolio
-#     newTag: staging-$(GIT_SHA)
