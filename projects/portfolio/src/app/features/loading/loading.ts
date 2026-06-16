@@ -7,7 +7,7 @@ import {
   signal,
 } from '@angular/core';
 
-/** Full-screen intro loader (ported from React LoadingScreen). Drives a 6s
+/** Full-screen intro loader. Drives a 6s
  *  custom-eased counter and the squeezing line animation via requestAnimationFrame. */
 @Component({
   selector: 'app-loading',
@@ -44,7 +44,7 @@ export class Loading {
     });
   }
 
-  /** Hand-tuned multi-phase easing (verbatim from the React loader). */
+  /** Hand-tuned multi-phase easing for the intro counter. */
   private customEasing(t: number): number {
     if (t < 0.25) return t * 3.2;
     if (t < 0.45) return 0.8 + (t - 0.25) * 0.6;

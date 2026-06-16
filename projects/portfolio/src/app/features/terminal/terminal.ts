@@ -21,7 +21,7 @@ import {
 
 type CommandFn = () => readonly string[];
 
-/** Interactive fake-shell overlay (ported from React InteractiveTerminal).
+/** Interactive fake-shell overlay.
  *  Command content comes from @akshat/data; only dynamic commands live here. */
 @Component({
   selector: 'app-terminal',

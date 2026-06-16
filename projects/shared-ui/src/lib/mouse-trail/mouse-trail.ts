@@ -9,7 +9,7 @@ import {
   viewChild,
 } from '@angular/core';
 
-/** Smooth custom cursor + lerped trail (ported from React MouseTrail). Disabled
+/** Smooth custom cursor + lerped trail. Disabled
  *  for coarse pointers / reduced-motion. Currently unmounted, matching React. */
 @Component({
   selector: 'ak-mouse-trail',

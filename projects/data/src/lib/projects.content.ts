@@ -1,6 +1,6 @@
 import { Project, ProjectCategory, ProjectStatus } from '@akshat/core';
 
-/** Portfolio projects (ported from old src/data/projects.ts). Image paths point
+/** Portfolio projects. Image paths point
  *  at the app's public/ assets. */
 export const PROJECTS: readonly Project[] = [
   {

@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { LANDING_CARDS, LANDING_CGPA, LANDING_FEATURED, LANDING_HERO_META } from '@akshat/data';
 
-/** Pre-app landing page (ported from React LandingPage). Emits `entered` when
+/** Pre-app landing page. Emits `entered` when
  *  the visitor chooses to enter the portfolio. */
 @Component({
   selector: 'app-landing',

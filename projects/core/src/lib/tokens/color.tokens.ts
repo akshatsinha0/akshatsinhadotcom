@@ -2,13 +2,12 @@
  * CANONICAL color tokens — runtime mirror of the SCSS single-source-of-truth
  * at projects/portfolio/src/styles/tokens/.
  *
- * These arrays feed the animated `.top-color-patch` effect (see old React
- * src/App.tsx). Each entry is a `var(--ak-paint-…)` reference and MUST stay in
- * the SAME ORDER as the original React `lightPalette` / `chroma` arrays so the
- * randomized pick logic reproduces the exact same colors.
+ * These arrays feed the animated `.top-color-patch` effect. Each entry is a
+ * `var(--ak-paint-…)` reference; the array order is significant because the
+ * randomized pick logic depends on it.
  */
 
-/** React App.tsx `lightPalette` — soft aurora washes (order preserved). */
+/** Soft aurora washes for the color patch (order significant). */
 export const PATCH_LIGHT_PALETTE: readonly string[] = [
   'var(--ak-paint-skyice-a55)',        // rgba(186,230,253,0.55)
   'var(--ak-paint-seafoam-a50)',       // rgba(167,243,208,0.5)
@@ -22,7 +21,7 @@ export const PATCH_LIGHT_PALETTE: readonly string[] = [
   'var(--ak-paint-lavendermist-a50)',  // rgba(221,214,254,0.5)
 ] as const;
 
-/** React App.tsx `chroma` — saturated tint chips at alpha .20 (order preserved). */
+/** Saturated tint chips at alpha .20 for the color patch (order significant). */
 export const PATCH_CHROMA: readonly string[] = [
   'var(--ak-paint-amethyst-a20)',      // rgba(168,85,247,0.20)
   'var(--ak-paint-azure-a20)',         // rgba(59,130,246,0.20)

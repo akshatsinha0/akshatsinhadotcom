@@ -1,4 +1,4 @@
-/** Interactive-terminal content (ported verbatim from React InteractiveTerminal).
+/** Interactive-terminal content.
  *  Static command output lives here; dynamic commands (clear/exit/date) stay in
  *  the component. */
 

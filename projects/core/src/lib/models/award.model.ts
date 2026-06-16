@@ -1,4 +1,4 @@
-/** An award / recognition entry (mirror of old src/data/awards.ts). */
+/** An award / recognition entry. */
 export interface Award {
   readonly title: string;
   readonly organization: string;

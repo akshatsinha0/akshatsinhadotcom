@@ -4,7 +4,7 @@ import { ContactModal } from './contact-modal/contact-modal';
 
 type CardsState = 'stack' | 'scatter' | 'open';
 
-/** About section (ported from React Description). Content from @akshat/data. */
+/** About section. Content from @akshat/data. */
 @Component({
   selector: 'app-about',
   changeDetection: ChangeDetectionStrategy.OnPush,

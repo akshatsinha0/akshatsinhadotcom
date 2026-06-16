@@ -1,4 +1,4 @@
-/** Skills section content (ported from React Skills). Colors reference canonical
+/** Skills section content. Colors reference canonical
  *  brand tokens; logos point at the app's public/ assets. */
 export interface Skill {
   readonly name: string;

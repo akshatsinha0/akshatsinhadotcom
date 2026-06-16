@@ -14,7 +14,7 @@ const ROWS = 5;
 const TOTAL = COUNT_PER_ROW * ROWS;
 const defaultHeroIndex = () => 1 * COUNT_PER_ROW + Math.floor(COUNT_PER_ROW / 2);
 
-/** Scroll-pinned image gallery (ported from React src/images.tsx). Images are
+/** Scroll-pinned image gallery. Images are
  *  remote (Unsplash, with a Picsum fallback on error). As the section scrolls,
  *  the hovered/centre tile grows into a hero by reweighting the CSS grid. */
 @Component({

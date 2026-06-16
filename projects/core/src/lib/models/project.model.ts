@@ -2,7 +2,7 @@ import { ProjectCategory, ProjectStatus } from '../enums/project.enum';
 
 export type MetricMap = Readonly<Record<string, string>>;
 
-/** A portfolio project (mirror of old src/types/project.ts). */
+/** A portfolio project. */
 export interface Project {
   readonly id: number;
   readonly title: string;

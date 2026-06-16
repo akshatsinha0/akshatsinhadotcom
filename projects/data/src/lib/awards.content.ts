@@ -1,6 +1,6 @@
 import { Award } from '@akshat/core';
 
-/** Awards / recognitions (ported verbatim from old src/data/awards.ts). */
+/** Awards / recognitions. */
 export const AWARDS: readonly Award[] = [
   {
     title:

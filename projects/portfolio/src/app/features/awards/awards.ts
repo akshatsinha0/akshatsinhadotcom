@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { AWARDS } from '@akshat/data';
 
-/** Awards section (ported from React Awards) — renders @akshat/data. */
+/** Awards section — renders @akshat/data. */
 @Component({
   selector: 'app-awards',
   changeDetection: ChangeDetectionStrategy.OnPush,

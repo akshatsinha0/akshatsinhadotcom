@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { CERTIFICATIONS, MORE_CERTIFICATIONS } from '@akshat/data';
 
-/** Certifications section (ported from React Certifications) — data centralized. */
+/** Certifications section — data centralized. */
 @Component({
   selector: 'app-certifications',
   changeDetection: ChangeDetectionStrategy.OnPush,

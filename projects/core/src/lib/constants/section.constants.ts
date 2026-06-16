@@ -1,6 +1,6 @@
 /**
  * Canonical section identity + routing. Single source of truth for the section
- * ids the app navigates between (mirrors the old React `activeSection` strings)
+ * ids the app navigates between
  * and the route path each maps to. Consumed by the router, navigation, and the
  * SECTION_COLORS token map — never hardcode these strings at a callsite.
  */

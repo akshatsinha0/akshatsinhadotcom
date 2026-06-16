@@ -1,4 +1,4 @@
-/** A work/internship experience entry (mirror of old src/data/experiences.ts). */
+/** A work/internship experience entry. */
 export interface Experience {
   readonly id: string;
   readonly title: string;

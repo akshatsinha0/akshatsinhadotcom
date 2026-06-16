@@ -1,4 +1,4 @@
-/** About-section content (ported from React Description). Colors reference
+/** About-section content. Colors reference
  *  canonical section tokens — no raw hex. */
 import { RESUME_URL } from './links.content';
 

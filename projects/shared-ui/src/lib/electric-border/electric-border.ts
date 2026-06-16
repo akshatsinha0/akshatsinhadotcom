@@ -12,7 +12,7 @@ import {
 
 let uid = 0;
 
-/** Animated turbulent SVG border wrapper (ported from React ElectricBorder).
+/** Animated turbulent SVG border wrapper.
  *  Projects content via <ng-content>; drives feOffset/feDisplacement animation
  *  sized to the host via a ResizeObserver. */
 @Component({

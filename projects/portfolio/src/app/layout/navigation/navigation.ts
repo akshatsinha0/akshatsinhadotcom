@@ -11,7 +11,7 @@ interface NavItem {
   readonly isGallery?: boolean;
 }
 
-/** Side navigation (ported from React Navigation). Section ids, routes and
+/** Side navigation. Section ids, routes and
  *  colors come from @akshat/core — nothing hardcoded here. */
 @Component({
   selector: 'app-navigation',

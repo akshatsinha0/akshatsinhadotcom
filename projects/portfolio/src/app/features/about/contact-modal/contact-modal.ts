@@ -47,7 +47,7 @@ const EMPTY_FORM: ContactFormData = {
   additionalComments: '',
 };
 
-/** Multi-step contact form (ported from React ContactModal). */
+/** Multi-step contact form. */
 @Component({
   selector: 'app-contact-modal',
   changeDetection: ChangeDetectionStrategy.OnPush,

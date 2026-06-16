@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { EXPERIENCES } from '@akshat/data';
 
-/** Experience section (ported from React Experiences) — renders @akshat/data. */
+/** Experience section — renders @akshat/data. */
 @Component({
   selector: 'app-experiences',
   changeDetection: ChangeDetectionStrategy.OnPush,

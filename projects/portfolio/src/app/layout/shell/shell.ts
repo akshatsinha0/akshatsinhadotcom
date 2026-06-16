@@ -19,7 +19,7 @@ import { TerminalIcon } from '../terminal-icon/terminal-icon';
 
 type Phase = 'loading' | 'landing' | 'main';
 
-/** Portfolio shell (ported from React App): loading → landing → main phase
+/** Portfolio shell: loading → landing → main phase
  *  machine, animated top color patch, navigation, and the terminal overlay.
  *  Section components render in its nested router-outlet. */
 @Component({

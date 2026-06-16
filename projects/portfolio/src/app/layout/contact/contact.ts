@@ -8,7 +8,7 @@ interface SocialLink {
   readonly color: string;
 }
 
-/** Footer social links (ported from React Contact). Colors reference canonical
+/** Footer social links. Colors reference canonical
  *  paint tokens; icon paths point at the app's public/ assets. */
 @Component({
   selector: 'app-contact',

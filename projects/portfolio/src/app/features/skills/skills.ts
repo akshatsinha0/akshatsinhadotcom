@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { SKILLS } from '@akshat/data';
 
-/** Skills section (ported from React Skills) — content from @akshat/data. */
+/** Skills section — content from @akshat/data. */
 @Component({
   selector: 'app-skills',
   changeDetection: ChangeDetectionStrategy.OnPush,

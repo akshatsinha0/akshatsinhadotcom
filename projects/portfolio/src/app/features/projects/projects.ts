@@ -3,7 +3,7 @@ import { MetricMap } from '@akshat/core';
 import { PROJECTS } from '@akshat/data';
 import { ElectricBorder } from '@akshat/shared-ui';
 
-/** Projects showcase (ported from React Projects). Data from @akshat/data,
+/** Projects showcase. Data from @akshat/data,
  *  electric border from @akshat/shared-ui. */
 @Component({
   selector: 'app-projects',

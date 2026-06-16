@@ -1,6 +1,6 @@
 import { Experience } from '@akshat/core';
 
-/** Work experience entries (ported verbatim from old src/data/experiences.ts). */
+/** Work experience entries. */
 export const EXPERIENCES: readonly Experience[] = [
   {
     id: 'pcmpl',

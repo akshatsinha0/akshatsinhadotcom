@@ -1,4 +1,4 @@
-/** Landing-page content (ported from React LandingPage). */
+/** Landing-page content. */
 
 export interface LandingCard {
   readonly id: number;

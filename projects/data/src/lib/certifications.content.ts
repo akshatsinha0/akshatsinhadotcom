@@ -1,4 +1,4 @@
-/** Certifications content (ported from React Certifications). Ribbon colors use
+/** Certifications content. Ribbon colors use
  *  canonical tokens; logos/holograms point at the app's public/ assets. */
 export interface Certification {
   readonly title: string;
