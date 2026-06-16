@@ -1,61 +1,12 @@
-import {
-  afterRenderEffect,
-  ChangeDetectionStrategy,
-  Component,
-  DestroyRef,
-  ElementRef,
-  inject,
-  signal,
-  viewChild,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { PATCH_CHROMA, PATCH_LIGHT_PALETTE } from '@akshat/core';
-import { Loading } from './features/loading/loading';
-import { Landing } from './features/landing/landing';
-import { Terminal } from './features/terminal/terminal';
-import { Contact } from './layout/contact/contact';
-import { Navigation } from './layout/navigation/navigation';
-import { TerminalIcon } from './layout/terminal-icon/terminal-icon';
 
-type Phase = 'loading' | 'landing' | 'main';
-
-/** App shell (ported from React App): loading → landing → main phase machine,
- *  animated top color patch, and the terminal overlay. */
+/** Root host. The shell (portfolio chrome) and the standalone gallery are
+ *  selected by the router, so the gallery can render without the shell. */
 @Component({
   selector: 'app-root',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterOutlet, Loading, Landing, Navigation, Contact, TerminalIcon, Terminal],
-  templateUrl: './app.html',
-  styleUrl: './app.css',
+  imports: [RouterOutlet],
+  template: '<router-outlet />',
 })
-export class App {
-  protected readonly phase = signal<Phase>('loading');
-  protected readonly isTerminalOpen = signal(false);
-  private readonly patch = viewChild<ElementRef<HTMLElement>>('patch');
-
-  constructor() {
-    const timer = setTimeout(() => this.phase.set('landing'), 6500);
-    inject(DestroyRef).onDestroy(() => clearTimeout(timer));
-
-    // Animate the top color-patch CSS variables once the patch element exists.
-    afterRenderEffect((onCleanup) => {
-      const el = this.patch()?.nativeElement;
-      if (!el) return;
-      this.applyPatch(el);
-      const id = setInterval(() => this.applyPatch(el), 12000);
-      onCleanup(() => clearInterval(id));
-    });
-  }
-
-  protected enterMain(): void {
-    this.phase.set('main');
-  }
-
-  private applyPatch(el: HTMLElement): void {
-    const pick = (arr: readonly string[]) => arr[Math.floor(Math.random() * arr.length)];
-    for (let i = 1; i <= 5; i++) el.style.setProperty(`--c${i}`, pick(PATCH_LIGHT_PALETTE));
-    const mix = [...PATCH_CHROMA].sort(() => Math.random() - 0.5);
-    for (let i = 0; i < mix.length; i++) el.style.setProperty(`--c${i + 6}`, mix[i]);
-    el.style.setProperty('--patch-speed', `${24 + Math.floor(Math.random() * 24)}s`);
-  }
-}
+export class App {}
