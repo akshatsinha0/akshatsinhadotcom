@@ -1,5 +1,6 @@
 /** About-section content (ported from React Description). Colors reference
  *  canonical section tokens — no raw hex. */
+import { RESUME_URL } from './links.content';
 
 export interface ExpertiseArea {
   readonly id: string;
@@ -16,8 +17,8 @@ export interface AboutStat {
   readonly detail: string;
 }
 
-export const ABOUT_RESUME_URL =
-  'https://drive.google.com/file/d/1Uet3riDOGna4d3JUR2jxRvpNAP76OEcU/view?usp=sharing';
+/** Re-exported from the canonical links source so callers keep one import path. */
+export const ABOUT_RESUME_URL = RESUME_URL;
 
 export const ABOUT_PHILOSOPHY = 'Ready and suprised student.';
 

@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RESUME_URL } from '@akshat/data';
 
 interface SocialLink {
   readonly name: string;
@@ -31,7 +32,7 @@ export class Contact {
     },
     {
       name: 'Resume',
-      url: 'https://drive.google.com/file/d/1Uet3riDOGna4d3JUR2jxRvpNAP76OEcU/view?usp=sharing',
+      url: RESUME_URL,
       img: '/assets/3d-icons/RESUME3D.png',
       color: 'var(--ak-color-section-about)',
     },
