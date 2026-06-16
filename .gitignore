@@ -30,3 +30,6 @@ graphify-out/
 
 # Brainstorming specs & plans (local only, generic)
 docs/superpowers/
+
+# Session handoff notes (local only)
+HANDOFF.md
