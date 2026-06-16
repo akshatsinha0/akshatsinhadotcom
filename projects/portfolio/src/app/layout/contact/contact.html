@@ -1,0 +1,22 @@
+<div class="contact-container">
+  <div class="contact-header">
+    <h3>Let's Create Something Extraordinary Together</h3>
+    <p>Ready to transform ideas into digital masterpieces?</p>
+  </div>
+  <div class="social-links">
+    @for (link of socialLinks; track link.name; let i = $index) {
+      <a
+        [href]="link.url"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link"
+        [style.--link-color]="link.color"
+        [style.--delay]="(i * 0.1) + 's'"
+      >
+        <span class="social-icon-img"><img [src]="link.img" [alt]="link.name" /></span>
+        <span class="social-name">{{ link.name }}</span>
+        <div class="social-glow"></div>
+      </a>
+    }
+  </div>
+</div>

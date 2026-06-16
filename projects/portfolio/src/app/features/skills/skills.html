@@ -1,0 +1,57 @@
+<section class="skills-section">
+  <div class="skills-container">
+    <div class="section-header">
+      <h2 class="section-title">
+        <span class="title-gradient">Technical Mastery</span>
+        <span class="title-shadow">Technical Mastery</span>
+      </h2>
+      <p class="section-subtitle">Yah, technologies</p>
+    </div>
+    <div class="skills-grid">
+      @for (skill of skills; track skill.name) {
+        <div
+          class="skill-card"
+          [class.active]="activeSkill() === skill.name"
+          (mouseenter)="activeSkill.set(skill.name)"
+          (mouseleave)="activeSkill.set(null)"
+          [style.--skill-level]="skill.level + '%'"
+          [style.--skill-color]="skill.color"
+        >
+          <div class="particle-orbit">
+            @for (particle of skill.particles; track particle; let idx = $index) {
+              <div
+                class="orbiting-particle"
+                [style.--particle-index]="idx"
+                [style.--total-particles]="skill.particles.length"
+              >
+                {{ particle }}
+              </div>
+            }
+          </div>
+          <div class="skill-core">
+            <img [src]="skill.logo" [alt]="skill.name" class="skill-logo" />
+            <div class="core-glow"></div>
+          </div>
+          <div class="skill-details">
+            <h3 class="skill-name">{{ skill.name }}</h3>
+            <div class="skill-meta">
+              <span class="skill-level">{{ skill.level }}%</span>
+              <span class="skill-difficulty">Normal</span>
+            </div>
+          </div>
+          <div class="progress-constellation">
+            <div class="progress-bar">
+              <div class="progress-fill"></div>
+              <div class="progress-sparkles">
+                @for (i of sparkles; track i) {
+                  <div class="sparkle" [style.--sparkle-delay]="(i * 0.2) + 's'"></div>
+                }
+              </div>
+            </div>
+          </div>
+          <div class="quantum-ripple"></div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,31 @@
+@if (isOpen()) {
+  <div class="terminal-backdrop" (click)="close()"></div>
+  <div class="terminal-container">
+    <div class="terminal-header">
+      <div class="terminal-buttons">
+        <span class="btn-close" (click)="close()"></span>
+        <span class="btn-minimize"></span>
+        <span class="btn-maximize"></span>
+      </div>
+      <div class="terminal-title">akshat&#64;portfolio:~</div>
+      <button class="terminal-cancel" (click)="close()">Cancel</button>
+    </div>
+    <div class="terminal-body" #body>
+      @for (line of history(); track $index) {
+        <div class="terminal-line">{{ line }}</div>
+      }
+      <div class="terminal-input-line">
+        <span class="terminal-prompt">{{ prompt }}</span>
+        <input
+          type="text"
+          [value]="inputValue()"
+          (input)="onInput($any($event.target).value)"
+          (keydown)="onKey($event)"
+          class="terminal-input"
+          autofocus
+          spellcheck="false"
+        />
+      </div>
+    </div>
+  </div>
+}

@@ -1,0 +1,19 @@
+<section class="awards-section">
+  <div class="awards-container">
+    @for (a of awards; track a.title) {
+      <div class="award-card">
+        <div class="award-header">
+          <div class="trophy-icon">
+            <img [src]="trophy" alt="Trophy" class="trophy-image" />
+          </div>
+          <h3>{{ a.title }}</h3>
+        </div>
+        <div class="award-body">
+          <div class="organization">{{ a.organization }}</div>
+          <div class="year">{{ a.year }}</div>
+          <p class="description">{{ a.description }}</p>
+        </div>
+      </div>
+    }
+  </div>
+</section>

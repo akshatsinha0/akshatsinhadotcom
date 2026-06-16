@@ -1,0 +1,129 @@
+<div class="landing-page">
+  <header class="landing-header">
+    <div class="landing-logo">
+      <span class="logo-text">Akshat Sinha</span>
+      <span class="logo-subtitle">Portfolio</span>
+    </div>
+    <nav class="landing-nav">
+      <button class="nav-link">About</button>
+      <button class="nav-link">Projects</button>
+      <button class="nav-link">Experience</button>
+      <button class="nav-link">Skills</button>
+      <button class="nav-link">Certifications</button>
+      <button class="nav-link">Awards</button>
+    </nav>
+    <div class="landing-actions">
+      <button class="search-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <circle cx="11" cy="11" r="8" />
+          <path d="m21 21-4.35-4.35" />
+        </svg>
+      </button>
+      <button class="bookmark-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+        </svg>
+      </button>
+      <button class="enter-btn" (click)="enter()">Visit Portfolio</button>
+    </div>
+  </header>
+
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-badge">Featured</div>
+      <h1 class="hero-title">Akshat Sinha</h1>
+      <p class="hero-description">
+        Fragment Developer | Computer Science &#64; VIT Vellore | CGPA: {{ scrambledCgpa() || cgpaText }}
+      </p>
+      <div class="hero-meta">
+        @for (item of heroMeta; track item; let last = $last) {
+          <span class="meta-item">{{ item }}</span>
+          @if (!last) {
+            <span class="meta-divider">•</span>
+          }
+        }
+      </div>
+      <div class="hero-actions">
+        <button class="btn-primary" (click)="enter()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="5 3 19 12 5 21 5 3" />
+          </svg>
+          Visit My Portfolio
+        </button>
+        <button class="btn-secondary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+          </svg>
+          Add to Bookmarks
+        </button>
+        <button class="btn-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="16" x2="12" y2="12" />
+            <line x1="12" y1="8" x2="12.01" y2="8" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="hero-gradient"></div>
+    </div>
+  </section>
+
+  <section class="portfolio-picks">
+    <h2 class="section-title">Portfolio Highlights</h2>
+    <div class="cards-container">
+      @for (card of cards; track card.id) {
+        <div
+          class="portfolio-card"
+          [class.hovered]="hoveredCard() === card.id"
+          (mouseenter)="hoveredCard.set(card.id)"
+          (mouseleave)="hoveredCard.set(null)"
+          (click)="enter()"
+        >
+          <div class="card-image">
+            <div class="card-gradient"></div>
+            <div class="play-overlay">
+              <div class="play-button">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3" />
+                </svg>
+              </div>
+              <span class="play-text">Visit Portfolio</span>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">{{ card.title }}</h3>
+            <p class="card-category">{{ card.category }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <section class="featured-section">
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="featured-grid">
+      @for (item of featured; track item.title) {
+        <div class="featured-card" (click)="enter()">
+          <div class="featured-image">
+            <div class="featured-gradient"></div>
+            <div class="play-overlay">
+              <div class="play-button">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3" />
+                </svg>
+              </div>
+              <span class="play-text">Visit Portfolio</span>
+            </div>
+          </div>
+          <div class="featured-info">
+            <span class="featured-badge">{{ item.badge }}</span>
+            <h3 class="featured-title">{{ item.title }}</h3>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+</div>

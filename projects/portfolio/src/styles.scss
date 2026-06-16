@@ -2,4 +2,49 @@
 // semantic, and component custom properties for the whole app.
 @use './styles/tokens';
 
-/* You can add global styles to this file, and also import other style files */
+// Global resets + base typography (ported from old src/index.css; fonts live in index.html).
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Amazon Ember', sans-serif !important;
+}
+
+body {
+  background: var(--ak-paint-white);
+  color: var(--ak-paint-graphite-700);
+  overflow-x: hidden;
+  font-weight: 400;
+}
+
+strong,
+b {
+  font-weight: 700 !important;
+}
+
+.light-text {
+  font-weight: 300 !important;
+}
+
+// Reusable corner glow (hover) — colors centralized.
+.glow {
+  position: relative;
+}
+.glow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background:
+    radial-gradient(120% 120% at 10% 10%, var(--ak-paint-magenta-a45) 0, transparent 50%),
+    radial-gradient(120% 120% at 90% 10%, var(--ak-paint-red-a45) 0, transparent 50%),
+    radial-gradient(120% 120% at 10% 90%, var(--ak-paint-orange-a45) 0, transparent 50%),
+    radial-gradient(120% 120% at 90% 90%, var(--ak-paint-violetclassic-a45) 0, transparent 50%);
+  filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+.glow:hover::before {
+  opacity: 0.9;
+}
