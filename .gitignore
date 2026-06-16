@@ -33,3 +33,6 @@ docs/superpowers/
 
 # Session handoff notes (local only)
 HANDOFF.md
+
+# Angular cache
+.angular/
