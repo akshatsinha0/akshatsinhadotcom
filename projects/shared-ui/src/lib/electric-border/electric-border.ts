@@ -39,13 +39,14 @@ export class ElectricBorder {
   private readonly stroke = viewChild<ElementRef<HTMLDivElement>>('stroke');
 
   constructor() {
+    const destroyRef = inject(DestroyRef);
     afterNextRender(() => {
       const host = this.hostEl.nativeElement;
       if (!host) return;
       const observer = new ResizeObserver(() => this.updateAnim());
       observer.observe(host);
       this.updateAnim();
-      inject(DestroyRef).onDestroy(() => observer.disconnect());
+      destroyRef.onDestroy(() => observer.disconnect());
     });
     effect(() => {
       this.speed();
