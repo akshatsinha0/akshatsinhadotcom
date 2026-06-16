@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Knowledge-graph / code-intelligence tooling (local only)
+.codegraph/
+graphify-out/
+.understand-anything/
+
+# Brainstorming specs & plans (local only, generic)
+docs/superpowers/
