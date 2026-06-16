@@ -34,41 +34,69 @@
             <div class="form-grid">
               <div class="form-group">
                 <label>Distinguished Full Name *</label>
-                <input type="text" [value]="formData().fullName"
+                <input
+                  type="text"
+                  [value]="formData().fullName"
                   (input)="updateField('fullName', $any($event.target).value)"
-                  placeholder="Your complete nomenclature" [class.error]="errors()['fullName']" />
-                @if (errors()['fullName']) { <span class="error-text">{{ errors()['fullName'] }}</span> }
+                  placeholder="Your complete nomenclature"
+                  [class.error]="errors()['fullName']"
+                />
+                @if (errors()['fullName']) {
+                  <span class="error-text">{{ errors()['fullName'] }}</span>
+                }
               </div>
               <div class="form-group">
                 <label>Electronic Correspondence *</label>
-                <input type="email" [value]="formData().emailAddress"
+                <input
+                  type="email"
+                  [value]="formData().emailAddress"
                   (input)="updateField('emailAddress', $any($event.target).value)"
-                  placeholder="your.email@domain.com" [class.error]="errors()['emailAddress']" />
-                @if (errors()['emailAddress']) { <span class="error-text">{{ errors()['emailAddress'] }}</span> }
+                  placeholder="your.email@domain.com"
+                  [class.error]="errors()['emailAddress']"
+                />
+                @if (errors()['emailAddress']) {
+                  <span class="error-text">{{ errors()['emailAddress'] }}</span>
+                }
               </div>
               <div class="form-group">
                 <label>Telephonic Contact</label>
-                <input type="tel" [value]="formData().phoneNumber"
-                  (input)="updateField('phoneNumber', $any($event.target).value)" placeholder="+XX XXXXX XXXXX" />
+                <input
+                  type="tel"
+                  [value]="formData().phoneNumber"
+                  (input)="updateField('phoneNumber', $any($event.target).value)"
+                  placeholder="+XX XXXXX XXXXX"
+                />
               </div>
               <div class="form-group">
                 <label>Professional Designation *</label>
-                <input type="text" [value]="formData().professionalTitle"
+                <input
+                  type="text"
+                  [value]="formData().professionalTitle"
                   (input)="updateField('professionalTitle', $any($event.target).value)"
-                  placeholder="Your current professional role" [class.error]="errors()['professionalTitle']" />
-                @if (errors()['professionalTitle']) { <span class="error-text">{{ errors()['professionalTitle'] }}</span> }
+                  placeholder="Your current professional role"
+                  [class.error]="errors()['professionalTitle']"
+                />
+                @if (errors()['professionalTitle']) {
+                  <span class="error-text">{{ errors()['professionalTitle'] }}</span>
+                }
               </div>
               <div class="form-group">
                 <label>Organizational Affiliation</label>
-                <input type="text" [value]="formData().organization"
+                <input
+                  type="text"
+                  [value]="formData().organization"
                   (input)="updateField('organization', $any($event.target).value)"
-                  placeholder="Company, Institution, or Organization" />
+                  placeholder="Company, Institution, or Organization"
+                />
               </div>
               <div class="form-group">
                 <label>LinkedIn Professional Profile</label>
-                <input type="url" [value]="formData().linkedinProfile"
+                <input
+                  type="url"
+                  [value]="formData().linkedinProfile"
                   (input)="updateField('linkedinProfile', $any($event.target).value)"
-                  placeholder="https://linkedin.com/in/yourprofile" />
+                  placeholder="https://linkedin.com/in/yourprofile"
+                />
               </div>
             </div>
           </div>
@@ -78,8 +106,11 @@
             <div class="form-grid">
               <div class="form-group">
                 <label>Collaboration Category *</label>
-                <select [value]="formData().projectType"
-                  (change)="updateField('projectType', $any($event.target).value)" [class.error]="errors()['projectType']">
+                <select
+                  [value]="formData().projectType"
+                  (change)="updateField('projectType', $any($event.target).value)"
+                  [class.error]="errors()['projectType']"
+                >
                   <option value="">Select your project paradigm</option>
                   <option value="web-development">Web Development & Engineering</option>
                   <option value="mobile-application">Mobile Application Architecture</option>
@@ -90,12 +121,16 @@
                   <option value="startup-consultation">Startup Technical Consultation</option>
                   <option value="other">Alternative Collaboration Model</option>
                 </select>
-                @if (errors()['projectType']) { <span class="error-text">{{ errors()['projectType'] }}</span> }
+                @if (errors()['projectType']) {
+                  <span class="error-text">{{ errors()['projectType'] }}</span>
+                }
               </div>
               <div class="form-group">
                 <label>Engagement Methodology</label>
-                <select [value]="formData().collaborationType"
-                  (change)="updateField('collaborationType', $any($event.target).value)">
+                <select
+                  [value]="formData().collaborationType"
+                  (change)="updateField('collaborationType', $any($event.target).value)"
+                >
                   <option value="">Select collaboration structure</option>
                   <option value="full-time">Full-time Partnership</option>
                   <option value="part-time">Part-time Collaboration</option>
@@ -107,7 +142,10 @@
               </div>
               <div class="form-group">
                 <label>Investment Parameters</label>
-                <select [value]="formData().budget" (change)="updateField('budget', $any($event.target).value)">
+                <select
+                  [value]="formData().budget"
+                  (change)="updateField('budget', $any($event.target).value)"
+                >
                   <option value="">Select budget range</option>
                   <option value="startup">Startup/Academic (&lt; $5K)</option>
                   <option value="small">Small Scale ($5K - $25K)</option>
@@ -119,8 +157,11 @@
               </div>
               <div class="form-group">
                 <label>Project Timeline *</label>
-                <select [value]="formData().timeline"
-                  (change)="updateField('timeline', $any($event.target).value)" [class.error]="errors()['timeline']">
+                <select
+                  [value]="formData().timeline"
+                  (change)="updateField('timeline', $any($event.target).value)"
+                  [class.error]="errors()['timeline']"
+                >
                   <option value="">Select expected duration</option>
                   <option value="immediate">Immediate (Within 2 weeks)</option>
                   <option value="short">Short-term (1-3 months)</option>
@@ -128,7 +169,9 @@
                   <option value="long">Long-term (6+ months)</option>
                   <option value="ongoing">Ongoing Partnership</option>
                 </select>
-                @if (errors()['timeline']) { <span class="error-text">{{ errors()['timeline'] }}</span> }
+                @if (errors()['timeline']) {
+                  <span class="error-text">{{ errors()['timeline'] }}</span>
+                }
               </div>
             </div>
           </div>
@@ -138,23 +181,35 @@
             <div class="form-grid">
               <div class="form-group full-width">
                 <label>Primary Discourse *</label>
-                <textarea [value]="formData().primaryMessage"
+                <textarea
+                  [value]="formData().primaryMessage"
                   (input)="updateField('primaryMessage', $any($event.target).value)"
                   placeholder="Articulate your vision, requirements, and expectations in comprehensive detail..."
-                  rows="6" [class.error]="errors()['primaryMessage']"></textarea>
-                @if (errors()['primaryMessage']) { <span class="error-text">{{ errors()['primaryMessage'] }}</span> }
-                <span class="character-count">{{ formData().primaryMessage.length }}/500 characters</span>
+                  rows="6"
+                  [class.error]="errors()['primaryMessage']"
+                ></textarea>
+                @if (errors()['primaryMessage']) {
+                  <span class="error-text">{{ errors()['primaryMessage'] }}</span>
+                }
+                <span class="character-count"
+                  >{{ formData().primaryMessage.length }}/500 characters</span
+                >
               </div>
               <div class="form-group full-width">
                 <label>Specific Technical Inquiries</label>
-                <textarea [value]="formData().specificQuestions"
+                <textarea
+                  [value]="formData().specificQuestions"
                   (input)="updateField('specificQuestions', $any($event.target).value)"
-                  placeholder="Pose any technical questions, clarifications, or specific concerns..." rows="4"></textarea>
+                  placeholder="Pose any technical questions, clarifications, or specific concerns..."
+                  rows="4"
+                ></textarea>
               </div>
               <div class="form-group">
                 <label>Preferred Meeting Format</label>
-                <select [value]="formData().preferredMeeting"
-                  (change)="updateField('preferredMeeting', $any($event.target).value)">
+                <select
+                  [value]="formData().preferredMeeting"
+                  (change)="updateField('preferredMeeting', $any($event.target).value)"
+                >
                   <option value="">Select communication preference</option>
                   <option value="video-call">Video Conference (Zoom/Meet)</option>
                   <option value="phone-call">Telephonic Discussion</option>
@@ -165,8 +220,10 @@
               </div>
               <div class="form-group">
                 <label>Communication Style</label>
-                <select [value]="formData().communicationStyle"
-                  (change)="updateField('communicationStyle', $any($event.target).value)">
+                <select
+                  [value]="formData().communicationStyle"
+                  (change)="updateField('communicationStyle', $any($event.target).value)"
+                >
                   <option value="">Select your preference</option>
                   <option value="formal">Formal & Structured</option>
                   <option value="casual">Casual & Friendly</option>
@@ -181,10 +238,16 @@
           <div class="form-step success-step">
             <div class="success-animation"><div class="checkmark">✓</div></div>
             <h3>Distinguished Request Transmitted Successfully!</h3>
-            <p>Your comprehensive inquiry has been received and will be reviewed with utmost priority.</p>
+            <p>
+              Your comprehensive inquiry has been received and will be reviewed with utmost
+              priority.
+            </p>
             <div class="success-details">
               <p><strong>Anticipated Response Time:</strong> Within 24-48 hours</p>
-              <p><strong>Next Steps:</strong> Akshat will personally review your request and respond accordingly</p>
+              <p>
+                <strong>Next Steps:</strong> Akshat will personally review your request and respond
+                accordingly
+              </p>
               <p><strong>Alternative Contact:</strong> akshatsinhasramhardy&#64;gmail.com</p>
             </div>
           </div>
@@ -194,7 +257,9 @@
 
     @if (currentStep() < 4) {
       <div class="modal-footer">
-        <button class="btn-secondary" (click)="previous()" [disabled]="currentStep() === 1">Previous</button>
+        <button class="btn-secondary" (click)="previous()" [disabled]="currentStep() === 1">
+          Previous
+        </button>
         @if (currentStep() < 3) {
           <button class="btn-primary" (click)="next()">Continue Forward</button>
         } @else {

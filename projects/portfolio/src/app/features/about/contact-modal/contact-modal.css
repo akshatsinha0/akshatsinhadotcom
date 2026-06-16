@@ -18,14 +18,18 @@
   width: 90vw;
   max-width: 800px;
   max-height: 90vh;
-  background: linear-gradient(135deg, var(--ak-paint-onyx-850) 0%, var(--ak-paint-charcoal-750) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--ak-paint-onyx-850) 0%,
+    var(--ak-paint-charcoal-750) 100%
+  );
   border-radius: 20px;
   border: 1px solid var(--ak-paint-indigo-a30);
   box-shadow: 0 30px 60px var(--ak-paint-ink-a70);
   z-index: 2001;
   animation: modalSlideIn 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   overflow: hidden;
-  font-family: "Fira Sans", sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   display: flex;
   flex-direction: column;
 }
@@ -112,8 +116,13 @@
 }
 
 @keyframes iconPulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.2); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
 }
 
 .step-icon {
@@ -223,7 +232,7 @@
   border-radius: 8px;
   padding: 0.8rem;
   color: white;
-  font-family: "Fira Sans", sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   transition: all 0.3s ease;
 }
 
@@ -278,9 +287,15 @@
 }
 
 @keyframes checkmarkBounce {
-  0% { transform: scale(0) rotate(45deg); }
-  50% { transform: scale(1.2) rotate(45deg); }
-  100% { transform: scale(1) rotate(0deg); }
+  0% {
+    transform: scale(0) rotate(45deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(45deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
 }
 
 .success-details {
@@ -310,7 +325,7 @@
   padding: 0.8rem 2rem;
   border-radius: 8px;
   border: none;
-  font-family: "Fira Sans", sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -411,5 +426,3 @@
     backdrop-filter: blur(20px);
   }
 }
-
-

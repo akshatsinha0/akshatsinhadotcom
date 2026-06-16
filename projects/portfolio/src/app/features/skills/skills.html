@@ -44,7 +44,7 @@
               <div class="progress-fill"></div>
               <div class="progress-sparkles">
                 @for (i of sparkles; track i) {
-                  <div class="sparkle" [style.--sparkle-delay]="(i * 0.2) + 's'"></div>
+                  <div class="sparkle" [style.--sparkle-delay]="i * 0.2 + 's'"></div>
                 }
               </div>
             </div>

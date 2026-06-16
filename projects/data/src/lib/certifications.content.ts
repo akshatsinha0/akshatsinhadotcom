@@ -49,9 +49,39 @@ export const CERTIFICATIONS: readonly Certification[] = [
 ];
 
 export const MORE_CERTIFICATIONS: readonly MoreCertification[] = [
-  { title: 'AWS Solutions Architect', issuer: 'Amazon Web Services', date: '2024', code: 'AWS-SA-1122', logo: '/assets/certs/aws-cert-logo.png' },
-  { title: 'Docker Certified Associate', issuer: 'Docker', date: '2022', code: 'DOCKER-DCA-3344', logo: '/assets/certs/aws-cert-logo.png' },
-  { title: 'Kubernetes CKAD', issuer: 'The Linux Foundation', date: '2022', code: 'LF-CKAD-5566', logo: '/assets/certs/aws-cert-logo.png' },
-  { title: 'Google Professional Cloud Developer', issuer: 'Google Cloud', date: '2021', code: 'GCP-PCD-7788', logo: '/assets/certs/aws-cert-logo.png' },
-  { title: 'Azure Developer Associate', issuer: 'Microsoft', date: '2021', code: 'AZURE-DA-9900', logo: '/assets/certs/aws-cert-logo.png' },
+  {
+    title: 'AWS Solutions Architect',
+    issuer: 'Amazon Web Services',
+    date: '2024',
+    code: 'AWS-SA-1122',
+    logo: '/assets/certs/aws-cert-logo.png',
+  },
+  {
+    title: 'Docker Certified Associate',
+    issuer: 'Docker',
+    date: '2022',
+    code: 'DOCKER-DCA-3344',
+    logo: '/assets/certs/aws-cert-logo.png',
+  },
+  {
+    title: 'Kubernetes CKAD',
+    issuer: 'The Linux Foundation',
+    date: '2022',
+    code: 'LF-CKAD-5566',
+    logo: '/assets/certs/aws-cert-logo.png',
+  },
+  {
+    title: 'Google Professional Cloud Developer',
+    issuer: 'Google Cloud',
+    date: '2021',
+    code: 'GCP-PCD-7788',
+    logo: '/assets/certs/aws-cert-logo.png',
+  },
+  {
+    title: 'Azure Developer Associate',
+    issuer: 'Microsoft',
+    date: '2021',
+    code: 'AZURE-DA-9900',
+    logo: '/assets/certs/aws-cert-logo.png',
+  },
 ];

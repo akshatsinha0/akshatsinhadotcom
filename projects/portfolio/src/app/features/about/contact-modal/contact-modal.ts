@@ -64,10 +64,30 @@ export class ContactModal {
   protected readonly isSubmitting = signal(false);
 
   protected readonly steps: readonly Step[] = [
-    { id: 1, title: 'Professional Credentials', subtitle: "Let's establish your distinguished identity", icon: '' },
-    { id: 2, title: 'Collaboration Intentions', subtitle: 'Define the scope of our potential partnership', icon: '' },
-    { id: 3, title: 'Communication Dynamics', subtitle: 'Share your thoughts and inquiries', icon: '💬' },
-    { id: 4, title: 'Finalization & Submission', subtitle: 'Review and transmit your distinguished request', icon: '✨' },
+    {
+      id: 1,
+      title: 'Professional Credentials',
+      subtitle: "Let's establish your distinguished identity",
+      icon: '',
+    },
+    {
+      id: 2,
+      title: 'Collaboration Intentions',
+      subtitle: 'Define the scope of our potential partnership',
+      icon: '',
+    },
+    {
+      id: 3,
+      title: 'Communication Dynamics',
+      subtitle: 'Share your thoughts and inquiries',
+      icon: '💬',
+    },
+    {
+      id: 4,
+      title: 'Finalization & Submission',
+      subtitle: 'Review and transmit your distinguished request',
+      icon: '✨',
+    },
   ];
 
   protected readonly activeStep = computed(() => this.steps[this.currentStep() - 1]);
@@ -111,16 +131,20 @@ export class ContactModal {
     const next: Record<string, string> = {};
     if (step === 1) {
       if (!data.fullName.trim()) next['fullName'] = 'Your distinguished name is requisite';
-      if (!data.emailAddress.trim()) next['emailAddress'] = 'Electronic correspondence address required';
+      if (!data.emailAddress.trim())
+        next['emailAddress'] = 'Electronic correspondence address required';
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.emailAddress))
         next['emailAddress'] = 'Please provide a valid electronic mail format';
-      if (!data.professionalTitle.trim()) next['professionalTitle'] = 'Your professional designation is essential';
+      if (!data.professionalTitle.trim())
+        next['professionalTitle'] = 'Your professional designation is essential';
     } else if (step === 2) {
       if (!data.projectType) next['projectType'] = 'Please specify your collaboration intentions';
       if (!data.timeline) next['timeline'] = 'Project timeline specification required';
     } else if (step === 3) {
-      if (!data.primaryMessage.trim()) next['primaryMessage'] = 'Your primary discourse is mandatory';
-      if (data.primaryMessage.length < 20) next['primaryMessage'] = 'Please elaborate your message comprehensively';
+      if (!data.primaryMessage.trim())
+        next['primaryMessage'] = 'Your primary discourse is mandatory';
+      if (data.primaryMessage.length < 20)
+        next['primaryMessage'] = 'Please elaborate your message comprehensively';
     }
     this.errors.set(next);
     return Object.keys(next).length === 0;

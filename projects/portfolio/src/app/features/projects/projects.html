@@ -9,7 +9,11 @@
       <p class="section-subtitle">Innovative solutions engineered with passion and precision</p>
       <div class="view-selector">
         @for (mode of ['carousel', 'timeline']; track mode) {
-          <button class="view-btn" [class.active]="viewMode() === mode" (click)="viewMode.set($any(mode))">
+          <button
+            class="view-btn"
+            [class.active]="viewMode() === mode"
+            (click)="viewMode.set($any(mode))"
+          >
             <span class="btn-icon">{{ mode === 'carousel' ? '◉' : '▤' }}</span>
             <span class="btn-text">{{ mode.charAt(0).toUpperCase() + mode.slice(1) }}</span>
           </button>
@@ -19,7 +23,13 @@
 
     <div class="projects-showcase view-{{ viewMode() }}">
       @for (project of projects; track project.id; let index = $index) {
-        <ak-electric-border [color]="borderColor" [speed]="1" [chaos]="0.5" [thickness]="2" style="border-radius: 0">
+        <ak-electric-border
+          [color]="borderColor"
+          [speed]="1"
+          [chaos]="0.5"
+          [thickness]="2"
+          style="border-radius: 0"
+        >
           <div
             class="project-card"
             [class.active]="activeProject() === index"
@@ -40,10 +50,18 @@
                   <div class="pfx-flip-scene">
                     <div class="pfx-flip-card" [class.is-turned]="turned()[index]">
                       <div class="pfx-flip-face pfx-front">
-                        <img class="pfx-img" [src]="project.images[0]" [alt]="project.title + ' - View 1'" />
+                        <img
+                          class="pfx-img"
+                          [src]="project.images[0]"
+                          [alt]="project.title + ' - View 1'"
+                        />
                       </div>
                       <div class="pfx-flip-face pfx-back">
-                        <img class="pfx-img" [src]="project.images[1]" [alt]="project.title + ' - View 2'" />
+                        <img
+                          class="pfx-img"
+                          [src]="project.images[1]"
+                          [alt]="project.title + ' - View 2'"
+                        />
                       </div>
                     </div>
                     <div class="image-overlay">
@@ -109,7 +127,7 @@
                 <h4 class="tech-title">Technology Stack</h4>
                 <div class="tech-constellation">
                   @for (tech of project.technologies; track tech; let idx = $index) {
-                    <div class="tech-node" [style.--delay]="(idx * 0.1) + 's'">
+                    <div class="tech-node" [style.--delay]="idx * 0.1 + 's'">
                       <div class="node-core">{{ tech }}</div>
                     </div>
                   }
@@ -118,14 +136,24 @@
 
               <div class="project-actions">
                 @if (project.link) {
-                  <a [href]="project.link" target="_blank" rel="noopener noreferrer" class="action-btn primary-action">
+                  <a
+                    [href]="project.link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="action-btn primary-action"
+                  >
                     <span class="btn-bg"></span>
                     <span class="btn-text">Live Demo</span>
                     <span class="btn-icon"></span>
                   </a>
                 }
                 @if (project.github) {
-                  <a [href]="project.github" target="_blank" rel="noopener noreferrer" class="action-btn secondary-action">
+                  <a
+                    [href]="project.github"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="action-btn secondary-action"
+                  >
                     <span class="btn-bg"></span>
                     <span class="btn-text">Source Code</span>
                     <span class="btn-icon"></span>
@@ -141,7 +169,11 @@
     <div class="project-navigation">
       <div class="nav-dots">
         @for (project of projects; track project.id; let index = $index) {
-          <button class="nav-dot" [class.active]="activeProject() === index" (click)="activeProject.set(index)">
+          <button
+            class="nav-dot"
+            [class.active]="activeProject() === index"
+            (click)="activeProject.set(index)"
+          >
             <span class="dot-pulse"></span>
           </button>
         }

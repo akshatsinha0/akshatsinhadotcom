@@ -43,62 +43,62 @@
   --ak-paint-fog-a90: rgba(144, 150, 166, 0.9);
 
   // ---- Aurora / patch palette alphas (App.tsx lightPalette) ----
-  --ak-paint-skyice-a00: rgba(186, 230, 253, 0);     // #bae6fd fade
+  --ak-paint-skyice-a00: rgba(186, 230, 253, 0); // #bae6fd fade
   --ak-paint-skyice-a55: rgba(186, 230, 253, 0.55);
-  --ak-paint-seafoam-a00: rgba(167, 243, 208, 0);    // #a7f3d0 fade
+  --ak-paint-seafoam-a00: rgba(167, 243, 208, 0); // #a7f3d0 fade
   --ak-paint-seafoam-a50: rgba(167, 243, 208, 0.5);
-  --ak-paint-flamingo-a00: rgba(244, 114, 182, 0);   // #f472b6 fade
+  --ak-paint-flamingo-a00: rgba(244, 114, 182, 0); // #f472b6 fade
   --ak-paint-flamingo-a45: rgba(244, 114, 182, 0.45);
-  --ak-paint-apricot-a00: rgba(253, 186, 116, 0);    // #fdba74 fade
+  --ak-paint-apricot-a00: rgba(253, 186, 116, 0); // #fdba74 fade
   --ak-paint-apricot-a45: rgba(253, 186, 116, 0.45);
   --ak-paint-cornflower-a00: rgba(147, 197, 253, 0); // #93c5fd fade
   --ak-paint-cornflower-a50: rgba(147, 197, 253, 0.5);
   --ak-paint-cottoncandy-a50: rgba(250, 204, 255, 0.5); // #faccff
-  --ak-paint-petal-a55: rgba(254, 205, 211, 0.55);   // #fecdd3
-  --ak-paint-sunbeam-a50: rgba(255, 247, 133, 0.5);  // #fff785
+  --ak-paint-petal-a55: rgba(254, 205, 211, 0.55); // #fecdd3
+  --ak-paint-sunbeam-a50: rgba(255, 247, 133, 0.5); // #fff785
   --ak-paint-aquamint-a50: rgba(204, 251, 241, 0.5); // #ccfbf1
   --ak-paint-lavendermist-a50: rgba(221, 214, 254, 0.5); // #ddd6fe
 
   // ---- Chroma palette alphas (App.tsx chroma, alpha .20) ----
-  --ak-paint-amethyst-a20: rgba(168, 85, 247, 0.20); // #a855f7
+  --ak-paint-amethyst-a20: rgba(168, 85, 247, 0.2); // #a855f7
   --ak-paint-amethyst-a45: rgba(168, 85, 247, 0.45);
-  --ak-paint-azure-a20: rgba(59, 130, 246, 0.20);    // #3b82f6
-  --ak-paint-azure-a40: rgba(59, 130, 246, 0.40);
-  --ak-paint-grass-a20: rgba(34, 197, 94, 0.20);     // #22c55e
-  --ak-paint-vermilion-a20: rgba(239, 68, 68, 0.20); // #ef4444
-  --ak-paint-tangerine-a20: rgba(249, 115, 22, 0.20);// #f97316
-  --ak-paint-periwinkle-a20: rgba(139, 92, 246, 0.20); // #8b5cf6
+  --ak-paint-azure-a20: rgba(59, 130, 246, 0.2); // #3b82f6
+  --ak-paint-azure-a40: rgba(59, 130, 246, 0.4);
+  --ak-paint-grass-a20: rgba(34, 197, 94, 0.2); // #22c55e
+  --ak-paint-vermilion-a20: rgba(239, 68, 68, 0.2); // #ef4444
+  --ak-paint-tangerine-a20: rgba(249, 115, 22, 0.2); // #f97316
+  --ak-paint-periwinkle-a20: rgba(139, 92, 246, 0.2); // #8b5cf6
 
   // ---- Loading / gradient ribbon alphas ----
-  --ak-paint-violetbeam-a00: rgba(138, 43, 226, 0);  // blueviolet fade
+  --ak-paint-violetbeam-a00: rgba(138, 43, 226, 0); // blueviolet fade
   --ak-paint-violetbeam-a28: rgba(138, 43, 226, 0.28);
   --ak-paint-violetbeam-a55: rgba(138, 43, 226, 0.55);
-  --ak-paint-rubyglow-a00: rgba(231, 58, 82, 0);     // #e73a52 fade
+  --ak-paint-rubyglow-a00: rgba(231, 58, 82, 0); // #e73a52 fade
   --ak-paint-rubyglow-a28: rgba(231, 58, 82, 0.28);
   --ak-paint-rubyglow-a55: rgba(231, 58, 82, 0.55);
-  --ak-paint-mauveglow-a00: rgba(190, 75, 255, 0);   // #be4bff fade
+  --ak-paint-mauveglow-a00: rgba(190, 75, 255, 0); // #be4bff fade
   --ak-paint-mauveglow-a30: rgba(190, 75, 255, 0.3);
 
   // ---- Spectrum sweep alphas (matrix / spectrum hover effects) ----
   --ak-paint-red-a35: rgba(255, 0, 0, 0.35);
-  --ak-paint-red-a40: rgba(255, 0, 0, 0.40);
+  --ak-paint-red-a40: rgba(255, 0, 0, 0.4);
   --ak-paint-red-a45: rgba(255, 0, 0, 0.45);
   --ak-paint-magenta-a35: rgba(255, 0, 255, 0.35);
-  --ak-paint-magenta-a40: rgba(255, 0, 255, 0.40);
+  --ak-paint-magenta-a40: rgba(255, 0, 255, 0.4);
   --ak-paint-magenta-a45: rgba(255, 0, 255, 0.45);
   --ak-paint-orange-a35: rgba(255, 165, 0, 0.35);
-  --ak-paint-orange-a40: rgba(255, 165, 0, 0.40);
+  --ak-paint-orange-a40: rgba(255, 165, 0, 0.4);
   --ak-paint-orange-a45: rgba(255, 165, 0, 0.45);
   --ak-paint-violetclassic-a35: rgba(238, 130, 238, 0.35);
-  --ak-paint-violetclassic-a40: rgba(238, 130, 238, 0.40);
+  --ak-paint-violetclassic-a40: rgba(238, 130, 238, 0.4);
   --ak-paint-violetclassic-a45: rgba(238, 130, 238, 0.45);
 
   // ---- Misc accent washes ----
-  --ak-paint-cerise-a35: rgba(236, 72, 153, 0.35);   // #ec4899
-  --ak-paint-coral-a20: rgba(255, 107, 107, 0.2);    // #ff6b6b
-  --ak-paint-salmon-a00: rgba(255, 99, 172, 0);      // #ff63ac fade
+  --ak-paint-cerise-a35: rgba(236, 72, 153, 0.35); // #ec4899
+  --ak-paint-coral-a20: rgba(255, 107, 107, 0.2); // #ff6b6b
+  --ak-paint-salmon-a00: rgba(255, 99, 172, 0); // #ff63ac fade
   --ak-paint-salmon-a38: rgba(255, 99, 172, 0.38);
-  --ak-paint-peach-a00: rgba(255, 153, 102, 0);      // #ff9966 fade
+  --ak-paint-peach-a00: rgba(255, 153, 102, 0); // #ff9966 fade
   --ak-paint-peach-a38: rgba(255, 153, 102, 0.38);
-  --ak-paint-linkedin-a30: rgba(25, 125, 206, 0.3);  // #197dce wash
+  --ak-paint-linkedin-a30: rgba(25, 125, 206, 0.3); // #197dce wash
 }

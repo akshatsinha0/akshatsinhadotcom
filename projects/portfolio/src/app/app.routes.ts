@@ -20,7 +20,8 @@ export const routes: Routes = [
       },
       {
         path: SECTION_ROUTE[SectionId.Experiences],
-        loadComponent: () => import('./features/experiences/experiences').then((m) => m.Experiences),
+        loadComponent: () =>
+          import('./features/experiences/experiences').then((m) => m.Experiences),
       },
       {
         path: SECTION_ROUTE[SectionId.Projects],

@@ -7,7 +7,12 @@
       <div class="img-grid">
         @for (i of items; track i) {
           <figure class="card" [class.focus]="heroIdx() === i" (mouseenter)="setHover(i)">
-            <img [src]="unsplash(i, 1600, 900)" referrerpolicy="no-referrer" [alt]="'img-' + i" (error)="onImgError($event, i)" />
+            <img
+              [src]="unsplash(i, 1600, 900)"
+              referrerpolicy="no-referrer"
+              [alt]="'img-' + i"
+              (error)="onImgError($event, i)"
+            />
           </figure>
         }
       </div>
@@ -15,19 +20,44 @@
         <div class="overlay-inner">
           <div class="o-line t1">Black ice waits under blue air.</div>
           <div class="o-line t2">Cracks write their slow lines across the bay.</div>
-          <div class="o-line t3 typewriter">Somewhere below this calm, the water remembers winter.</div>
+          <div class="o-line t3 typewriter">
+            Somewhere below this calm, the water remembers winter.
+          </div>
         </div>
       </div>
     </div>
   </section>
   <footer class="img-footer">
     <h2 class="footer-title">Thanks for scrolling</h2>
-    <p class="footer-sub">You've reached the end of this scrolly gallery. Here are a few quick notes.</p>
+    <p class="footer-sub">
+      You've reached the end of this scrolly gallery. Here are a few quick notes.
+    </p>
     <div class="footer-grid">
-      <div class="f-card"><strong>Polar hush</strong><p class="footer-note">The sky slows to a breath and the ice listens. A ribbon of green curls over a black sea.</p></div>
-      <div class="f-card"><strong>Needle light</strong><p class="footer-note">Faint sparks climb the horizon, thin as frost on wire, then gather into a slow tide.</p></div>
-      <div class="f-card"><strong>Magnet roads</strong><p class="footer-note">Invisible lanes pull color north. You can hear it if you hold still—like snow moving in sleep.</p></div>
-      <div class="f-card"><strong>Return</strong><p class="footer-note">What rises, falls. Dawn takes back the sky, and the lake keeps the secret.</p></div>
+      <div class="f-card">
+        <strong>Polar hush</strong>
+        <p class="footer-note">
+          The sky slows to a breath and the ice listens. A ribbon of green curls over a black sea.
+        </p>
+      </div>
+      <div class="f-card">
+        <strong>Needle light</strong>
+        <p class="footer-note">
+          Faint sparks climb the horizon, thin as frost on wire, then gather into a slow tide.
+        </p>
+      </div>
+      <div class="f-card">
+        <strong>Magnet roads</strong>
+        <p class="footer-note">
+          Invisible lanes pull color north. You can hear it if you hold still—like snow moving in
+          sleep.
+        </p>
+      </div>
+      <div class="f-card">
+        <strong>Return</strong>
+        <p class="footer-note">
+          What rises, falls. Dawn takes back the sky, and the lake keeps the secret.
+        </p>
+      </div>
     </div>
     <p class="footer-note">Made with Angular</p>
   </footer>

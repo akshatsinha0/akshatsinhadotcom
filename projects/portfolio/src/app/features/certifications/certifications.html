@@ -2,15 +2,26 @@
   <div class="cert-note">Still in creation, so dummy hifi objects are functioning</div>
   <div class="quantum-particles">
     @for (i of particles; track i) {
-      <div class="particle" [style.--particle-delay]="(i * 0.3) + 's'" [style.--particle-duration]="(5 + (i % 5)) + 's'"></div>
+      <div
+        class="particle"
+        [style.--particle-delay]="i * 0.3 + 's'"
+        [style.--particle-duration]="5 + (i % 5) + 's'"
+      ></div>
     }
   </div>
 
   <div class="certification-matrix">
     @for (cert of certifications; track cert.code; let idx = $index) {
-      <div class="certification-card" [style.--delay]="(idx * 0.1) + 's'" [style.--ribbon-color]="cert.ribbonColor">
+      <div
+        class="certification-card"
+        [style.--delay]="idx * 0.1 + 's'"
+        [style.--ribbon-color]="cert.ribbonColor"
+      >
         <div class="holographic-overlay">
-          <div class="hologram-pattern" [style.background-image]="'url(' + cert.hologram + ')'"></div>
+          <div
+            class="hologram-pattern"
+            [style.background-image]="'url(' + cert.hologram + ')'"
+          ></div>
           <div class="light-refraction"></div>
         </div>
         <div class="verification-ribbon">
@@ -40,7 +51,11 @@
             </div>
             <div class="detail-item">
               <label style="color: white">Credential ID:</label>
-              <button class="credential-id" (click)="copyToClipboard(cert.code)" style="color: white">
+              <button
+                class="credential-id"
+                (click)="copyToClipboard(cert.code)"
+                style="color: white"
+              >
                 {{ cert.code }}
                 @if (copiedCode() === cert.code) {
                   <span class="copy-feedback" style="color: white">Copied!</span>

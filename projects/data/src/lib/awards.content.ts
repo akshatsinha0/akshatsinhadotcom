@@ -3,8 +3,7 @@ import { Award } from '@akshat/core';
 /** Awards / recognitions. */
 export const AWARDS: readonly Award[] = [
   {
-    title:
-      'Winner — Ideathon 2.0 (Pixelate, VIT Vellore), Team Rudiment, Project: Authentica.',
+    title: 'Winner — Ideathon 2.0 (Pixelate, VIT Vellore), Team Rudiment, Project: Authentica.',
     organization: 'Pixelate, VIT Vellore',
     year: 'Mar 2025',
     description:

@@ -63,8 +63,14 @@ export class ElectricBorder {
     const strokeEl = this.stroke()?.nativeElement;
     if (strokeEl) strokeEl.style.filter = `url(#${this.filterId})`;
 
-    const width = Math.max(1, Math.round(host.clientWidth || host.getBoundingClientRect().width || 0));
-    const height = Math.max(1, Math.round(host.clientHeight || host.getBoundingClientRect().height || 0));
+    const width = Math.max(
+      1,
+      Math.round(host.clientWidth || host.getBoundingClientRect().width || 0),
+    );
+    const height = Math.max(
+      1,
+      Math.round(host.clientHeight || host.getBoundingClientRect().height || 0),
+    );
 
     const dyAnims = Array.from(svg.querySelectorAll('feOffset > animate[attributeName="dy"]'));
     if (dyAnims.length >= 2) {

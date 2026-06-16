@@ -107,8 +107,12 @@ export class Gallery {
     const rowSum = rowsW.reduce((a, b) => a + b, 0);
     const grid = p.querySelector<HTMLElement>('.img-grid');
     if (grid) {
-      grid.style.gridTemplateColumns = cols.map((v) => `${((v / colSum) * 100).toFixed(4)}fr`).join(' ');
-      grid.style.gridTemplateRows = rowsW.map((v) => `${((v / rowSum) * 100).toFixed(4)}fr`).join(' ');
+      grid.style.gridTemplateColumns = cols
+        .map((v) => `${((v / colSum) * 100).toFixed(4)}fr`)
+        .join(' ');
+      grid.style.gridTemplateRows = rowsW
+        .map((v) => `${((v / rowSum) * 100).toFixed(4)}fr`)
+        .join(' ');
     }
 
     if (o && grid) {

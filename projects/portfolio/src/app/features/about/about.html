@@ -18,7 +18,11 @@
         </div>
         <div class="stats-container">
           @for (stat of stats; track stat.key) {
-            <div class="stat-item" [class.clicked]="clickedStat() === stat.key" (click)="onStatClick(stat.key)">
+            <div
+              class="stat-item"
+              [class.clicked]="clickedStat() === stat.key"
+              (click)="onStatClick(stat.key)"
+            >
               <div class="stat-number">{{ stat.number }}</div>
               <div class="stat-label">{{ stat.label }}</div>
               <div class="stat-detail">{{ stat.detail }}</div>

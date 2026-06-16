@@ -6,6 +6,7 @@
     "start": "ng serve portfolio",
     "build": "ng build portfolio",
     "watch": "ng build portfolio --watch --configuration development",
+    "format": "prettier --write \"projects/**/*.{ts,html,css,scss}\"",
     "test": "ng test"
   },
   "private": true,

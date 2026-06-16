@@ -19,11 +19,21 @@
 }
 
 @keyframes terminalSpin {
-  0% { transform: scale(1) rotate(0deg) translateX(0) translateY(0); }
-  25% { transform: scale(1.2) rotate(180deg) translateX(-200px) translateY(100px); }
-  50% { transform: scale(1.5) rotate(360deg) translateX(-400px) translateY(200px); }
-  75% { transform: scale(1.8) rotate(540deg) translateX(-200px) translateY(100px); }
-  100% { transform: scale(2) rotate(720deg) translateX(0) translateY(0); }
+  0% {
+    transform: scale(1) rotate(0deg) translateX(0) translateY(0);
+  }
+  25% {
+    transform: scale(1.2) rotate(180deg) translateX(-200px) translateY(100px);
+  }
+  50% {
+    transform: scale(1.5) rotate(360deg) translateX(-400px) translateY(200px);
+  }
+  75% {
+    transform: scale(1.8) rotate(540deg) translateX(-200px) translateY(100px);
+  }
+  100% {
+    transform: scale(2) rotate(720deg) translateX(0) translateY(0);
+  }
 }
 
 .terminal-icon-content {
@@ -56,13 +66,25 @@
   animation: iconBlink 2s infinite;
 }
 
-.icon-line:nth-child(1) { width: 80%; }
-.icon-line:nth-child(2) { width: 60%; }
-.icon-line:nth-child(3) { width: 40%; }
+.icon-line:nth-child(1) {
+  width: 80%;
+}
+.icon-line:nth-child(2) {
+  width: 60%;
+}
+.icon-line:nth-child(3) {
+  width: 40%;
+}
 
 @keyframes iconBlink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0.3; }
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0.3;
+  }
 }
 
 .terminal-tail {
@@ -91,7 +113,7 @@
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
-  font-family: "Fira Sans", sans-serif;
+  font-family: 'Fira Sans', sans-serif;
 }
 
 .terminal-icon:hover .tooltip {
@@ -103,8 +125,11 @@
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
-
-
