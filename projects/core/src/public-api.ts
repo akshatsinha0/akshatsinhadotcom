@@ -8,6 +8,9 @@ export * from './lib/tokens/color.tokens';
 // Constants
 export * from './lib/constants/section.constants';
 
+// Utils
+export * from './lib/utils/external-link.util';
+
 // Enums
 export * from './lib/enums/project.enum';
 
