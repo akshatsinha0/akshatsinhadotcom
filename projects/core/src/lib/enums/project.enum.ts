@@ -1,0 +1,13 @@
+/** Project lifecycle status — canonical values (mirror old src/data/projects.ts). */
+export enum ProjectStatus {
+  LiveProduction = 'Live Production',
+  InDevelopment = 'In Development',
+  LiveEvolving = 'Live & Evolving',
+}
+
+/** Project category — canonical values (mirror old src/data/projects.ts). */
+export enum ProjectCategory {
+  WebApplication = 'Web Application',
+  AiMlSystem = 'AI/ML System',
+  PersonalProject = 'Personal Project',
+}

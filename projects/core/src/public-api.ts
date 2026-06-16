@@ -1,6 +1,17 @@
 /*
- * Public API Surface of core
+ * Public API Surface of @akshat/core
  */
 
-export * from './lib/core';
+// Design tokens (runtime mirror of the SCSS single source of truth)
 export * from './lib/tokens/color.tokens';
+
+// Constants
+export * from './lib/constants/section.constants';
+
+// Enums
+export * from './lib/enums/project.enum';
+
+// Models
+export * from './lib/models/project.model';
+export * from './lib/models/experience.model';
+export * from './lib/models/award.model';
