@@ -1,0 +1,22 @@
+// Tier 1 — PAINTS · PINK / MAGENTA / ROSE family
+// Raw primitives only. Light -> dark / soft -> vivid.
+:root {
+  // Orchid ramp (pink-magenta), soft -> vivid
+  --ak-paint-orchid-100: #f6d3ef;        // pale orchid tint
+  --ak-paint-orchid-300: #ff89ee;        // distinct from #ff6ad5 (different hue)
+  --ak-paint-orchid-400: #ff6ad5;        // signature hot orchid (heavily used)
+  --ak-paint-blossom-400: #f093fb;       // section: Projects
+
+  // Magenta / fuchsia ramp, vivid -> deep
+  --ak-paint-magenta-500: #ff00ff;       // the literal magenta swatch
+  --ak-paint-fuchsia-500: #ff1ea3;
+  --ak-paint-fuchsia-600: #ff0b88;
+  --ak-paint-magenta-700: #c30087;       // deep magenta
+
+  // Rose ramp (pink-red), light -> deep
+  --ak-paint-rose-400: #fa709a;          // section: Awards
+  --ak-paint-rose-500: #ff5b7b;
+
+  // Brand owner: GraphQL pink
+  --ak-paint-graphql-pink: #e535ab;
+}

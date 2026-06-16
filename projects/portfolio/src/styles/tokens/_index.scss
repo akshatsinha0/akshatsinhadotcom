@@ -1,0 +1,21 @@
+// CANONICAL color-token entry point. Single source of truth.
+// Tier 1 PAINTS (primitives) -> Tier 2 SEMANTIC -> Tier 3 COMPONENT.
+// Each partial declares a :root { } block; @forward keeps them as the public surface.
+
+// Tier 1 — PAINTS
+@forward 'paints-neutral';
+@forward 'paints-violet';
+@forward 'paints-pink';
+@forward 'paints-blue';
+@forward 'paints-green';
+@forward 'paints-warm';
+@forward 'paints-surface';
+@forward 'paints-brand';
+@forward 'paints-alpha';
+@forward 'paints-alpha-color';
+
+// Tier 2 — SEMANTIC roles
+@forward 'semantic';
+
+// Tier 3 — COMPONENT owners
+@forward 'components';

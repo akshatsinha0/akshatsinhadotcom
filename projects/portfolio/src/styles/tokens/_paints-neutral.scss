@@ -1,0 +1,34 @@
+// Tier 1 — PAINTS · NEUTRAL (ink ramp, true grays, off-whites)
+// Raw primitive values only. Ordered light -> dark so the ramp reads as a chronology.
+:root {
+  // Pure ends
+  --ak-paint-white: #ffffff;             // #fff == #ffffff
+  --ak-paint-black: #000000;             // #000 == #000000
+
+  // Ivory / paper off-whites (light surfaces)
+  --ak-paint-ivory-50: #f9fafb;
+  --ak-paint-ivory-100: #f5f5f5;
+  --ak-paint-cloud-200: #e5e7eb;         // common border / faint text on dark
+
+  // Slate-cool ink ramp (blue-tinted grays), light -> dark
+  --ak-paint-slate-300: #a0a9c1;         // muted cool text
+  --ak-paint-slate-400: #64748b;
+  --ak-paint-slate-500: #4b5563;
+  --ak-paint-slate-600: #374151;
+  --ak-paint-steel-650: #334155;
+  --ak-paint-graphite-700: #1f2937;
+
+  // Charcoal ink ramp (true / warm-neutral grays), light -> dark
+  --ak-paint-ash-400: #555555;
+  --ak-paint-iron-500: #404040;
+  --ak-paint-iron-600: #3a3a3a;
+  --ak-paint-charcoal-700: #2f3037;
+  --ak-paint-charcoal-750: #2a2a2a;
+  --ak-paint-onyx-800: #1f1f1f;
+  --ak-paint-onyx-850: #1a1a1a;
+  --ak-paint-soot-900: #111111;          // #111 == #111111
+  --ak-paint-soot-950: #0b0b0b;
+
+  // Mid neutral one-off used for code-block accents
+  --ak-paint-graphite-450: #333333;      // #333 == #333333
+}

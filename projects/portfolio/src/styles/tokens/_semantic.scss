@@ -1,0 +1,55 @@
+// Tier 2 — SEMANTIC roles. Reference paints only; never raw values.
+:root {
+  // -- Section identity colors (from Navigation.tsx ids) --
+  --ak-color-section-about: var(--ak-paint-indigo-500);          // #667eea
+  --ak-color-section-experience: var(--ak-paint-plum-600);       // #764ba2
+  --ak-color-section-projects: var(--ak-paint-blossom-400);      // #f093fb
+  --ak-color-section-skills: var(--ak-paint-sky-450);            // #4facfe
+  --ak-color-section-certifications: var(--ak-paint-emerald-400);// #43e97b
+  --ak-color-section-awards: var(--ak-paint-rose-400);           // #fa709a
+  --ak-color-section-images: var(--ak-paint-sky-400);            // #38bdf8
+
+  // -- Surfaces --
+  --ak-color-surface-page: var(--ak-paint-abyss-900);
+  --ak-color-surface-terminal: var(--ak-paint-abyss-850);
+  --ak-color-surface-panel: var(--ak-paint-abyss-820);
+  --ak-color-surface-panel-deep: var(--ak-paint-abyss-880);
+  --ak-color-surface-elevated: var(--ak-paint-abyss-700);
+  --ak-color-surface-midnight: var(--ak-paint-midnight-800);
+  --ak-color-surface-harbor: var(--ak-paint-harbor-900);
+  --ak-color-surface-light: var(--ak-paint-fog-100);
+  --ak-color-surface-scrim: var(--ak-paint-ink-a55);
+  --ak-color-surface-scrim-strong: var(--ak-paint-ink-a80);
+  --ak-color-surface-veil: var(--ak-paint-white-a06);
+
+  // -- Text --
+  --ak-color-text-primary: var(--ak-paint-white);
+  --ak-color-text-on-light: var(--ak-paint-graphite-700);
+  --ak-color-text-secondary: var(--ak-paint-cloud-200);
+  --ak-color-text-muted: var(--ak-paint-slate-300);
+  --ak-color-text-faint: var(--ak-paint-slate-400);
+  --ak-color-text-inverse: var(--ak-paint-black);
+
+  // -- Borders / hairlines --
+  --ak-color-border-subtle: var(--ak-paint-white-a10);
+  --ak-color-border-strong: var(--ak-paint-white-a30);
+  --ak-color-border-on-light: var(--ak-paint-ink-a08);
+
+  // -- Brand / accent roles --
+  --ak-color-brand-primary: var(--ak-paint-indigo-500);
+  --ak-color-brand-secondary: var(--ak-paint-plum-600);
+  --ak-color-accent-pink: var(--ak-paint-orchid-400);
+  --ak-color-accent-cyan: var(--ak-paint-peacock-500);
+  --ak-color-accent-emerald: var(--ak-paint-emerald-400);
+
+  // -- Glow roles (soft luminous washes) --
+  --ak-color-glow-brand-soft: var(--ak-paint-indigo-a20);
+  --ak-color-glow-brand-strong: var(--ak-paint-indigo-a50);
+  --ak-color-glow-projects: var(--ak-paint-blossom-a90);
+  --ak-color-glow-certifications: var(--ak-paint-emerald-a30);
+
+  // -- Status / feedback --
+  --ak-color-status-success: var(--ak-paint-emerald-500);
+  --ak-color-status-danger: var(--ak-paint-crimson-650);
+  --ak-color-status-warning: var(--ak-paint-leetcode-amber);
+}

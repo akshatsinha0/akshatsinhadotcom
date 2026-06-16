@@ -1,0 +1,24 @@
+// Tier 1 — PAINTS · BLUE / CYAN / TEAL family (azure ramp, peacock cyans, owners)
+// Raw primitives only. Light -> dark.
+:root {
+  // Azure ramp (sky / cornflower blues), light -> dark
+  --ak-paint-azure-300: #7fa1ff;
+  --ak-paint-azure-350: #7ea4ff;
+  --ak-paint-azure-400: #62a8ff;
+  --ak-paint-azure-450: #49a7ff;
+  --ak-paint-sky-400: #38bdf8;           // section: Images
+  --ak-paint-sky-450: #4facfe;           // section: Skills
+  --ak-paint-azure-500: #1ea1ff;
+  --ak-paint-cobalt-600: #0f4cfe;
+
+  // Peacock ramp (cyan / aqua), light -> dark
+  --ak-paint-aqua-200: #a2fff7;
+  --ak-paint-aqua-300: #9df2ff;
+  --ak-paint-peacock-300: #7ee7ff;
+  --ak-paint-peacock-350: #7df9ff;
+  --ak-paint-peacock-500: #00d4df;
+  --ak-paint-teal-700: #087b9b;
+
+  // Teal-mint owner (gradient partner of #38f9d7 spring-green)
+  --ak-paint-spring-aqua: #38f9d7;
+}

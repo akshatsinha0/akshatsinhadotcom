@@ -1,0 +1,26 @@
+// Tier 3 — COMPONENT owners. Reference semantics / paints only.
+:root {
+  // Navigation
+  --ak-nav-active: var(--ak-color-brand-primary);
+  --ak-nav-glow: var(--ak-color-glow-brand-soft);
+  --ak-nav-label: var(--ak-color-text-primary);
+
+  // Interactive terminal
+  --ak-terminal-bg: var(--ak-color-surface-terminal);
+  --ak-terminal-prompt: var(--ak-paint-matrix-green);
+  --ak-terminal-text: var(--ak-color-text-secondary);
+  --ak-terminal-border: var(--ak-color-border-subtle);
+
+  // Loading screen
+  --ak-loading-line: var(--ak-paint-violetbeam-a55);
+  --ak-loading-line-fade: var(--ak-paint-violetbeam-a00);
+  --ak-loading-glow: var(--ak-paint-rubyglow-a55);
+
+  // Landing page
+  --ak-landing-accent: var(--ak-color-accent-pink);
+  --ak-landing-scrim: var(--ak-color-surface-scrim-strong);
+
+  // Contact
+  --ak-contact-link: var(--ak-paint-linkedin-blue);
+  --ak-contact-bg: var(--ak-color-surface-panel);
+}
