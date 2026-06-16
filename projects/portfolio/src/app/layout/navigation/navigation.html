@@ -11,9 +11,9 @@
     @for (section of sections; track section.id; let i = $index) {
       <a
         class="nav-item"
-        [routerLink]="section.route"
+        [routerLink]="section.isGallery ? null : section.route"
         routerLinkActive="active"
-        (click)="collapse()"
+        (click)="onItemClick(section)"
         [style.--item-color]="section.color"
         [style.--delay]="(i * 0.1) + 's'"
       >

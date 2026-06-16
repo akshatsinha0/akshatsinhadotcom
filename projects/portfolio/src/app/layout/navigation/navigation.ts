@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { SECTION_COLORS, SECTION_ROUTE, SectionId } from '@akshat/core';
+import { openInNewTab, SECTION_COLORS, SECTION_ROUTE, SectionId } from '@akshat/core';
 
 interface NavItem {
   readonly id: SectionId;
@@ -37,8 +37,10 @@ export class Navigation {
     this.isExpanded.update((v) => !v);
   }
 
-  protected collapse(): void {
+  /** Gallery opens in a new tab (matching the original); other sections route in-app. */
+  protected onItemClick(section: NavItem): void {
     this.isExpanded.set(false);
+    if (section.isGallery) openInNewTab(section.route);
   }
 
   private item(id: SectionId, label: string, iconFile: string): NavItem {
