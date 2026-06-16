@@ -1,0 +1,25 @@
+<section class="experiences-section">
+  <div class="experience-container">
+    <h2 class="section-title">Experience</h2>
+    <div class="experience-grid">
+      @for (exp of experiences; track exp.id) {
+        <div class="experience-card">
+          <div class="card-header">
+            <h3 class="card-title">{{ exp.title }}</h3>
+            <div class="duration-pill">{{ exp.duration }}</div>
+          </div>
+          <ul class="achievement-list">
+            @for (d of exp.description; track $index) {
+              <li class="achievement-item">{{ d }}</li>
+            }
+          </ul>
+          <div class="tech-grid">
+            @for (t of exp.tech; track $index) {
+              <div class="tech-tag">{{ t }}</div>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,19 @@
+.awards-section{padding:3rem 1rem;background:transparent}
+.awards-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;max-width:1100px;margin:0 auto}
+.award-card{background:var(--ak-paint-white);border:1px solid var(--ak-paint-cloud-200);border-radius:16px;padding:1.25rem;position:relative;overflow:visible;transition:border-color .2s ease}
+
+.award-card::before{content:"";position:absolute;inset:-2px;border-radius:16px;padding:2px;background:conic-gradient(from 0deg,var(--ak-paint-orchid-400),var(--ak-paint-rose-500),var(--ak-paint-marigold-400),var(--ak-paint-ember-500),var(--ak-paint-orchid-400));-webkit-mask:linear-gradient(var(--ak-paint-black) 0 0) content-box,linear-gradient(var(--ak-paint-black) 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .45s ease-out;pointer-events:none;z-index:-1}
+.award-card::after{content:"";position:absolute;inset:-14px;border-radius:20px;background:conic-gradient(from 0deg,var(--ak-paint-orchid-400),var(--ak-paint-rose-500),var(--ak-paint-marigold-400),var(--ak-paint-ember-500),var(--ak-paint-orchid-400));filter:blur(24px);opacity:0;transition:opacity .45s ease-out;pointer-events:none;z-index:-1}
+.award-card:hover::before{opacity:1}
+.award-card:hover::after{opacity:.55}
+
+.award-card:hover{transform:none;box-shadow:none}
+.award-header{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem}
+.trophy-icon{width:28px;height:28px}
+.trophy-image{width:100%;height:100%;object-fit:contain}
+ h3{font-size:1.05rem;color:var(--ak-paint-soot-900);margin:0}
+.organization{color:var(--ak-paint-slate-500);font-size:.9rem;margin-bottom:.25rem}
+.year{color:var(--ak-paint-soot-900);font-weight:700;margin-bottom:.25rem}
+.description{font-size:.95rem;line-height:1.5;color:var(--ak-paint-slate-600)}
+@media (max-width: 768px){.awards-container{grid-template-columns:1fr}.awards-section{padding:2rem 1rem}}
+

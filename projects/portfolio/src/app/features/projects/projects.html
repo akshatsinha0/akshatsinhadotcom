@@ -1,0 +1,151 @@
+<section class="projects-section" (mousemove)="onMouseMove($event)">
+  <div class="projects-background" [style.--mouse-x.%]="mouseX()" [style.--mouse-y.%]="mouseY()">
+    <div class="bg-gradient-1"></div>
+  </div>
+
+  <div class="projects-container">
+    <div class="section-header">
+      <h2 class="section-title">PROJECT</h2>
+      <p class="section-subtitle">Innovative solutions engineered with passion and precision</p>
+      <div class="view-selector">
+        @for (mode of ['carousel', 'timeline']; track mode) {
+          <button class="view-btn" [class.active]="viewMode() === mode" (click)="viewMode.set($any(mode))">
+            <span class="btn-icon">{{ mode === 'carousel' ? '◉' : '▤' }}</span>
+            <span class="btn-text">{{ mode.charAt(0).toUpperCase() + mode.slice(1) }}</span>
+          </button>
+        }
+      </div>
+    </div>
+
+    <div class="projects-showcase view-{{ viewMode() }}">
+      @for (project of projects; track project.id; let index = $index) {
+        <ak-electric-border [color]="borderColor" [speed]="1" [chaos]="0.5" [thickness]="2" style="border-radius: 0">
+          <div
+            class="project-card"
+            [class.active]="activeProject() === index"
+            [class.hovered]="hoveredCard() === index"
+            (click)="activeProject.set(index)"
+            (mouseenter)="hoveredCard.set(index)"
+            (mouseleave)="hoveredCard.set(null)"
+            [style.--card-index]="index"
+          >
+            <div class="status-badge {{ statusClass(project.status) }}">
+              <span class="status-dot"></span>
+              {{ project.status }}
+            </div>
+
+            @if (project.images && project.images.length) {
+              <div class="project-images">
+                @if (enableFlip && project.images.length >= 2) {
+                  <div class="pfx-flip-scene">
+                    <div class="pfx-flip-card" [class.is-turned]="turned()[index]">
+                      <div class="pfx-flip-face pfx-front">
+                        <img class="pfx-img" [src]="project.images[0]" [alt]="project.title + ' - View 1'" />
+                      </div>
+                      <div class="pfx-flip-face pfx-back">
+                        <img class="pfx-img" [src]="project.images[1]" [alt]="project.title + ' - View 2'" />
+                      </div>
+                    </div>
+                    <div class="image-overlay">
+                      <div class="overlay-content">
+                        <span class="category-tag">{{ project.category }}</span>
+                        <span class="year-badge">{{ project.year }}</span>
+                      </div>
+                    </div>
+                  </div>
+                } @else {
+                  <div class="notebook-container simple">
+                    <img
+                      class="project-image"
+                      [src]="turned()[index] ? project.images[1] : project.images[0]"
+                      [alt]="project.title + ' - ' + (turned()[index] ? 'View 2' : 'View 1')"
+                    />
+                    <div class="image-overlay">
+                      <div class="overlay-content">
+                        <span class="category-tag">{{ project.category }}</span>
+                        <span class="year-badge">{{ project.year }}</span>
+                      </div>
+                    </div>
+                  </div>
+                }
+                <button class="flip-btn liquid-btn" (click)="toggleTurn($event, index)">
+                  <span class="btn-liquid"></span>
+                  <span class="btn-text">Turn Page</span>
+                </button>
+              </div>
+            }
+
+            <div class="project-content">
+              <div class="project-header">
+                <h3 class="project-title">
+                  <span class="title-main">{{ project.title }}</span>
+                  <span class="title-sub">{{ project.subtitle }}</span>
+                </h3>
+                <div class="metrics-grid">
+                  @for (entry of metricEntries(project.metrics); track entry[0]) {
+                    <div class="metric-item">
+                      <div class="metric-value">{{ entry[1] }}</div>
+                      <div class="metric-label">{{ entry[0] }}</div>
+                    </div>
+                  }
+                </div>
+              </div>
+
+              <p class="project-description">{{ project.description }}</p>
+
+              <div class="project-features">
+                <h4 class="features-title">Core Features</h4>
+                <div class="features-grid">
+                  @for (feature of project.features; track feature) {
+                    <div class="feature-item">
+                      <div class="feature-icon">✦</div>
+                      <span class="feature-text">{{ feature }}</span>
+                    </div>
+                  }
+                </div>
+              </div>
+
+              <div class="tech-stack">
+                <h4 class="tech-title">Technology Stack</h4>
+                <div class="tech-constellation">
+                  @for (tech of project.technologies; track tech; let idx = $index) {
+                    <div class="tech-node" [style.--delay]="(idx * 0.1) + 's'">
+                      <div class="node-core">{{ tech }}</div>
+                    </div>
+                  }
+                </div>
+              </div>
+
+              <div class="project-actions">
+                @if (project.link) {
+                  <a [href]="project.link" target="_blank" rel="noopener noreferrer" class="action-btn primary-action">
+                    <span class="btn-bg"></span>
+                    <span class="btn-text">Live Demo</span>
+                    <span class="btn-icon"></span>
+                  </a>
+                }
+                @if (project.github) {
+                  <a [href]="project.github" target="_blank" rel="noopener noreferrer" class="action-btn secondary-action">
+                    <span class="btn-bg"></span>
+                    <span class="btn-text">Source Code</span>
+                    <span class="btn-icon"></span>
+                  </a>
+                }
+              </div>
+            </div>
+          </div>
+        </ak-electric-border>
+      }
+    </div>
+
+    <div class="project-navigation">
+      <div class="nav-dots">
+        @for (project of projects; track project.id; let index = $index) {
+          <button class="nav-dot" [class.active]="activeProject() === index" (click)="activeProject.set(index)">
+            <span class="dot-pulse"></span>
+          </button>
+        }
+      </div>
+    </div>
+  </div>
+</section>

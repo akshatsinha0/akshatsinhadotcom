@@ -1,0 +1,47 @@
+.app{min-height:100vh;background:var(--ak-paint-white);background-attachment:fixed;position:relative;overflow-x:hidden}
+
+/* Top color patch */
+/* Register animatable angle for conic gradient */
+@property --angle{syntax:'<angle>';initial-value:220deg;inherits:false}
+.top-color-patch{
+  position:fixed;
+  top:0;left:0;right:0;
+  height:clamp(90px,12vh,160px);
+  pointer-events:none;
+  z-index:3;
+  filter:blur(18px) saturate(1.15);
+  opacity:.9;
+  background:
+    linear-gradient(to bottom, var(--ak-paint-ink-a08), var(--ak-paint-ink-a02) 70%, var(--ak-paint-ink-a00) 100%),
+    radial-gradient(80% 120% at 5% 0%, var(--c1, var(--ak-paint-skyice-a55)) 0%, var(--ak-paint-skyice-a00) 60%),
+    radial-gradient(60% 100% at 20% 0%, var(--c2, var(--ak-paint-seafoam-a50)) 0%, var(--ak-paint-seafoam-a00) 60%),
+    radial-gradient(60% 100% at 40% 0%, var(--c3, var(--ak-paint-flamingo-a45)) 0%, var(--ak-paint-flamingo-a00) 60%),
+    radial-gradient(60% 100% at 65% 0%, var(--c4, var(--ak-paint-apricot-a45)) 0%, var(--ak-paint-apricot-a00) 60%),
+    radial-gradient(60% 100% at 85% 0%, var(--c5, var(--ak-paint-cornflower-a50)) 0%, var(--ak-paint-cornflower-a00) 60%),
+    conic-gradient(from var(--angle,220deg) at 50% 30%, var(--c6, var(--ak-paint-amethyst-a20)), var(--c7, var(--ak-paint-azure-a20)), var(--c8, var(--ak-paint-grass-a20)), var(--c9, var(--ak-paint-vermilion-a20)), var(--c10, var(--ak-paint-tangerine-a20)), var(--c11, var(--ak-paint-periwinkle-a20)), var(--c6, var(--ak-paint-amethyst-a20)));
+  -webkit-mask:linear-gradient(to bottom,var(--ak-paint-black) 40%,var(--ak-paint-ink-a65) 75%, transparent 100%);
+          mask:linear-gradient(to bottom,var(--ak-paint-black) 40%,var(--ak-paint-ink-a65) 75%, transparent 100%);
+  animation:hueSpin var(--patch-speed,36s) linear infinite, angleDrift 28s linear infinite alternate;
+}
+
+@keyframes hueSpin{from{filter:hue-rotate(0deg) blur(18px) saturate(1.1) brightness(.88)}to{filter:hue-rotate(360deg) blur(18px) saturate(1.1) brightness(.88)}}
+@keyframes angleDrift{to{--angle:540deg}}
+
+.main-content {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  display: block;
+  padding: 2rem 1rem;
+}
+
+@media (min-width: 1025px){
+  .main-content{padding-left:calc(2rem + 148px);padding-right:2rem}
+}
+
+.section-container {
+  width: 100%;
+  max-width: 1400px;
+  position: relative;
+  margin: 0 auto;
+}

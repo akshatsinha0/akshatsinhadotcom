@@ -1,0 +1,95 @@
+<section class="certifications-section">
+  <div class="cert-note">Still in creation, so dummy hifi objects are functioning</div>
+  <div class="quantum-particles">
+    @for (i of particles; track i) {
+      <div class="particle" [style.--particle-delay]="(i * 0.3) + 's'" [style.--particle-duration]="(5 + (i % 5)) + 's'"></div>
+    }
+  </div>
+
+  <div class="certification-matrix">
+    @for (cert of certifications; track cert.code; let idx = $index) {
+      <div class="certification-card" [style.--delay]="(idx * 0.1) + 's'" [style.--ribbon-color]="cert.ribbonColor">
+        <div class="holographic-overlay">
+          <div class="hologram-pattern" [style.background-image]="'url(' + cert.hologram + ')'"></div>
+          <div class="light-refraction"></div>
+        </div>
+        <div class="verification-ribbon">
+          <span>Verified</span>
+          <div class="ribbon-fold"></div>
+        </div>
+        <div class="card-face front">
+          <div class="issuer-emblem"><img [src]="cert.logo" [alt]="cert.issuer" /></div>
+          <h3 class="cert-title">{{ cert.title }}</h3>
+          <div class="issuer-name" style="color: white">{{ cert.issuer }}</div>
+          <div class="cert-year" style="color: white">{{ cert.date }}</div>
+        </div>
+        <div class="card-face back">
+          <div class="certificate-seal">
+            <div class="seal-inner">
+              <div class="seal-lines"></div>
+              <span style="color: white">Certified</span>
+            </div>
+          </div>
+          <div class="credential-details">
+            <div class="detail-item">
+              <label style="color: white">Issuer:</label>
+              <div class="issuer-badge" style="color: white">
+                <img [src]="cert.logo" [alt]="cert.issuer" />
+                {{ cert.issuer }}
+              </div>
+            </div>
+            <div class="detail-item">
+              <label style="color: white">Credential ID:</label>
+              <button class="credential-id" (click)="copyToClipboard(cert.code)" style="color: white">
+                {{ cert.code }}
+                @if (copiedCode() === cert.code) {
+                  <span class="copy-feedback" style="color: white">Copied!</span>
+                }
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="interactive-glow"></div>
+      </div>
+    }
+  </div>
+
+  <div class="certstack-zone">
+    <div class="certstack-lock">
+      <div class="certstack-scrollport">
+        <div class="certstack" data-csx [style.--csx-count]="moreCerts.length">
+          <ol class="certstack-stack">
+            @for (cert of moreCerts; track cert.code; let idx = $index) {
+              <li class="certstack-item" [style.--csx-i]="idx">
+                <div class="certstack-card">
+                  <div class="certstack-card-body">
+                    <div class="certstack-logo"><img [src]="cert.logo" [alt]="cert.issuer" /></div>
+                    <div class="certstack-text">
+                      <h3 class="certstack-title">{{ cert.title }}</h3>
+                      <div class="certstack-sub">{{ cert.issuer }} • {{ cert.date }}</div>
+                      <button class="certstack-id" (click)="copyToClipboard(cert.code)">
+                        {{ cert.code }}
+                        @if (copiedCode() === cert.code) {
+                          <span class="certstack-copied">copied</span>
+                        }
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            }
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="verification-badge">
+    <div class="animated-checkmark">
+      <svg viewBox="0 0 24 24">
+        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+      </svg>
+    </div>
+    Certifications Verified
+  </div>
+</section>

@@ -1,0 +1,77 @@
+<section class="description-section">
+  <div class="description-container">
+    <div class="description-content">
+      <div class="profile-section">
+        <div class="profile-image-container">
+          <img [src]="profileImg" alt="Akshat Sinha" class="profile-image" />
+        </div>
+      </div>
+      <div class="text-section">
+        <h1 class="name">
+          <span class="first-name">Akshat</span>
+          <span class="last-name">Sinha</span>
+        </h1>
+        <div class="description-text">
+          <p class="intro"></p>
+          <p class="philosophy">{{ philosophy }}</p>
+          <p class="expertise-intro"></p>
+        </div>
+        <div class="stats-container">
+          @for (stat of stats; track stat.key) {
+            <div class="stat-item" [class.clicked]="clickedStat() === stat.key" (click)="onStatClick(stat.key)">
+              <div class="stat-number">{{ stat.number }}</div>
+              <div class="stat-label">{{ stat.label }}</div>
+              <div class="stat-detail">{{ stat.detail }}</div>
+            </div>
+          }
+        </div>
+        <div class="expertise-section">
+          <h3 class="section-title">
+            <span class="title-icon"></span>
+            Standard Areas
+          </h3>
+          <div
+            class="expertise-grid"
+            [class.stack]="cardsState() === 'stack'"
+            [class.scatter]="cardsState() === 'scatter'"
+            [class.open]="cardsState() === 'open'"
+          >
+            @for (area of expertiseAreas; track area.id; let idx = $index) {
+              <div
+                class="expertise-card"
+                [class.active]="activeExpertise() === area.id"
+                (click)="onCardClick(area.id, idx)"
+                [style.--accent-color]="area.color"
+              >
+                <div class="card-header">
+                  <h4>{{ area.title }}</h4>
+                  <span class="card-subtitle">{{ area.subtitle }}</span>
+                </div>
+                <div class="card-content">
+                  <ul class="expertise-details">
+                    @for (d of area.details; track d) {
+                      <li>{{ d }}</li>
+                    }
+                  </ul>
+                </div>
+                <div class="card-glow"></div>
+              </div>
+            }
+          </div>
+        </div>
+        <div class="action-buttons">
+          <button class="primary-btn" (click)="openResume()">
+            <span>View Resume</span>
+            <span class="btn-fill" aria-hidden="true"></span>
+            <div class="btn-glow"></div>
+          </button>
+          <button class="secondary-btn" (click)="isContactOpen.set(true)">
+            <span>Let's Connect</span>
+            <span class="btn-fill" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-contact-modal [isOpen]="isContactOpen()" (closed)="isContactOpen.set(false)" />
+</section>
