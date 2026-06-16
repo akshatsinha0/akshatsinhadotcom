@@ -1,0 +1,22 @@
+// Tier 1 — PAINTS · VIOLET / PURPLE family (amethyst ramp + indigo + owners)
+// Raw primitives only. Light -> dark.
+:root {
+  // Amethyst ramp (purple), light -> dark
+  --ak-paint-amethyst-300: #c456ff;
+  --ak-paint-amethyst-350: #bf63ff;
+  --ak-paint-amethyst-400: #b64df6;
+  --ak-paint-amethyst-450: #a855f7;
+  --ak-paint-amethyst-600: #7a3ffc;
+  --ak-paint-amethyst-700: #5227ff;
+
+  // Periwinkle / indigo ramp (blue-violet), light -> dark
+  --ak-paint-periwinkle-400: #8d6fff;    // soft lavender accent
+  --ak-paint-indigo-500: #667eea;        // section: About / brand primary
+  --ak-paint-indigo-700: #3a3df5;
+
+  // Plum owners (unique)
+  --ak-paint-plum-600: #764ba2;          // section: Experience
+
+  // Violet keyword-equivalent literal kept as a paint (used as solid color)
+  --ak-paint-violet-classic: #ee82ee;    // the literal violet swatch
+}

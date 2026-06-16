@@ -1,1 +1,5 @@
+// Canonical design tokens (single source of truth) — emits all :root paint,
+// semantic, and component custom properties for the whole app.
+@use './styles/tokens';
+
 /* You can add global styles to this file, and also import other style files */

@@ -1,0 +1,9 @@
+// Tier 1 — PAINTS · BRAND owners (unique tech / vendor identity colors)
+// Raw primitives only. Each is a true one-off, not part of a ramp.
+:root {
+  --ak-paint-react-cyan: #61dafb;        // React
+  --ak-paint-typescript-blue: #3178c6;   // TypeScript
+  --ak-paint-linkedin-blue: #0077b5;     // LinkedIn
+  // NOTE: leetcode-amber, google-red live in _paints-warm.scss (warm hues)
+  // NOTE: graphql-pink lives in _paints-pink.scss; qt/node greens in _paints-green.scss
+}
