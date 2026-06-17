@@ -1,0 +1,47 @@
+name: Deploy to Cloud Run
+
+# Container deploy on merge to main, keyless via Workload Identity Federation.
+# Runs alongside the Vercel workflow (Vercel stays the primary live host).
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  id-token: write # required for Workload Identity Federation OIDC
+
+concurrency:
+  group: cloud-run-production
+  cancel-in-progress: true
+
+env:
+  GCP__PROJECT_ID: akshat-portfolio-499712
+  GCP__REGION: asia-south1
+  CLOUD_RUN__SERVICE_NAME: akshat-portfolio
+  WIF__PROVIDER: projects/193137828371/locations/global/workloadIdentityPools/github-pool/providers/github-provider
+  DEPLOYER__SA_EMAIL: gha-deployer@akshat-portfolio-499712.iam.gserviceaccount.com
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud (keyless)
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ env.WIF__PROVIDER }}
+          service_account: ${{ env.DEPLOYER__SA_EMAIL }}
+
+      - name: Set up gcloud
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Deploy to Cloud Run (build from Dockerfile via Cloud Build)
+        run: |
+          gcloud run deploy "$CLOUD_RUN__SERVICE_NAME" \
+            --source . \
+            --project "$GCP__PROJECT_ID" \
+            --region "$GCP__REGION" \
+            --allow-unauthenticated \
+            --port 80 \
+            --quiet
