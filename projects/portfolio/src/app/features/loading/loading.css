@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
+  z-index: var(--ak-z-9999);
   animation: loadingFadeOut 0.8s ease-in-out 6.2s forwards;
   overflow: hidden;
 }
@@ -61,7 +61,7 @@
   background: transparent;
   overflow: visible;
   pointer-events: none;
-  z-index: 100;
+  z-index: var(--ak-z-100);
 }
 
 .vertical-line {

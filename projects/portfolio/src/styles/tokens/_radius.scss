@@ -1,0 +1,26 @@
+// Canonical border-radius values. Single source for corner rounding.
+:root {
+  --ak-radius-1: 1px;
+  --ak-radius-2: 2px;
+  --ak-radius-3: 3px;
+  --ak-radius-4: 4px;
+  --ak-radius-5: 5px;
+  --ak-radius-6: 6px;
+  --ak-radius-8: 8px;
+  --ak-radius-10: 10px;
+  --ak-radius-12: 12px;
+  --ak-radius-14: 14px;
+  --ak-radius-15: 15px;
+  --ak-radius-16: 16px;
+  --ak-radius-20: 20px;
+  --ak-radius-25: 25px;
+  --ak-radius-28: 28px;
+  --ak-radius-30: 30px;
+  --ak-radius-50: 50px;
+  --ak-radius-999: 999px;
+  --ak-radius-pill: 50%;
+  --ak-radius-0-5rem: 0.5rem;
+  --ak-radius-1rem: 1rem;
+  --ak-radius-1-5rem: 1.5rem;
+  --ak-radius-2rem: 2rem;
+}

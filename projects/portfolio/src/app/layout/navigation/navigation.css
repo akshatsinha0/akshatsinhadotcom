@@ -3,7 +3,7 @@
   left: 2rem;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 1000;
+  z-index: var(--ak-z-1000);
   width: 72px;
   transition: width 0.4s ease;
   background: var(--ak-paint-harbor-900);
@@ -23,7 +23,7 @@
   background: var(--ak-paint-harbor-900);
   border: 1px solid var(--ak-paint-cloud-200);
   border-right: none;
-  border-radius: 50%;
+  border-radius: var(--ak-radius-pill);
   clip-path: inset(0 36px 0 0);
   pointer-events: none;
 }
@@ -48,7 +48,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
+  border-radius: var(--ak-radius-pill);
   background: linear-gradient(
     135deg,
     var(--ak-paint-sunbeam-300),
@@ -75,7 +75,7 @@
   background: white;
   margin: 3px 0;
   transition: 0.3s;
-  border-radius: 1px;
+  border-radius: var(--ak-radius-1);
 }
 
 .navigation.expanded .nav-toggle-icon span:nth-child(1) {
@@ -104,7 +104,7 @@
   padding: 0.8rem;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-  border-radius: 20px;
+  border-radius: var(--ak-radius-20);
   margin: 0 0.4rem;
   overflow: hidden;
 }
@@ -120,7 +120,7 @@
   content: '';
   position: absolute;
   inset: -2px;
-  border-radius: 20px;
+  border-radius: var(--ak-radius-20);
   background:
     radial-gradient(120% 120% at 10% 10%, var(--ak-paint-magenta-a35) 0, transparent 50%),
     radial-gradient(120% 120% at 90% 10%, var(--ak-paint-red-a35) 0, transparent 50%),
@@ -181,8 +181,8 @@
   background: radial-gradient(circle at center, var(--item-color), transparent);
   opacity: 0;
   transition: opacity 0.3s ease;
-  border-radius: 20px;
-  z-index: -1;
+  border-radius: var(--ak-radius-20);
+  z-index: var(--ak-z-n1);
 }
 
 .nav-item:hover .nav-glow {
@@ -290,14 +290,14 @@
   bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
   width: 56px;
   height: 56px;
-  border-radius: 50%;
+  border-radius: var(--ak-radius-pill);
   background: linear-gradient(
     135deg,
     var(--ak-paint-sunbeam-300),
     var(--ak-paint-mint-300),
     var(--ak-paint-aqua-300)
   );
-  z-index: 4000;
+  z-index: var(--ak-z-4000);
   display: none;
   align-items: center;
   justify-content: center;

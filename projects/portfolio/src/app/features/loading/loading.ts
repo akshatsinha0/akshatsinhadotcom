@@ -6,6 +6,7 @@ import {
   inject,
   signal,
 } from '@angular/core';
+import { TIMINGS } from '@akshat/core';
 
 /** Full-screen intro loader. Drives a 6s
  *  custom-eased counter and the squeezing line animation via requestAnimationFrame. */
@@ -26,7 +27,7 @@ export class Loading {
       let running = true;
       destroyRef.onDestroy(() => (running = false));
 
-      const duration = 6000;
+      const duration = TIMINGS.loaderDurationMs;
       const start = Date.now();
       const animate = () => {
         if (!running) return;

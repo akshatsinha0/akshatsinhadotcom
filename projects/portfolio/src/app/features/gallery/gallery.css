@@ -7,7 +7,7 @@
   padding: 2rem 1rem 1rem;
   text-align: center;
   position: relative;
-  z-index: 3;
+  z-index: var(--ak-z-3);
 }
 .page-title {
   font-weight: 900;
@@ -36,7 +36,7 @@
   right: 0;
   top: 0;
   bottom: 0;
-  z-index: 1;
+  z-index: var(--ak-z-1);
   background: var(--ak-paint-black);
 }
 .pin.release {
@@ -47,7 +47,7 @@
 .card,
 .card.focus {
   position: relative;
-  z-index: 1;
+  z-index: var(--ak-z-1);
 }
 .img-grid {
   display: grid;
@@ -60,7 +60,7 @@
   justify-items: stretch;
 }
 .card {
-  border-radius: 16px;
+  border-radius: var(--ak-radius-16);
   overflow: hidden;
   background: var(--ak-paint-soot-900);
   transition:
@@ -94,7 +94,7 @@
   inset: 0;
   pointer-events: none;
   opacity: 0;
-  z-index: 4;
+  z-index: var(--ak-z-4);
 }
 .pin.fixed .grid-hero-overlay {
   opacity: clamp((max(0, var(--gp, 0))-0.75) * 4, 0, 1);
@@ -199,7 +199,7 @@
   background: var(--ak-paint-white-a06);
   border: 1px solid var(--ak-paint-white-a12);
   padding: 1rem;
-  border-radius: 16px;
+  border-radius: var(--ak-radius-16);
   text-align: left;
 }
 .footer-note {

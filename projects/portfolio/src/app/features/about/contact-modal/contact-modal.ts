@@ -1,11 +1,9 @@
 import { ChangeDetectionStrategy, Component, computed, input, output, signal } from '@angular/core';
-import { firstError, FormFieldConfig } from '@akshat/core';
+import { firstError, FormFieldConfig, TIMINGS } from '@akshat/core';
 import { CONTACT_HEADER, CONTACT_STEPS, CONTACT_SUCCESS, CONTACT_UI } from '@akshat/data';
 
 /** Step id used for the post-submit success screen. */
 const SUCCESS_STEP = CONTACT_STEPS[CONTACT_STEPS.length - 1].id;
-const SUBMIT_DELAY_MS = 1200;
-const RESET_DELAY_MS = 3000;
 
 /** Config-driven multi-step contact form. All fields, options, labels, limits,
  *  and validation come from @akshat/data / @akshat/core — nothing is declared
@@ -71,10 +69,10 @@ export class ContactModal {
   protected async submit(): Promise<void> {
     if (!this.validateStep()) return;
     this.isSubmitting.set(true);
-    await new Promise((resolve) => setTimeout(resolve, SUBMIT_DELAY_MS));
+    await new Promise((resolve) => setTimeout(resolve, TIMINGS.contactSubmitMs));
     this.isSubmitting.set(false);
     this.currentStep.set(SUCCESS_STEP);
-    setTimeout(() => this.reset(), RESET_DELAY_MS);
+    setTimeout(() => this.reset(), TIMINGS.contactResetMs);
   }
 
   private validateStep(): boolean {

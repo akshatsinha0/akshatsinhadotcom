@@ -36,7 +36,7 @@
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  border-radius: 15px;
+  border-radius: var(--ak-radius-15);
   padding: 2rem;
   background: var(--ak-paint-white);
   border: 1px solid var(--ak-paint-cloud-200);
@@ -95,7 +95,7 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 1;
+  z-index: var(--ak-z-1);
 }
 
 .particle {
@@ -103,7 +103,7 @@
   width: 4px;
   height: 4px;
   background: linear-gradient(45deg, var(--ak-paint-indigo-500), var(--ak-paint-blossom-400));
-  border-radius: 50%;
+  border-radius: var(--ak-radius-pill);
   animation: particleFlow var(--particle-duration) linear infinite var(--particle-delay);
   opacity: 0.3;
 }
@@ -129,13 +129,13 @@
   max-width: 1400px;
   margin: 0 auto;
   position: relative;
-  z-index: 2;
+  z-index: var(--ak-z-2);
 }
 
 .certification-card {
   position: relative;
   background: var(--ak-paint-white);
-  border-radius: 1.5rem;
+  border-radius: var(--ak-radius-1-5rem);
   padding: 2rem;
   transform-style: preserve-3d;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
@@ -148,7 +148,7 @@
   content: '';
   position: absolute;
   inset: -2px;
-  border-radius: 1.5rem;
+  border-radius: var(--ak-radius-1-5rem);
   background:
     radial-gradient(120% 120% at 10% 10%, var(--ak-paint-magenta-a35) 0, transparent 50%),
     radial-gradient(120% 120% at 90% 10%, var(--ak-paint-red-a35) 0, transparent 50%),
@@ -171,7 +171,7 @@
 .holographic-overlay {
   position: absolute;
   inset: 0;
-  border-radius: 1.5rem;
+  border-radius: var(--ak-radius-1-5rem);
   overflow: hidden;
   mix-blend-mode: soft-light;
 }
@@ -215,7 +215,7 @@
   transform: rotate(45deg);
   font-weight: 700;
   box-shadow: 0 5px 15px var(--ak-paint-ink-a30);
-  z-index: 3;
+  z-index: var(--ak-z-3);
 }
 
 .ribbon-fold {
@@ -232,7 +232,7 @@
   inset: 0;
   backface-visibility: hidden;
   padding: 2rem;
-  border-radius: 1.5rem;
+  border-radius: var(--ak-radius-1-5rem);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -273,7 +273,7 @@
   width: 120px;
   height: 120px;
   border: 3px dashed var(--ribbon-color);
-  border-radius: 50%;
+  border-radius: var(--ak-radius-pill);
   display: grid;
   place-items: center;
   opacity: 0.3;
@@ -283,7 +283,7 @@
   width: 100%;
   height: 100%;
   border: 2px solid var(--ribbon-color);
-  border-radius: 50%;
+  border-radius: var(--ak-radius-pill);
   position: relative;
   animation: sealRotate 20s linear infinite;
 }
@@ -292,7 +292,7 @@
   background: rgba(var(--ribbon-color-rgb), 0.1);
   border: 1px solid var(--ribbon-color);
   padding: 0.5rem 1rem;
-  border-radius: 1rem;
+  border-radius: var(--ak-radius-1rem);
   transition: all 0.3s ease;
   position: relative;
 }
@@ -311,7 +311,7 @@
   background: var(--ribbon-color);
   color: white;
   padding: 0.3rem 0.8rem;
-  border-radius: 0.5rem;
+  border-radius: var(--ak-radius-0-5rem);
   font-size: var(--ak-text-xs);
   white-space: nowrap;
 }
@@ -322,7 +322,7 @@
   right: 2rem;
   background: var(--ak-paint-fog-a90);
   padding: 1rem 2rem;
-  border-radius: 2rem;
+  border-radius: var(--ak-radius-2rem);
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -335,7 +335,7 @@
   width: 30px;
   height: 30px;
   background: var(--ak-paint-emerald-400);
-  border-radius: 50%;
+  border-radius: var(--ak-radius-pill);
   display: grid;
   place-items: center;
 }

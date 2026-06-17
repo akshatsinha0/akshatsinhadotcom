@@ -12,7 +12,7 @@
 
 .skill-card {
   background: var(--ak-paint-white);
-  border-radius: 15px;
+  border-radius: var(--ak-radius-15);
   padding: 1.5rem;
   position: relative;
   overflow: hidden;
@@ -22,7 +22,7 @@
   content: '';
   position: absolute;
   inset: -2px;
-  border-radius: 15px;
+  border-radius: var(--ak-radius-15);
   background:
     radial-gradient(120% 120% at 10% 10%, var(--ak-paint-magenta-a35) 0, transparent 50%),
     radial-gradient(120% 120% at 90% 10%, var(--ak-paint-red-a35) 0, transparent 50%),
@@ -55,7 +55,7 @@
 .skill-progress {
   height: 8px;
   background: var(--ak-paint-cloud-200);
-  border-radius: 4px;
+  border-radius: var(--ak-radius-4);
   position: relative;
   overflow: hidden;
 }
@@ -64,7 +64,7 @@
   width: var(--skill-level);
   height: 100%;
   background: var(--ak-paint-soot-900);
-  border-radius: 4px;
+  border-radius: var(--ak-radius-4);
   transition: width 1s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -128,7 +128,7 @@
 
 .skill-card {
   background: var(--ak-paint-white-a03);
-  border-radius: 20px;
+  border-radius: var(--ak-radius-20);
   padding: 1.5rem;
   position: relative;
   overflow: hidden;
@@ -181,7 +181,7 @@
   width: var(--skill-level);
   height: 100%;
   background: linear-gradient(90deg, var(--skill-color), var(--ak-paint-white));
-  border-radius: 4px;
+  border-radius: var(--ak-radius-4);
   transition: width 1s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -192,7 +192,7 @@
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  z-index: -1;
+  z-index: var(--ak-z-n1);
 }
 
 .quantum-particle {
@@ -200,7 +200,7 @@
   width: 3px;
   height: 3px;
   background: linear-gradient(45deg, var(--ak-paint-indigo-500), var(--ak-paint-blossom-400));
-  border-radius: 50%;
+  border-radius: var(--ak-radius-pill);
   animation: particleFlow var(--particle-duration) linear infinite var(--particle-delay);
   opacity: 0.3;
 }
@@ -232,7 +232,7 @@
   font-size: var(--ak-text-3xl);
   font-weight: 800;
   position: relative;
-  z-index: 2;
+  z-index: var(--ak-z-2);
 }
 
 .title-shadow {
@@ -244,7 +244,7 @@
   -webkit-text-stroke: 2px var(--ak-paint-indigo-a30);
   font-size: var(--ak-text-3xl);
   font-weight: 800;
-  z-index: 1;
+  z-index: var(--ak-z-1);
 }
 
 .section-subtitle {
@@ -264,7 +264,7 @@
 .skill-card {
   position: relative;
   background: var(--ak-paint-white);
-  border-radius: 2rem;
+  border-radius: var(--ak-radius-2rem);
   padding: 2rem;
   border: 1px solid var(--ak-paint-cloud-200);
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
@@ -294,7 +294,7 @@
   font-size: var(--ak-text-xs);
   font-weight: 600;
   padding: 0.3rem 0.6rem;
-  border-radius: 1rem;
+  border-radius: var(--ak-radius-1rem);
   background: rgba(var(--skill-color-rgb), 0.1);
   border: 1px solid var(--skill-color);
   opacity: 0;
@@ -351,7 +351,7 @@
   width: 85%;
   height: 85%;
   object-fit: contain;
-  z-index: 2;
+  z-index: var(--ak-z-2);
   transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -418,7 +418,7 @@
   position: relative;
   height: 8px;
   background: var(--ak-paint-cloud-200);
-  border-radius: 4px;
+  border-radius: var(--ak-radius-4);
   overflow: hidden;
 }
 
@@ -426,7 +426,7 @@
   width: var(--skill-level);
   height: 100%;
   background: var(--ak-paint-soot-900);
-  border-radius: 4px;
+  border-radius: var(--ak-radius-4);
   transition: width 1s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -440,7 +440,7 @@
   width: 3px;
   height: 3px;
   background: white;
-  border-radius: 50%;
+  border-radius: var(--ak-radius-pill);
   animation: sparkleFlash 1.5s infinite var(--sparkle-delay);
   opacity: 0;
 }
@@ -460,7 +460,7 @@
 .quantum-ripple {
   position: absolute;
   inset: 0;
-  border-radius: 2rem;
+  border-radius: var(--ak-radius-2rem);
   border: 2px solid var(--skill-color);
   opacity: 0;
   animation: ripplePulse 2s infinite;

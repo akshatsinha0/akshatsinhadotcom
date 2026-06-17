@@ -1,0 +1,19 @@
+// Canonical z-index layers. Single source for stacking order — every value lives
+// here so layering is coherent instead of scattered magic numbers.
+:root {
+  --ak-z-n1: -1;
+  --ak-z-0: 0;
+  --ak-z-1: 1;
+  --ak-z-2: 2;
+  --ak-z-3: 3;
+  --ak-z-4: 4;
+  --ak-z-5: 5;
+  --ak-z-10: 10;
+  --ak-z-100: 100;
+  --ak-z-999: 999;
+  --ak-z-1000: 1000;
+  --ak-z-1001: 1001;
+  --ak-z-4000: 4000;
+  --ak-z-9998: 9998;
+  --ak-z-9999: 9999;
+}

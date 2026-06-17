@@ -9,7 +9,7 @@
   max-width: 1100px;
   margin: 0 auto;
   position: relative;
-  z-index: 1;
+  z-index: var(--ak-z-1);
   box-sizing: border-box;
   padding-left: calc(env(safe-area-inset-left, 0px) + 12px);
   padding-right: calc(env(safe-area-inset-right, 0px) + 12px);
@@ -36,7 +36,7 @@
     var(--ak-paint-aqua-200) 100%
   );
   border: 0;
-  border-radius: 16px;
+  border-radius: var(--ak-radius-16);
   padding: 1.25rem;
   transition: none;
   position: relative;
@@ -70,7 +70,7 @@
   background: var(--ak-paint-white);
   border: 1px solid var(--ak-paint-cloud-200);
   padding: 0.25rem 0.6rem;
-  border-radius: 999px;
+  border-radius: var(--ak-radius-999);
 }
 .achievement-list {
   margin: 0;
@@ -91,10 +91,10 @@
   color: var(--ak-paint-soot-900);
   background: var(--ak-paint-white);
   border: 1px solid var(--ak-paint-cloud-200);
-  border-radius: 999px;
+  border-radius: var(--ak-radius-999);
   padding: 0.25rem 0.6rem;
   position: relative;
-  z-index: 0;
+  z-index: var(--ak-z-0);
   transition:
     border-color 0.06s ease,
     box-shadow 0.06s ease,
@@ -123,7 +123,7 @@
   opacity: 0;
   transition: opacity 0.06s ease;
   pointer-events: none;
-  z-index: -1;
+  z-index: var(--ak-z-n1);
 }
 .tech-tag:hover {
   border-color: var(--ak-paint-soot-900);
@@ -156,7 +156,7 @@
   }
   .experience-card {
     padding: 0.875rem;
-    border-radius: 12px;
+    border-radius: var(--ak-radius-12);
   }
   .card-header {
     flex-direction: column;
@@ -192,7 +192,7 @@
   width: 100%;
   height: 25vh;
   min-height: 180px;
-  z-index: 0;
+  z-index: var(--ak-z-0);
   pointer-events: none;
   background-color: var(--ak-paint-abyss-700);
 

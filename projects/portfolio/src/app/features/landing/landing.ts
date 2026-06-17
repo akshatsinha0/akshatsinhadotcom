@@ -7,6 +7,7 @@ import {
   output,
   signal,
 } from '@angular/core';
+import { TIMINGS } from '@akshat/core';
 import { LANDING_CARDS, LANDING_CGPA, LANDING_FEATURED, LANDING_HERO_META } from '@akshat/data';
 
 /** Pre-app landing page. Emits `entered` when
@@ -45,7 +46,7 @@ export class Landing {
         );
         if (iteration >= this.cgpaText.length) clearInterval(interval);
         iteration += 1;
-      }, 20);
+      }, TIMINGS.scrambleIntervalMs);
       destroyRef.onDestroy(() => clearInterval(interval));
     });
   }

@@ -10,7 +10,8 @@ COPY package.json bun.lock ./
 RUN bun install --frozen-lockfile
 
 COPY . .
-RUN bun run build
+# Pull the latest resume from Drive at build time, then build.
+RUN bun run sync:resume && bun run build
 
 # --- Serve stage: static files behind nginx ---
 FROM nginx:1.27-alpine AS serve

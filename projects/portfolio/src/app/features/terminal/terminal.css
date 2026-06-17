@@ -4,7 +4,7 @@
   border: 1px solid var(--ak-paint-iron-600);
   color: var(--ak-paint-white);
   padding: 0.35rem 0.75rem;
-  border-radius: 8px;
+  border-radius: var(--ak-radius-8);
   font-size: var(--ak-text-xs);
   cursor: pointer;
   transition: background 0.2s ease;
@@ -20,7 +20,7 @@
   width: 100vw;
   height: 100vh;
   background: var(--ak-paint-ink-a75);
-  z-index: 1000;
+  z-index: var(--ak-z-1000);
 }
 
 .terminal-container {
@@ -32,9 +32,9 @@
   height: 600px;
   background: var(--ak-paint-soot-950);
   border: 1px solid var(--ak-paint-charcoal-750);
-  border-radius: 12px;
+  border-radius: var(--ak-radius-12);
   box-shadow: 0 20px 40px var(--ak-paint-ink-a60);
-  z-index: 1001;
+  z-index: var(--ak-z-1001);
   overflow: hidden;
   font-family: 'Fira Sans', monospace !important;
 }
@@ -56,7 +56,7 @@
 .terminal-buttons span {
   width: 14px;
   height: 14px;
-  border-radius: 50%;
+  border-radius: var(--ak-radius-pill);
   cursor: pointer;
   transition: all 0.2s ease;
   position: relative;
@@ -78,8 +78,8 @@
     transform 0.15s ease;
   transform: scale(0.9);
   pointer-events: none;
-  z-index: 1;
-  border-radius: 50%;
+  z-index: var(--ak-z-1);
+  border-radius: var(--ak-radius-pill);
   line-height: 1;
   text-shadow: 0 0 0.5px var(--ak-paint-ink-a30);
 }
@@ -178,7 +178,7 @@
 
 .terminal-body::-webkit-scrollbar-thumb {
   background: var(--ak-paint-iron-500);
-  border-radius: 4px;
+  border-radius: var(--ak-radius-4);
 }
 
 .terminal-body::-webkit-scrollbar-thumb:hover {

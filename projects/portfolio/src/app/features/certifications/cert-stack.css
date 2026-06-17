@@ -15,7 +15,7 @@
 .certstack-zone {
   position: relative;
   isolation: isolate;
-  z-index: 5;
+  z-index: var(--ak-z-5);
 }
 .certstack-lock {
   height: 100vh;
@@ -78,7 +78,7 @@
   filter: blur(26px);
   opacity: 0;
   transition: opacity 0.25s ease;
-  z-index: -1;
+  z-index: var(--ak-z-n1);
   -webkit-mask-image: linear-gradient(
     to bottom,
     var(--ak-paint-black) 0%,
@@ -111,7 +111,7 @@
 .certstack-logo {
   width: 64px;
   height: 64px;
-  border-radius: 16px;
+  border-radius: var(--ak-radius-16);
   background: linear-gradient(135deg, var(--ak-paint-white) 0%, var(--ak-paint-ivory-50) 100%);
   display: grid;
   place-items: center;
@@ -153,7 +153,7 @@
   color: var(--ak-paint-steel-650);
   background: var(--ak-paint-slate-a08);
   padding: 6px 12px;
-  border-radius: 10px;
+  border-radius: var(--ak-radius-10);
   border: 1px solid var(--ak-paint-slate-a15);
   transition: all 0.2s ease;
   cursor: pointer;

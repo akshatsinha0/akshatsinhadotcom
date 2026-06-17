@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, output, signal } from '@angular/core';
+import { TIMINGS } from '@akshat/core';
 
 /** Floating icon that opens the interactive terminal. Plays a spin animation
  *  before emitting `opened`. */
@@ -17,6 +18,6 @@ export class TerminalIcon {
     setTimeout(() => {
       this.opened.emit();
       this.isAnimating.set(false);
-    }, 1200);
+    }, TIMINGS.terminalIconSpinMs);
   }
 }

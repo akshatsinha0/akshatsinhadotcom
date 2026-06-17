@@ -9,7 +9,7 @@ import {
   viewChild,
 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { PATCH_CHROMA, PATCH_LIGHT_PALETTE } from '@akshat/core';
+import { PATCH_CHROMA, PATCH_LIGHT_PALETTE, TIMINGS } from '@akshat/core';
 import { Loading } from '../../features/loading/loading';
 import { Landing } from '../../features/landing/landing';
 import { Terminal } from '../../features/terminal/terminal';
@@ -35,14 +35,14 @@ export class Shell {
   private readonly patch = viewChild<ElementRef<HTMLElement>>('patch');
 
   constructor() {
-    const timer = setTimeout(() => this.phase.set('landing'), 6500);
+    const timer = setTimeout(() => this.phase.set('landing'), TIMINGS.splashToLandingMs);
     inject(DestroyRef).onDestroy(() => clearTimeout(timer));
 
     afterRenderEffect((onCleanup) => {
       const el = this.patch()?.nativeElement;
       if (!el) return;
       this.applyPatch(el);
-      const id = setInterval(() => this.applyPatch(el), 12000);
+      const id = setInterval(() => this.applyPatch(el), TIMINGS.colorPatchIntervalMs);
       onCleanup(() => clearInterval(id));
     });
   }

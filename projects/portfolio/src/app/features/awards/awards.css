@@ -12,7 +12,7 @@
 .award-card {
   background: var(--ak-paint-white);
   border: 1px solid var(--ak-paint-cloud-200);
-  border-radius: 16px;
+  border-radius: var(--ak-radius-16);
   padding: 1.25rem;
   position: relative;
   overflow: visible;
@@ -23,7 +23,7 @@
   content: '';
   position: absolute;
   inset: -2px;
-  border-radius: 16px;
+  border-radius: var(--ak-radius-16);
   padding: 2px;
   background: conic-gradient(
     from 0deg,
@@ -41,13 +41,13 @@
   opacity: 0;
   transition: opacity 0.45s ease-out;
   pointer-events: none;
-  z-index: -1;
+  z-index: var(--ak-z-n1);
 }
 .award-card::after {
   content: '';
   position: absolute;
   inset: -14px;
-  border-radius: 20px;
+  border-radius: var(--ak-radius-20);
   background: conic-gradient(
     from 0deg,
     var(--ak-paint-orchid-400),
@@ -60,7 +60,7 @@
   opacity: 0;
   transition: opacity 0.45s ease-out;
   pointer-events: none;
-  z-index: -1;
+  z-index: var(--ak-z-n1);
 }
 .award-card:hover::before {
   opacity: 1;

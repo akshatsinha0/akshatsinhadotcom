@@ -20,7 +20,7 @@
 .eb-content {
   position: relative;
   border-radius: inherit;
-  z-index: 1;
+  z-index: var(--ak-z-1);
 }
 
 .eb-layers {
@@ -28,7 +28,7 @@
   inset: 0;
   border-radius: inherit;
   pointer-events: none;
-  z-index: 2;
+  z-index: var(--ak-z-2);
 }
 
 .eb-stroke,
@@ -61,7 +61,7 @@
 }
 
 .eb-background-glow {
-  z-index: -1;
+  z-index: var(--ak-z-n1);
   transform: scale(1.08);
   filter: blur(32px);
   opacity: 0.3;

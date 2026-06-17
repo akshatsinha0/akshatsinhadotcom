@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { ASSETS } from '@akshat/core';
+import { ASSETS, TIMINGS } from '@akshat/core';
 import {
   ABOUT_PHILOSOPHY,
   ABOUT_STATS,
@@ -41,7 +41,7 @@ export class About {
 
   protected onStatClick(key: string): void {
     this.clickedStat.set(key);
-    setTimeout(() => this.clickedStat.set(null), 1000);
+    setTimeout(() => this.clickedStat.set(null), TIMINGS.statFlashMs);
   }
 
   protected onCardClick(id: string, index: number): void {
