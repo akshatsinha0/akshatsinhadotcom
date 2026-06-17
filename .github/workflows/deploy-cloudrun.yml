@@ -45,6 +45,8 @@ jobs:
       # unavailable for any reason (e.g. trial ended), automatically fall back to
       # Cloud Build via --source, so deploys never break and need no intervention.
       - name: Build with Depot cache and deploy (fallback to Cloud Build)
+        env:
+          DEPOT_TOKEN: ${{ secrets.DEPOT_TOKEN }}
         run: |
           set -uo pipefail
           IMAGE="${GCP__REGION}-docker.pkg.dev/${GCP__PROJECT_ID}/${AR__REPO}/${CLOUD_RUN__SERVICE_NAME}:${GITHUB_SHA::7}"
