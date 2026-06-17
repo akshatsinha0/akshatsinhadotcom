@@ -12,3 +12,4 @@ export * from './lib/about.content';
 export * from './lib/skills.content';
 export * from './lib/certifications.content';
 export * from './lib/contact-form.content';
+export * from './lib/profile.content';

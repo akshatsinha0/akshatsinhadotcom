@@ -7,6 +7,7 @@ export * from './lib/tokens/color.tokens';
 
 // Constants
 export * from './lib/constants/section.constants';
+export * from './lib/constants/assets';
 
 // Utils
 export * from './lib/utils/external-link.util';

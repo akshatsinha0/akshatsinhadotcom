@@ -1,4 +1,4 @@
-import { Project, ProjectCategory, ProjectStatus } from '@akshat/core';
+import { ASSETS, Project, ProjectCategory, ProjectStatus } from '@akshat/core';
 
 /** Portfolio projects. Image paths point
  *  at the app's public/ assets. */
@@ -13,7 +13,7 @@ export const PROJECTS: readonly Project[] = [
     technologies: ['React', 'Node.js', 'WebSockets', 'MongoDB', 'Socket.io', 'Express'],
     link: 'https://takestakestakes.netlify.app/',
     github: 'https://github.com/akshatsinha0/takestakestakes-chessified.git',
-    images: ['/assets/takestakestakesproject.png', '/assets/takestakestakes2.png'],
+    images: [ASSETS.projects.takesTakesTakesPrimary, ASSETS.projects.takesTakesTakesSecondary],
     features: [
       'Real-time multiplayer chess with 60fps rendering',
       'Interactive chessboard with drag-and-drop mechanics',

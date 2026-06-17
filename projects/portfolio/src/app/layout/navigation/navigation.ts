@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { openInNewTab, SECTION_COLORS, SECTION_ROUTE, SectionId } from '@akshat/core';
+import { ASSETS, openInNewTab, SECTION_COLORS, SECTION_ROUTE, SectionId } from '@akshat/core';
 import { Tooltip } from '@akshat/shared-ui';
 
 interface NavItem {
@@ -25,12 +25,12 @@ export class Navigation {
   protected readonly isExpanded = signal(false);
 
   protected readonly sections: readonly NavItem[] = [
-    this.item(SectionId.About, 'About Me', 'ABOUTME3D.png'),
-    this.item(SectionId.Experiences, 'Experience', 'EXPERIENCE3D.png'),
-    this.item(SectionId.Projects, 'Projects', 'PROJECTS3D.png'),
-    this.item(SectionId.Skills, 'Skills', 'SKILLS3D.png'),
-    this.item(SectionId.Certifications, 'Certifications', 'CERTIFICATIONS3D.png'),
-    this.item(SectionId.Awards, 'Awards', 'STARS3D.png'),
+    this.item(SectionId.About, 'About Me', ASSETS.nav.about),
+    this.item(SectionId.Experiences, 'Experience', ASSETS.nav.experiences),
+    this.item(SectionId.Projects, 'Projects', ASSETS.nav.projects),
+    this.item(SectionId.Skills, 'Skills', ASSETS.nav.skills),
+    this.item(SectionId.Certifications, 'Certifications', ASSETS.nav.certifications),
+    this.item(SectionId.Awards, 'Awards', ASSETS.nav.awards),
     { ...this.item(SectionId.Images, 'Images', ''), isGallery: true },
   ];
 
@@ -44,11 +44,11 @@ export class Navigation {
     if (section.isGallery) openInNewTab(section.route);
   }
 
-  private item(id: SectionId, label: string, iconFile: string): NavItem {
+  private item(id: SectionId, label: string, icon: string): NavItem {
     return {
       id,
       label,
-      icon: iconFile ? `/assets/3d-icons/nav/${iconFile}` : '',
+      icon,
       color: SECTION_COLORS[id],
       route: '/' + SECTION_ROUTE[id],
     };

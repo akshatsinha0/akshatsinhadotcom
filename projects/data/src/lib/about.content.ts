@@ -1,6 +1,7 @@
 /** About-section content. Colors reference
  *  canonical section tokens — no raw hex. */
 import { RESUME_URL } from './links.content';
+import { PROFILE } from './profile.content';
 
 export interface ExpertiseArea {
   readonly id: string;
@@ -23,7 +24,7 @@ export const ABOUT_RESUME_URL = RESUME_URL;
 export const ABOUT_PHILOSOPHY = 'Ready and suprised student.';
 
 export const ABOUT_STATS: readonly AboutStat[] = [
-  { key: 'cgpa', number: '8.85', label: 'CGPA', detail: 'VIT Vellore' },
+  { key: 'cgpa', number: PROFILE.cgpa, label: 'CGPA', detail: PROFILE.university },
   { key: 'projects', number: '15+', label: 'Projects', detail: 'Developed' },
   { key: 'certs', number: '3+', label: 'Certifications', detail: 'Achieved' },
   { key: 'score', number: '95%', label: 'Class X', detail: 'DPS Ranchi' },

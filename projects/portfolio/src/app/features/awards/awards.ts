@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ASSETS } from '@akshat/core';
 import { AWARDS } from '@akshat/data';
 
 /** Awards section — renders @akshat/data. */
@@ -10,5 +11,5 @@ import { AWARDS } from '@akshat/data';
 })
 export class Awards {
   protected readonly awards = AWARDS;
-  protected readonly trophy = '/assets/winningtrophyicon.png';
+  protected readonly trophy = ASSETS.trophy;
 }

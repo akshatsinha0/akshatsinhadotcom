@@ -1,4 +1,5 @@
 /** Landing-page content. */
+import { PROFILE } from './profile.content';
 
 export interface LandingCard {
   readonly id: number;
@@ -11,7 +12,7 @@ export interface LandingFeatured {
   readonly title: string;
 }
 
-export const LANDING_CGPA = '8.84/10';
+export const LANDING_CGPA = `${PROFILE.cgpa}/10`;
 
 export const LANDING_HERO_META: readonly string[] = [
   '2024',

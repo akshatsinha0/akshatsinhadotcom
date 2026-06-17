@@ -2,6 +2,8 @@
  *  Static command output lives here; dynamic commands (clear/exit/date) stay in
  *  the component. */
 
+import { PROFILE } from './profile.content';
+
 export const TERMINAL_INTRO: readonly string[] = [
   "Welcome to Akshat Sinha's Interactive Terminal v2.0",
   'Portfolio System initialized successfully',
@@ -30,7 +32,7 @@ export const TERMINAL_ABOUT = {
   bio: [
     'Akshat Sinha - Fragment Developer & Innovation Enthusiast',
     'Currently pursuing Computer Science at VIT Vellore',
-    'CGPA: 8.84/10 - Academic Excellence in Technical Domain',
+    `CGPA: ${PROFILE.cgpa}/10 - Academic Excellence in Technical Domain`,
     'Passionate about creating modern digital solutions',
     'Award-winning developer with multiple certifications',
     'Specializes in React, Node.js, Python, and Qt Creator',

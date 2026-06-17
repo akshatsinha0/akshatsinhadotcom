@@ -1,8 +1,10 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ASSETS } from '@akshat/core';
 import {
   ABOUT_PHILOSOPHY,
   ABOUT_STATS,
   EXPERTISE_AREAS,
+  PROFILE,
   RESUME_PREVIEW,
   RESUME_PREVIEW_URL,
   RESUME_URL,
@@ -24,7 +26,8 @@ export class About {
   protected readonly philosophy = ABOUT_PHILOSOPHY;
   protected readonly stats = ABOUT_STATS;
   protected readonly expertiseAreas = EXPERTISE_AREAS;
-  protected readonly profileImg = '/assets/AKSHATSINHAPHOTO.jpg';
+  protected readonly profileImg = ASSETS.photo;
+  protected readonly profile = PROFILE;
 
   protected readonly resumePreview = RESUME_PREVIEW;
   protected readonly resumePreviewUrl = RESUME_PREVIEW_URL;
