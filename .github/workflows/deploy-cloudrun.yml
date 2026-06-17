@@ -28,6 +28,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Cosmetic: redact the service URL from gcloud's output in the logs.
+      - name: Mask the Cloud Run URL in logs
+        run: echo "::add-mask::${{ secrets.CLOUD_RUN_URL }}"
+
       - name: Authenticate to Google Cloud (keyless)
         uses: google-github-actions/auth@v2
         with:

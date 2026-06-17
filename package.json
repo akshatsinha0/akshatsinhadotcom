@@ -9,6 +9,7 @@
     "format": "prettier --write \"projects/**/*.{ts,html,css,scss}\"",
     "sync:resume": "node scripts/sync-resume.mjs",
     "precompress": "node scripts/precompress.mjs",
+    "loadtest": "node scripts/cloud-loadtest.mjs",
     "test": "ng test"
   },
   "private": true,
