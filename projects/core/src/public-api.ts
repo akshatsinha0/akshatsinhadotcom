@@ -10,6 +10,7 @@ export * from './lib/constants/section.constants';
 
 // Utils
 export * from './lib/utils/external-link.util';
+export * from './lib/utils/validators';
 
 // Enums
 export * from './lib/enums/project.enum';
@@ -18,3 +19,4 @@ export * from './lib/enums/project.enum';
 export * from './lib/models/project.model';
 export * from './lib/models/experience.model';
 export * from './lib/models/award.model';
+export * from './lib/models/form.model';

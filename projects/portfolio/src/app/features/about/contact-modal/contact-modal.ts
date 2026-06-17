@@ -1,53 +1,15 @@
 import { ChangeDetectionStrategy, Component, computed, input, output, signal } from '@angular/core';
+import { firstError, FormFieldConfig } from '@akshat/core';
+import { CONTACT_HEADER, CONTACT_STEPS, CONTACT_SUCCESS, CONTACT_UI } from '@akshat/data';
 
-interface ContactFormData {
-  fullName: string;
-  emailAddress: string;
-  phoneNumber: string;
-  professionalTitle: string;
-  organization: string;
-  linkedinProfile: string;
-  projectType: string;
-  collaborationType: string;
-  budget: string;
-  timeline: string;
-  primaryMessage: string;
-  specificQuestions: string;
-  preferredMeeting: string;
-  communicationStyle: string;
-  hearAboutMe: string;
-  expectations: string;
-  additionalComments: string;
-}
+/** Step id used for the post-submit success screen. */
+const SUCCESS_STEP = CONTACT_STEPS[CONTACT_STEPS.length - 1].id;
+const SUBMIT_DELAY_MS = 1200;
+const RESET_DELAY_MS = 3000;
 
-interface Step {
-  readonly id: number;
-  readonly title: string;
-  readonly subtitle: string;
-  readonly icon: string;
-}
-
-const EMPTY_FORM: ContactFormData = {
-  fullName: '',
-  emailAddress: '',
-  phoneNumber: '',
-  professionalTitle: '',
-  organization: '',
-  linkedinProfile: '',
-  projectType: '',
-  collaborationType: '',
-  budget: '',
-  timeline: '',
-  primaryMessage: '',
-  specificQuestions: '',
-  preferredMeeting: '',
-  communicationStyle: '',
-  hearAboutMe: '',
-  expectations: '',
-  additionalComments: '',
-};
-
-/** Multi-step contact form. */
+/** Config-driven multi-step contact form. All fields, options, labels, limits,
+ *  and validation come from @akshat/data / @akshat/core — nothing is declared
+ *  inline here. */
 @Component({
   selector: 'app-contact-modal',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -58,95 +20,86 @@ export class ContactModal {
   readonly isOpen = input(false);
   readonly closed = output<void>();
 
+  protected readonly header = CONTACT_HEADER;
+  protected readonly ui = CONTACT_UI;
+  protected readonly success = CONTACT_SUCCESS;
+  protected readonly steps = CONTACT_STEPS;
+
   protected readonly currentStep = signal(1);
-  protected readonly formData = signal<ContactFormData>({ ...EMPTY_FORM });
+  protected readonly formData = signal<Record<string, string>>(emptyForm());
   protected readonly errors = signal<Record<string, string>>({});
+  protected readonly focusedKey = signal<string | null>(null);
   protected readonly isSubmitting = signal(false);
 
-  protected readonly steps: readonly Step[] = [
-    {
-      id: 1,
-      title: 'Professional Credentials',
-      subtitle: "Let's establish your distinguished identity",
-      icon: '',
-    },
-    {
-      id: 2,
-      title: 'Collaboration Intentions',
-      subtitle: 'Define the scope of our potential partnership',
-      icon: '',
-    },
-    {
-      id: 3,
-      title: 'Communication Dynamics',
-      subtitle: 'Share your thoughts and inquiries',
-      icon: '💬',
-    },
-    {
-      id: 4,
-      title: 'Finalization & Submission',
-      subtitle: 'Review and transmit your distinguished request',
-      icon: '✨',
-    },
-  ];
-
   protected readonly activeStep = computed(() => this.steps[this.currentStep() - 1]);
+  protected readonly isSuccess = computed(() => this.currentStep() >= SUCCESS_STEP);
+  protected readonly isLastInputStep = computed(() => this.currentStep() === SUCCESS_STEP - 1);
+
+  protected value(key: string): string {
+    return this.formData()[key] ?? '';
+  }
+
+  protected error(key: string): string {
+    return this.errors()[key] ?? '';
+  }
+
+  protected remaining(field: FormFieldConfig): number | null {
+    return field.maxLength == null ? null : field.maxLength - this.value(field.key).length;
+  }
 
   protected close(): void {
     this.closed.emit();
   }
 
-  protected updateField(field: keyof ContactFormData, value: string): void {
-    this.formData.update((d) => ({ ...d, [field]: value }));
-    if (this.errors()[field]) {
-      this.errors.update((e) => ({ ...e, [field]: '' }));
-    }
+  protected setFocus(key: string | null): void {
+    this.focusedKey.set(key);
+  }
+
+  protected update(key: string, value: string): void {
+    this.formData.update((data) => ({ ...data, [key]: value }));
+    if (this.errors()[key]) this.errors.update((e) => ({ ...e, [key]: '' }));
   }
 
   protected next(): void {
-    if (this.validateStep(this.currentStep())) {
-      this.currentStep.update((s) => Math.min(s + 1, 4));
-    }
+    if (this.validateStep()) this.currentStep.update((s) => s + 1);
   }
 
   protected previous(): void {
-    this.currentStep.update((s) => Math.max(s - 1, 1));
+    this.currentStep.update((s) => Math.max(1, s - 1));
   }
 
   protected async submit(): Promise<void> {
-    if (!this.validateStep(3)) return;
+    if (!this.validateStep()) return;
     this.isSubmitting.set(true);
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, SUBMIT_DELAY_MS));
     this.isSubmitting.set(false);
-    this.currentStep.set(4);
-    setTimeout(() => {
-      this.close();
-      this.currentStep.set(1);
-      this.formData.set({ ...EMPTY_FORM });
-    }, 3000);
+    this.currentStep.set(SUCCESS_STEP);
+    setTimeout(() => this.reset(), RESET_DELAY_MS);
   }
 
-  private validateStep(step: number): boolean {
-    const data = this.formData();
+  private validateStep(): boolean {
     const next: Record<string, string> = {};
-    if (step === 1) {
-      if (!data.fullName.trim()) next['fullName'] = 'Your distinguished name is requisite';
-      if (!data.emailAddress.trim())
-        next['emailAddress'] = 'Electronic correspondence address required';
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.emailAddress))
-        next['emailAddress'] = 'Please provide a valid electronic mail format';
-      if (!data.professionalTitle.trim())
-        next['professionalTitle'] = 'Your professional designation is essential';
-    } else if (step === 2) {
-      if (!data.projectType) next['projectType'] = 'Please specify your collaboration intentions';
-      if (!data.timeline) next['timeline'] = 'Project timeline specification required';
-    } else if (step === 3) {
-      if (!data.primaryMessage.trim())
-        next['primaryMessage'] = 'Your primary discourse is mandatory';
-      if (data.primaryMessage.length < 20)
-        next['primaryMessage'] = 'Please elaborate your message comprehensively';
+    for (const field of this.activeStep().fields) {
+      const error = firstError(this.value(field.key), field.validators);
+      if (error) next[field.key] = error;
     }
     this.errors.set(next);
     return Object.keys(next).length === 0;
   }
+
+  private reset(): void {
+    this.close();
+    this.currentStep.set(1);
+    this.formData.set(emptyForm());
+    this.errors.set({});
+  }
+}
+
+/** Build a blank value map keyed by every field across all steps. */
+function emptyForm(): Record<string, string> {
+  const data: Record<string, string> = {};
+  for (const step of CONTACT_STEPS) {
+    for (const field of step.fields) data[field.key] = '';
+  }
+  return data;
 }

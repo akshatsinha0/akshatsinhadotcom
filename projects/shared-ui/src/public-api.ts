@@ -4,3 +4,4 @@
 
 export * from './lib/electric-border/electric-border';
 export * from './lib/mouse-trail/mouse-trail';
+export * from './lib/tooltip/tooltip';

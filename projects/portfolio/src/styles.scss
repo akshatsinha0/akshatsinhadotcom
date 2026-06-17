@@ -2,7 +2,7 @@
 // semantic, and component custom properties for the whole app.
 @use './styles/tokens';
 
-// Global resets + base typography (ported from old src/index.css; fonts live in index.html).
+// Global resets + base typography (fonts are loaded in index.html).
 * {
   margin: 0;
   padding: 0;
@@ -47,4 +47,20 @@ b {
 }
 .glow:hover::before {
   opacity: 0.9;
+}
+
+// Shared tooltip (rendered by the akTooltip directive). Token-based.
+.ak-tooltip {
+  position: fixed;
+  z-index: 1000;
+  transform: translateY(-50%);
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  background: var(--ak-paint-graphite-700);
+  color: var(--ak-paint-white);
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 6px 18px var(--ak-paint-ink-a30);
 }

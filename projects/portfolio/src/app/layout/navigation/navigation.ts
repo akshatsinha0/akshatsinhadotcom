@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { openInNewTab, SECTION_COLORS, SECTION_ROUTE, SectionId } from '@akshat/core';
+import { Tooltip } from '@akshat/shared-ui';
 
 interface NavItem {
   readonly id: SectionId;
@@ -16,7 +17,7 @@ interface NavItem {
 @Component({
   selector: 'app-navigation',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, Tooltip],
   templateUrl: './navigation.html',
   styleUrl: './navigation.css',
 })
