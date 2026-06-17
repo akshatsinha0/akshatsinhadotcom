@@ -10,12 +10,12 @@ COPY package.json bun.lock ./
 RUN bun install --frozen-lockfile
 
 COPY . .
-# Pull the latest resume from Drive at build time, then build.
-RUN bun run sync:resume && bun run build
+# Pull the latest resume from Drive, build, then pre-compress assets (.br/.gz).
+RUN bun run sync:resume && bun run build && bun run precompress
 
-# --- Serve stage: static files behind nginx ---
-FROM nginx:1.27-alpine AS serve
-COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=build /app/dist/portfolio/browser /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+# --- Serve stage: static files behind Caddy (precompressed brotli/gzip) ---
+FROM caddy:2-alpine AS serve
+COPY docker/Caddyfile /etc/caddy/Caddyfile
+COPY --from=build /app/dist/portfolio/browser /srv
+EXPOSE 8080
+CMD ["caddy", "run", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile"]

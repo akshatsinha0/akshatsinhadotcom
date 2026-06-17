@@ -8,6 +8,7 @@
     "watch": "ng build portfolio --watch --configuration development",
     "format": "prettier --write \"projects/**/*.{ts,html,css,scss}\"",
     "sync:resume": "node scripts/sync-resume.mjs",
+    "precompress": "node scripts/precompress.mjs",
     "test": "ng test"
   },
   "private": true,

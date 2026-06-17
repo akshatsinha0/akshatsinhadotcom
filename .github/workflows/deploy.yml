@@ -21,7 +21,8 @@ env:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    # Depot-managed runner (faster hardware + caching). Drop-in for ubuntu-latest.
+    runs-on: depot-ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
 

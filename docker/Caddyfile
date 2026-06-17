@@ -1,0 +1,23 @@
+# Static serving for the Angular SPA on Cloud Run.
+# Listens on 8080 (Cloud Run's default port); TLS/HTTP3 are terminated at the edge.
+:8080 {
+	root * /srv
+
+	# On-the-fly fallback for anything not pre-compressed.
+	encode zstd gzip
+
+	# Content-hashed assets (immutable): long-cache aggressively.
+	@hashed path *.js *.css *.woff *.woff2 *.png *.jpg *.jpeg *.gif *.svg *.ico *.pdf
+	header @hashed Cache-Control "public, max-age=2592000, immutable"
+
+	# index.html must always revalidate so new deploys are picked up.
+	header /index.html Cache-Control "no-cache"
+
+	# SPA routing: serve the requested file, otherwise hand off to index.html.
+	try_files {path} /index.html
+
+	# Serve pre-compressed .br/.gz siblings when present (built by precompress.mjs).
+	file_server {
+		precompressed br gzip
+	}
+}

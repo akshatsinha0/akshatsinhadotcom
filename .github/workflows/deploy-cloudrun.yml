@@ -43,5 +43,5 @@ jobs:
             --project "$GCP__PROJECT_ID" \
             --region "$GCP__REGION" \
             --allow-unauthenticated \
-            --port 80 \
+            --port 8080 \
             --quiet
