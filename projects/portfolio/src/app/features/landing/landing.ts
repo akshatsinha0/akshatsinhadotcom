@@ -3,9 +3,11 @@ import {
   ChangeDetectionStrategy,
   Component,
   DestroyRef,
+  ElementRef,
   inject,
   output,
   signal,
+  viewChild,
 } from '@angular/core';
 import { TIMINGS } from '@akshat/core';
 import { LANDING_CARDS, LANDING_CGPA, LANDING_FEATURED, LANDING_HERO_META } from '@akshat/data';
@@ -27,6 +29,11 @@ export class Landing {
   protected readonly cgpaText = LANDING_CGPA;
   protected readonly scrambledCgpa = signal('');
   protected readonly hoveredCard = signal<number | null>(null);
+
+  /** Expanding search bar: open state, live query, and the input to focus. */
+  protected readonly searchOpen = signal(false);
+  protected readonly searchQuery = signal('');
+  private readonly searchInput = viewChild<ElementRef<HTMLInputElement>>('searchInput');
 
   constructor() {
     const destroyRef = inject(DestroyRef);
@@ -53,5 +60,22 @@ export class Landing {
 
   protected enter(): void {
     this.entered.emit();
+  }
+
+  /** Toggle the search bar; focus the field as it opens, clear the query as it closes. */
+  protected toggleSearch(): void {
+    const opening = !this.searchOpen();
+    this.searchOpen.set(opening);
+    if (opening) {
+      queueMicrotask(() => this.searchInput()?.nativeElement.focus());
+    } else {
+      this.searchQuery.set('');
+    }
+  }
+
+  protected closeSearch(): void {
+    if (!this.searchOpen()) return;
+    this.searchOpen.set(false);
+    this.searchQuery.set('');
   }
 }

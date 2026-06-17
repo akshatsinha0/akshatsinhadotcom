@@ -73,7 +73,6 @@
   gap: 1rem;
 }
 
-.search-btn,
 .bookmark-btn {
   background: none;
   border: none;
@@ -84,16 +83,196 @@
   transition: all 0.3s ease;
 }
 
-.search-btn svg,
 .bookmark-btn svg {
   width: 24px;
   height: 24px;
 }
 
-.search-btn:hover,
 .bookmark-btn:hover {
   background: var(--ak-paint-white-a10);
   color: var(--ak-paint-white);
+}
+
+/* --- Expanding search ---------------------------------------------------- */
+/* The shell holds a fixed 44px slot so bookmark/enter never shift. The bar is
+   absolutely anchored to the shell's right edge and grows LEFT over the nav,
+   so its leading edge is the "wall" the nav links slip behind. */
+.search-shell {
+  position: relative;
+  flex: none;
+  width: 44px;
+  height: 44px;
+}
+
+.search-bar {
+  --sw: clamp(260px, 40vw, 540px);
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid transparent;
+  border-radius: var(--ak-radius-999);
+  background: transparent;
+  overflow: hidden;
+  z-index: var(--ak-z-3);
+  transition:
+    width 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.45s ease,
+    border-color 0.45s ease;
+}
+
+.search-bar.is-open {
+  width: var(--sw);
+  background: var(--ak-paint-white-a10);
+  border-color: var(--ak-paint-white-a20);
+  backdrop-filter: blur(14px);
+}
+
+.search-input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--ak-paint-white);
+  font-size: var(--ak-text-sm);
+  font-weight: 600;
+  padding: 0 2.7rem 0 2.9rem; /* left gap for the glyph, right gap for cancel */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.search-bar.is-open .search-input {
+  opacity: 1;
+  transition-delay: 0.18s; /* fades in once the bar has begun opening */
+}
+
+.search-input::placeholder {
+  color: var(--ak-paint-white-a70);
+}
+
+/* The glyph lives at the bar's right edge (its closed circle), then spins a full
+   turn and travels to the left edge as the bar opens. */
+.search-glyph {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: var(--ak-radius-pill);
+  background: none;
+  color: var(--ak-paint-white-a85);
+  cursor: pointer;
+  transition:
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.3s ease;
+}
+
+.search-bar:not(.is-open) .search-glyph:hover {
+  background: var(--ak-paint-white-a10);
+  color: var(--ak-paint-white);
+}
+
+.search-bar.is-open .search-glyph {
+  transform: translateX(calc((var(--sw) - 2.75rem) * -1)) rotate(360deg);
+  color: var(--ak-paint-white);
+}
+
+/* Cancel (×) sits at the bar's right interior, scales in once open, and on click
+   drops .is-open so the whole sequence plays in reverse. */
+.search-cancel {
+  position: absolute;
+  right: 0.4rem;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: none;
+  color: var(--ak-paint-white-a85);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%) scale(0.6);
+  transition:
+    opacity 0.25s ease,
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.2s ease;
+}
+
+.search-bar.is-open .search-cancel {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-50%) scale(1);
+  transition-delay: 0.22s; /* appears after the bar has opened */
+}
+
+.search-cancel:hover {
+  color: var(--ak-paint-white);
+}
+
+/* The "wall": a feathered mask whose transparent edge sweeps across the nav.
+   Driven by a registered custom property so it tweens smoothly, in lockstep with
+   the bar's growth — links dissolve right-to-left on open and reappear
+   left-to-right on close (a true mirror), genuinely clipped behind the edge. */
+@property --nav-wall {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 120%;
+}
+
+.landing-nav {
+  --nav-wall: 120%;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    #000 calc(var(--nav-wall) - 16%),
+    transparent var(--nav-wall)
+  );
+  mask-image: linear-gradient(
+    to right,
+    #000 calc(var(--nav-wall) - 16%),
+    transparent var(--nav-wall)
+  );
+  transition: --nav-wall 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.landing-nav.is-searching {
+  --nav-wall: -16%;
+  pointer-events: none;
+}
+
+/* Links glide left as the wall consumes them (and ease back on reverse). */
+.landing-nav .nav-link {
+  transition:
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.5s ease;
+}
+
+.landing-nav.is-searching .nav-link {
+  transform: translateX(-22px);
+  filter: blur(2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .search-bar,
+  .search-glyph,
+  .landing-nav,
+  .landing-nav .nav-link {
+    transition-duration: 0.01ms;
+  }
+  .landing-nav.is-searching .nav-link {
+    filter: none;
+  }
 }
 
 .enter-btn {
