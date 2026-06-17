@@ -8,7 +8,7 @@ on:
 
 permissions:
   contents: read
-  id-token: write # required for Workload Identity Federation OIDC
+  id-token: write # required for WIF (GCP) and Depot OIDC
 
 concurrency:
   group: cloud-run-production
@@ -20,6 +20,7 @@ env:
   CLOUD_RUN__SERVICE_NAME: akshat-portfolio
   WIF__PROVIDER: projects/193137828371/locations/global/workloadIdentityPools/github-pool/providers/github-provider
   DEPLOYER__SA_EMAIL: gha-deployer@akshat-portfolio-499712.iam.gserviceaccount.com
+  AR__REPO: cloud-run-source-deploy
 
 jobs:
   deploy:
@@ -36,12 +37,32 @@ jobs:
       - name: Set up gcloud
         uses: google-github-actions/setup-gcloud@v2
 
-      - name: Deploy to Cloud Run (build from Dockerfile via Cloud Build)
+      - name: Set up Depot CLI
+        uses: depot/setup-action@v1
+
+      # Build on Depot's remote builders with persistent layer caching (~10x faster
+      # rebuilds), push the image to Artifact Registry, then deploy it. If Depot is
+      # unavailable for any reason (e.g. trial ended), automatically fall back to
+      # Cloud Build via --source, so deploys never break and need no intervention.
+      - name: Build with Depot cache and deploy (fallback to Cloud Build)
         run: |
-          gcloud run deploy "$CLOUD_RUN__SERVICE_NAME" \
-            --source . \
-            --project "$GCP__PROJECT_ID" \
-            --region "$GCP__REGION" \
-            --allow-unauthenticated \
-            --port 8080 \
-            --quiet
+          set -uo pipefail
+          IMAGE="${GCP__REGION}-docker.pkg.dev/${GCP__PROJECT_ID}/${AR__REPO}/${CLOUD_RUN__SERVICE_NAME}:${GITHUB_SHA::7}"
+
+          echo "Authenticating Docker to Artifact Registry"
+          gcloud auth print-access-token \
+            | docker login -u oauth2accesstoken --password-stdin "https://${GCP__REGION}-docker.pkg.dev"
+
+          if depot build --platform linux/amd64 -t "$IMAGE" --push . ; then
+            echo "::notice::Depot build succeeded — deploying prebuilt image"
+            gcloud run deploy "$CLOUD_RUN__SERVICE_NAME" \
+              --image "$IMAGE" \
+              --project "$GCP__PROJECT_ID" --region "$GCP__REGION" \
+              --allow-unauthenticated --port 8080 --quiet
+          else
+            echo "::warning::Depot unavailable — falling back to Cloud Build (--source)"
+            gcloud run deploy "$CLOUD_RUN__SERVICE_NAME" \
+              --source . \
+              --project "$GCP__PROJECT_ID" --region "$GCP__REGION" \
+              --allow-unauthenticated --port 8080 --quiet
+          fi
