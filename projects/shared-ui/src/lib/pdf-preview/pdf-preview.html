@@ -1,0 +1,39 @@
+@if (open()) {
+  <div class="pdf-backdrop" (click)="close()"></div>
+  <div class="pdf-modal" role="dialog" aria-modal="true">
+    <header class="pdf-head">
+      <h2 class="pdf-title">{{ title() }}</h2>
+      <div class="pdf-actions">
+        @if (openHref()) {
+          <a class="pdf-link" [href]="openHref()" target="_blank" rel="noopener noreferrer">
+            {{ openLabel() }}
+          </a>
+        }
+        <button type="button" class="pdf-close" (click)="close()" aria-label="Close">Close</button>
+      </div>
+    </header>
+
+    <div class="pdf-body">
+      @if (loading()) {
+        <div class="pdf-skeleton" aria-hidden="true">
+          <div class="pdf-skel-page">
+            <div class="pdf-skel-line pdf-skel-title"></div>
+            <div class="pdf-skel-line pdf-skel-sub"></div>
+            <div class="pdf-skel-gap"></div>
+            @for (line of skeletonLines; track line) {
+              <div class="pdf-skel-line"></div>
+            }
+          </div>
+          <span class="pdf-loading">{{ loadingLabel() }}</span>
+        </div>
+      }
+      <iframe
+        class="pdf-frame"
+        [class.is-ready]="!loading()"
+        [src]="safeSrc()"
+        [title]="title()"
+        (load)="onLoaded()"
+      ></iframe>
+    </div>
+  </div>
+}

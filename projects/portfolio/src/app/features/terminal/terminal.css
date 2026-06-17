@@ -5,7 +5,7 @@
   color: var(--ak-paint-white);
   padding: 0.35rem 0.75rem;
   border-radius: 8px;
-  font-size: 0.85rem;
+  font-size: var(--ak-text-xs);
   cursor: pointer;
   transition: background 0.2s ease;
 }
@@ -71,7 +71,7 @@
   font-weight: 700;
   font-family: system-ui, 'Fira Sans', sans-serif;
   color: var(--ak-paint-ink-a80);
-  font-size: 10px;
+  font-size: var(--ak-text-2xs);
   opacity: 0;
   transition:
     opacity 0.15s ease,
@@ -88,11 +88,11 @@
 }
 .btn-minimize::after {
   content: '–';
-  font-size: 12px;
+  font-size: var(--ak-text-xs);
 }
 .btn-maximize::after {
   content: '⤢';
-  font-size: 11px;
+  font-size: var(--ak-text-2xs);
 }
 .terminal-buttons span:hover::after {
   opacity: 1;
@@ -120,7 +120,7 @@
 
 .terminal-title {
   color: var(--ak-paint-white);
-  font-size: 14px;
+  font-size: var(--ak-text-sm);
   font-weight: 500;
   font-family: 'Fira Sans', sans-serif !important;
   margin-left: auto;
@@ -133,7 +133,7 @@
   height: calc(100% - 56px);
   overflow-y: auto;
   font-family: 'Fira Sans', monospace !important;
-  font-size: 14px;
+  font-size: var(--ak-text-sm);
   line-height: 1.6;
 }
 
@@ -162,7 +162,7 @@
   border: none;
   color: var(--ak-paint-mint-100);
   font-family: 'Fira Sans', monospace !important;
-  font-size: 14px;
+  font-size: var(--ak-text-sm);
   outline: none;
   flex: 1;
   caret-color: var(--ak-paint-mint-350);
@@ -198,7 +198,7 @@
     height: 85vh;
   }
   .terminal-body {
-    font-size: 12px;
+    font-size: var(--ak-text-xs);
     padding: 15px;
   }
 }

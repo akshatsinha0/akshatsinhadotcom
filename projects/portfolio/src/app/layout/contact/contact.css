@@ -13,13 +13,13 @@
 }
 
 .contact-header h3 {
-  font-size: 2.5rem;
+  font-size: var(--ak-text-3xl);
   color: var(--ak-paint-graphite-700);
   margin-bottom: 1rem;
 }
 
 .contact-header p {
-  font-size: 1.2rem;
+  font-size: var(--ak-text-md);
   color: var(--ak-paint-slate-500);
   font-style: italic;
 }
@@ -137,7 +137,7 @@
 }
 
 .social-name {
-  font-size: 1.1rem;
+  font-size: var(--ak-text-sm);
   color: var(--ak-paint-graphite-700);
   font-weight: 700;
   position: relative;

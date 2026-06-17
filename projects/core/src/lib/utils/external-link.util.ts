@@ -3,3 +3,9 @@
 export function openInNewTab(url: string): void {
   window.open(url, '_blank', 'noopener,noreferrer');
 }
+
+/** Convert a Google Drive file "view" URL into its embeddable "preview" URL,
+ *  suitable for an <iframe> inline preview. */
+export function toDrivePreviewUrl(fileUrl: string): string {
+  return fileUrl.replace(/\/view.*$/, '/preview');
+}

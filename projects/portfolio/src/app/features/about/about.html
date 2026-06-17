@@ -78,4 +78,13 @@
     </div>
   </div>
   <app-contact-modal [isOpen]="isContactOpen()" (closed)="isContactOpen.set(false)" />
+  <ak-pdf-preview
+    [open]="isResumeOpen()"
+    [src]="resumePreviewUrl"
+    [title]="resumePreview.title"
+    [openHref]="resumeUrl"
+    [openLabel]="resumePreview.openLabel"
+    [loadingLabel]="resumePreview.loadingLabel"
+    (closed)="isResumeOpen.set(false)"
+  />
 </section>

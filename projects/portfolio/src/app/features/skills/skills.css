@@ -101,7 +101,7 @@
 }
 
 .skill-name {
-  font-size: 1.1rem;
+  font-size: var(--ak-text-lg);
   font-weight: 600;
   background: linear-gradient(135deg, var(--skill-color), var(--ak-paint-white));
   -webkit-background-clip: text;
@@ -156,14 +156,14 @@
 }
 
 .skill-name {
-  font-size: 1.2rem;
+  font-size: var(--ak-text-lg);
   font-weight: 700;
   color: var(--ak-paint-soot-900);
   transition: color 0.3s ease;
 }
 
 .skill-percent {
-  font-size: 0.9rem;
+  font-size: var(--ak-text-sm);
   color: var(--ak-paint-slate-300);
   font-weight: 500;
 }
@@ -229,7 +229,7 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  font-size: 3rem;
+  font-size: var(--ak-text-3xl);
   font-weight: 800;
   position: relative;
   z-index: 2;
@@ -242,14 +242,14 @@
   transform: translateX(-50%);
   color: transparent;
   -webkit-text-stroke: 2px var(--ak-paint-indigo-a30);
-  font-size: 3rem;
+  font-size: var(--ak-text-3xl);
   font-weight: 800;
   z-index: 1;
 }
 
 .section-subtitle {
   color: var(--ak-paint-slate-300);
-  font-size: 1.2rem;
+  font-size: var(--ak-text-lg);
   margin-top: 1rem;
 }
 
@@ -291,7 +291,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: var(--skill-color);
-  font-size: 0.8rem;
+  font-size: var(--ak-text-xs);
   font-weight: 600;
   padding: 0.3rem 0.6rem;
   border-radius: 1rem;
@@ -386,7 +386,7 @@
 }
 
 .skill-name {
-  font-size: 1.5rem;
+  font-size: var(--ak-text-lg);
   font-weight: 700;
   color: var(--skill-color);
   margin-bottom: 0.5rem;
@@ -399,7 +399,7 @@
 }
 
 .skill-level {
-  font-size: 1.8rem;
+  font-size: var(--ak-text-xl);
   font-weight: 800;
   background: linear-gradient(135deg, var(--skill-color), var(--ak-paint-white));
   -webkit-background-clip: text;
@@ -410,7 +410,7 @@
 .skill-difficulty {
   align-self: flex-end;
   color: var(--ak-paint-slate-300);
-  font-size: 0.9rem;
+  font-size: var(--ak-text-sm);
   font-weight: 600;
 }
 
@@ -497,10 +497,10 @@
     height: 100px;
   }
   .skill-name {
-    font-size: 1.2rem;
+    font-size: var(--ak-text-lg);
   }
   .skill-level {
-    font-size: 1.5rem;
+    font-size: var(--ak-text-2xl);
   }
 }
 

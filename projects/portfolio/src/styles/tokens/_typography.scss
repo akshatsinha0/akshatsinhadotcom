@@ -1,0 +1,27 @@
+// Canonical font-size family. Single source for text sizing — every component
+// references these tokens instead of hardcoding rem/px values.
+:root {
+  // Core scale (text)
+  --ak-text-2xs: 0.72rem;
+  --ak-text-xs: 0.8rem;
+  --ak-text-sm: 0.9rem;
+  --ak-text-md: 1rem;
+  --ak-text-lg: 1.15rem;
+  --ak-text-xl: 1.35rem;
+  --ak-text-2xl: 1.6rem;
+  --ak-text-3xl: 1.9rem;
+  --ak-text-4xl: 2.3rem;
+  --ak-text-5xl: 2.8rem;
+
+  // Display tier (large decorative numerals/headers; preserved sizes)
+  --ak-text-display-sm: 70px;
+  --ak-text-display-md: 90px;
+  --ak-text-display-lg: 120px;
+  --ak-text-display-xl: 140px;
+  --ak-text-display-2xl: 180px;
+
+  // Semantic roles
+  --ak-text-hero-title: var(--ak-text-4xl);
+  --ak-text-hero-desc: var(--ak-text-md);
+  --ak-text-section-title: var(--ak-text-3xl);
+}

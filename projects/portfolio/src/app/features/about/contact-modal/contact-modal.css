@@ -33,12 +33,12 @@
   gap: 1rem;
 }
 .cm-title {
-  font-size: 1.3rem;
+  font-size: var(--ak-text-xl);
   font-weight: 700;
 }
 .cm-subtitle {
   margin-top: 0.25rem;
-  font-size: 0.9rem;
+  font-size: var(--ak-text-sm);
   color: var(--ak-color-text-muted);
 }
 .cm-close {
@@ -48,7 +48,7 @@
   padding: 0.35rem 0.7rem;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: var(--ak-text-xs);
 }
 .cm-close:hover {
   color: var(--ak-color-text-on-light);
@@ -66,7 +66,7 @@
   height: 1.6rem;
   border-radius: 50%;
   border: 1px solid var(--ak-paint-cloud-200);
-  font-size: 0.8rem;
+  font-size: var(--ak-text-xs);
   font-weight: 600;
   color: var(--ak-color-text-muted);
 }
@@ -80,12 +80,12 @@
 }
 
 .cm-step-title {
-  font-size: 1rem;
+  font-size: var(--ak-text-md);
   font-weight: 700;
 }
 .cm-step-sub {
   margin-top: 0.2rem;
-  font-size: 0.85rem;
+  font-size: var(--ak-text-xs);
   color: var(--ak-color-text-muted);
 }
 
@@ -103,14 +103,14 @@
   grid-column: 1 / -1;
 }
 .cm-label {
-  font-size: 0.8rem;
+  font-size: var(--ak-text-xs);
   font-weight: 600;
   margin-bottom: 0.35rem;
 }
 .cm-input {
   width: 100%;
   padding: 0.6rem 0.7rem;
-  font-size: 0.9rem;
+  font-size: var(--ak-text-sm);
   color: var(--ak-color-text-on-light);
   background: var(--ak-paint-white);
   border: 1px solid var(--ak-paint-cloud-200);
@@ -130,7 +130,7 @@ textarea.cm-input {
 .cm-hint {
   min-height: 1.1rem;
   margin-top: 0.3rem;
-  font-size: 0.75rem;
+  font-size: var(--ak-text-2xs);
 }
 .cm-error {
   color: var(--ak-color-status-danger);
@@ -146,7 +146,7 @@ textarea.cm-input {
 }
 .cm-btn {
   padding: 0.55rem 1.1rem;
-  font-size: 0.88rem;
+  font-size: var(--ak-text-sm);
   font-weight: 600;
   border-radius: 8px;
   cursor: pointer;
@@ -172,7 +172,7 @@ textarea.cm-input {
 .cm-success-list {
   margin-top: 0.75rem;
   list-style: none;
-  font-size: 0.85rem;
+  font-size: var(--ak-text-xs);
   color: var(--ak-color-text-muted);
   display: flex;
   flex-direction: column;

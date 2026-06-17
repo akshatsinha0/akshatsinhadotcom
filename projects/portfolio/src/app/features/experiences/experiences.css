@@ -16,7 +16,7 @@
 }
 .experiences-section .section-title {
   text-align: center;
-  font-size: 2rem;
+  font-size: var(--ak-text-3xl);
   line-height: 1.2;
   margin-bottom: 1.5rem;
   color: var(--ak-paint-white);
@@ -59,13 +59,13 @@
   flex-wrap: wrap;
 }
 .card-title {
-  font-size: 1.1rem;
+  font-size: var(--ak-text-lg);
   color: var(--ak-paint-soot-900);
   font-weight: 700;
   margin: 0;
 }
 .duration-pill {
-  font-size: 0.85rem;
+  font-size: var(--ak-text-xs);
   color: var(--ak-paint-slate-600);
   background: var(--ak-paint-white);
   border: 1px solid var(--ak-paint-cloud-200);
@@ -87,7 +87,7 @@
   margin-top: 0.6rem;
 }
 .tech-tag {
-  font-size: 0.8rem;
+  font-size: var(--ak-text-xs);
   color: var(--ak-paint-soot-900);
   background: var(--ak-paint-white);
   border: 1px solid var(--ak-paint-cloud-200);
@@ -135,7 +135,7 @@
 }
 @media (max-width: 768px) {
   .experiences-section .section-title {
-    font-size: 1.5rem;
+    font-size: var(--ak-text-2xl);
   }
   .experience-card {
     padding: 1rem;
@@ -179,7 +179,7 @@
     gap: 0.3rem;
   }
   .tech-tag {
-    font-size: 0.75rem;
+    font-size: var(--ak-text-2xs);
     padding: 0.2rem 0.5rem;
   }
 }

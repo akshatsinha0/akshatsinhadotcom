@@ -2,6 +2,14 @@
 // semantic, and component custom properties for the whole app.
 @use './styles/tokens';
 
+// Component hosts default to inline; make the structural ones block so full-height
+// layouts and scrolling behave predictably.
+app-root,
+app-shell,
+app-landing {
+  display: block;
+}
+
 // Global resets + base typography (fonts are loaded in index.html).
 * {
   margin: 0;

@@ -11,13 +11,13 @@
 }
 
 .section-title {
-  font-size: 2.8rem;
+  font-size: var(--ak-text-3xl);
   color: var(--ak-paint-black);
   margin-bottom: 1rem;
 }
 
 .section-subtitle {
-  font-size: 1.2rem;
+  font-size: var(--ak-text-lg);
   color: var(--ak-paint-black);
   font-style: italic;
 }
@@ -155,7 +155,7 @@
 }
 
 .project-title {
-  font-size: 1.6rem;
+  font-size: var(--ak-text-xl);
   margin-bottom: 0.8rem;
   color: var(--ak-paint-soot-900);
 }
@@ -189,7 +189,7 @@
 
 .feature-icon {
   color: var(--ak-paint-soot-900);
-  font-size: 1.1rem;
+  font-size: var(--ak-text-lg);
   animation: none;
 }
 
@@ -206,7 +206,7 @@
   border-radius: 20px;
   border: 1px solid var(--ak-paint-cloud-200);
   color: var(--ak-paint-soot-900);
-  font-size: 0.9rem;
+  font-size: var(--ak-text-sm);
 }
 
 .project-link {
@@ -274,7 +274,7 @@
 }
 
 .glitch-text {
-  font-size: 3rem;
+  font-size: var(--ak-text-3xl);
   font-weight: 900;
   position: relative;
   color: var(--ak-paint-soot-900);
@@ -387,7 +387,7 @@
 }
 
 .typewriter-reveal {
-  font-size: 1.2rem;
+  font-size: var(--ak-text-lg);
   color: var(--ak-paint-black);
   margin-bottom: 2rem;
   overflow: visible;
@@ -517,7 +517,7 @@
   padding: 0.5rem 1rem;
   background: var(--ak-paint-ink-a35);
   border-radius: 20px;
-  font-size: 0.8rem;
+  font-size: var(--ak-text-xs);
   font-weight: 600;
   backdrop-filter: none;
   z-index: 10;
@@ -693,7 +693,7 @@
   color: white;
   padding: 0.3rem 0.8rem;
   border-radius: 15px;
-  font-size: 0.8rem;
+  font-size: var(--ak-text-xs);
   font-weight: 600;
 }
 
@@ -702,7 +702,7 @@
   color: white;
   padding: 0.3rem 0.8rem;
   border-radius: 15px;
-  font-size: 0.8rem;
+  font-size: var(--ak-text-xs);
   font-weight: 600;
 }
 
@@ -721,7 +721,7 @@
 
 .title-main {
   display: block;
-  font-size: 1.8rem;
+  font-size: var(--ak-text-xl);
   font-weight: 700;
   color: var(--ak-paint-black);
   background: none;
@@ -733,7 +733,7 @@
 
 .title-sub {
   display: block;
-  font-size: 1rem;
+  font-size: var(--ak-text-md);
   color: var(--ak-paint-black);
   font-weight: 400;
   font-style: italic;
@@ -760,14 +760,14 @@
 }
 
 .metric-value {
-  font-size: 1.5rem;
+  font-size: var(--ak-text-xl);
   font-weight: 700;
   color: var(--ak-paint-black);
   margin-bottom: 0.3rem;
 }
 
 .metric-label {
-  font-size: 0.8rem;
+  font-size: var(--ak-text-xs);
   color: var(--ak-paint-black);
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -777,7 +777,7 @@
   color: var(--ak-paint-black);
   line-height: 1.6;
   margin-bottom: 2rem;
-  font-size: 1.1rem;
+  font-size: var(--ak-text-md);
 }
 
 .project-features {
@@ -785,7 +785,7 @@
 }
 
 .features-title {
-  font-size: 1.2rem;
+  font-size: var(--ak-text-md);
   color: var(--ak-paint-black);
   margin-bottom: 1rem;
   font-weight: 600;
@@ -815,7 +815,7 @@
 .feature-icon {
   position: relative;
   color: var(--ak-paint-black);
-  font-size: 1.2rem;
+  font-size: var(--ak-text-lg);
   animation: iconFloat 3s ease-in-out infinite;
 }
 
@@ -854,7 +854,7 @@
 
 .feature-text {
   color: var(--ak-paint-black);
-  font-size: 0.95rem;
+  font-size: var(--ak-text-sm);
 }
 
 .tech-stack {
@@ -862,7 +862,7 @@
 }
 
 .tech-title {
-  font-size: 1.2rem;
+  font-size: var(--ak-text-md);
   color: var(--ak-paint-black);
   margin-bottom: 1rem;
   font-weight: 600;
@@ -885,7 +885,7 @@
   color: var(--ak-paint-white);
   padding: 0.5rem 1rem;
   border-radius: 0;
-  font-size: 0.9rem;
+  font-size: var(--ak-text-sm);
   font-weight: 600;
   position: relative;
   z-index: 2;
@@ -1015,7 +1015,7 @@
 }
 
 .btn-icon {
-  font-size: 1.2rem;
+  font-size: var(--ak-text-lg);
   transition: transform 0.3s ease;
 }
 
@@ -1060,7 +1060,7 @@
 .float-element {
   position: absolute;
   color: var(--ak-paint-indigo-a30);
-  font-size: 1.5rem;
+  font-size: var(--ak-text-xl);
   animation: floatAround 12s ease-in-out infinite;
 }
 
@@ -1185,10 +1185,10 @@
     min-width: 0;
   }
   .glitch-text {
-    font-size: 2rem;
+    font-size: var(--ak-text-3xl);
   }
   .typewriter-reveal {
-    font-size: 1rem;
+    font-size: var(--ak-text-md);
   }
   .project-card {
     padding: 1rem;
@@ -1211,7 +1211,7 @@
   }
   .view-btn {
     padding: 0.7rem 1rem;
-    font-size: 0.9rem;
+    font-size: var(--ak-text-sm);
     border-radius: 0;
   }
 
@@ -1228,14 +1228,14 @@
 
 @media (max-width: 480px) {
   .glitch-text {
-    font-size: 1.6rem;
+    font-size: var(--ak-text-2xl);
   }
   .project-card {
     padding: 0.9rem;
     margin: 0 2px;
   }
   .title-main {
-    font-size: 1.4rem;
+    font-size: var(--ak-text-xl);
   }
   .notebook-container,
   .flip-scene,

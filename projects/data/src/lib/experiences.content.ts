@@ -3,10 +3,51 @@ import { Experience } from '@akshat/core';
 /** Work experience entries. */
 export const EXPERIENCES: readonly Experience[] = [
   {
+    id: 'insyd',
+    title: 'Software Engineer Intern, INSYD, Remote.',
+    duration: 'Jan 2025 - Jun 2026',
+    description: [
+      'Developed and shipped features for 5 internal products — Kard, Ello, DesignLens, StudioOS, and Dais — on a Next.js, Convex, and AWS stack with Mastra AI agents, PostHog analytics, CI/CD pipelines, and live WebSocket integrations',
+      'Revamped 3 websites as proof-of-concept demos targeting UI and UX redesign and technical and operational modernisation for prospective client acquisition',
+      'Developed a sales and distribution ecosystem for Novara Locking Solutions (hardware partner), building core features and the user interface currently being tested by 10 to 15 field salesmen for feedback',
+    ],
+    tech: [
+      'Next.js',
+      'Convex',
+      'AWS',
+      'Mastra AI',
+      'PostHog',
+      'WebSockets',
+      'CI/CD',
+      'GitHub/GitLab',
+    ],
+  },
+  {
+    id: 'pistar',
+    title: 'Python Developer Intern, Pistar Tech, Hybrid.',
+    duration: 'Sep 2025 - Dec 2025',
+    description: [
+      'Developed MATLAB GUI and Python ASGI services for PodiaScanner Mat (plantar-pressure) and Smart Chair (AI posture monitoring), resolving visualization issues (foot orientation, heatmap accuracy) and improving diagnostic accuracy by 35%, implementing CSV export (1024 sensors), patient management (BMI, report IDs), and biomechanical analysis (arch index, pressure distribution) reducing report generation by 50%; deployed via FastAPI/Flask on Uvicorn, packaged with BeeWare',
+      'Optimized websites (90%+ Lighthouse) and web apps for Core Web Vitals (LCP, CLS, INP), improving load time by 38%, interaction latency by 27%, and layout stability by 22%, enhancing UI/UX, performance, testable code, and incremental deployments',
+    ],
+    tech: [
+      'Python',
+      'FastAPI',
+      'Flask',
+      'Gunicorn',
+      'Uvicorn',
+      'BeeWare',
+      'Chaquopy',
+      'MATLAB GUI',
+      'TypeScript',
+      'SCSS',
+    ],
+  },
+  {
     id: 'pcmpl',
     title:
       'Software Engineering Intern, Point-of-Care Microfluidics Private Limited, VIT Vellore, Onsite.',
-    duration: 'Jul 2025 - Present',
+    duration: 'Jul 2025 - Dec 2025',
     description: [
       'Building shippable Ecommerce frictionless experience server-oriented web design for thorough-casing lab-on-chip healthcare products (e.g., microarray patch) with the backend in Node + Drogon behind Nginx, resilient to client churn',
       'Engineering & planning dashboardsandinteractive resolution independent admin portals/workbenches for product analytics using ASP.NET Core Razor/Blazor,Wisej.NET,React,and.NET MAUIwithunifiedC#/Kotlincodesharing;maintaining cross platform ux and dynamic device telemetry visualizations. Integrated Kafka (HTTP ingestion) for live product-event stream processes, enabling granular product traceability, A/B test analytics, and clinician notifications. Bundled Nginx for frontend canary routing, supporting incremental interface rollouts with automated rollback and traffic shaping',

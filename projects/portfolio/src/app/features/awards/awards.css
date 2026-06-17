@@ -89,13 +89,13 @@
   object-fit: contain;
 }
 h3 {
-  font-size: 1.05rem;
+  font-size: var(--ak-text-lg);
   color: var(--ak-paint-soot-900);
   margin: 0;
 }
 .organization {
   color: var(--ak-paint-slate-500);
-  font-size: 0.9rem;
+  font-size: var(--ak-text-sm);
   margin-bottom: 0.25rem;
 }
 .year {
@@ -104,7 +104,7 @@ h3 {
   margin-bottom: 0.25rem;
 }
 .description {
-  font-size: 0.95rem;
+  font-size: var(--ak-text-sm);
   line-height: 1.5;
   color: var(--ak-paint-slate-600);
 }

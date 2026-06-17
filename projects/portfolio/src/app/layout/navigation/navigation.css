@@ -141,7 +141,7 @@
 }
 
 .nav-icon {
-  font-size: 1.5rem;
+  font-size: var(--ak-text-xl);
   min-width: 40px;
   display: flex;
   align-items: center;
@@ -157,7 +157,7 @@
   margin-left: 1rem;
   color: var(--ak-paint-graphite-700);
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: var(--ak-text-sm);
   opacity: 0;
   transform: translateX(-10px);
   transition: all 0.4s ease;

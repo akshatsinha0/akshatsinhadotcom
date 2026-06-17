@@ -1,0 +1,156 @@
+/* Inline PDF preview modal. White, token-based, with a skeleton loader. */
+.pdf-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: var(--ak-color-surface-scrim);
+}
+
+.pdf-modal {
+  position: fixed;
+  z-index: 1001;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(900px, 95vw);
+  height: min(88vh, 1100px);
+  display: flex;
+  flex-direction: column;
+  background: var(--ak-paint-white);
+  color: var(--ak-color-text-on-light);
+  border: 1px solid var(--ak-paint-cloud-200);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px var(--ak-paint-ink-a20);
+}
+
+.pdf-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1.1rem;
+  border-bottom: 1px solid var(--ak-paint-cloud-200);
+}
+.pdf-title {
+  font-size: var(--ak-text-md);
+  font-weight: 700;
+}
+.pdf-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.pdf-link {
+  font-size: var(--ak-text-xs);
+  font-weight: 600;
+  color: var(--ak-color-brand-primary);
+  text-decoration: none;
+}
+.pdf-close {
+  border: 1px solid var(--ak-paint-cloud-200);
+  background: var(--ak-paint-white);
+  color: var(--ak-color-text-muted);
+  padding: 0.35rem 0.7rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: var(--ak-text-xs);
+}
+.pdf-close:hover {
+  color: var(--ak-color-text-on-light);
+}
+
+.pdf-body {
+  position: relative;
+  flex: 1;
+  background: var(--ak-paint-ivory-50);
+}
+.pdf-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.pdf-frame.is-ready {
+  opacity: 1;
+}
+
+/* Optimistic skeleton: a document "page" with shimmering text lines swept by a
+   diagonal light, shown until the real iframe fires its load event. */
+.pdf-skeleton {
+  position: absolute;
+  inset: 0;
+  overflow: auto;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+.pdf-skel-page {
+  width: min(700px, 100%);
+  align-self: flex-start;
+  min-height: 100%;
+  padding: 2.75rem 2.5rem;
+  background: var(--ak-paint-white);
+  border-radius: 6px;
+  box-shadow: 0 10px 30px var(--ak-paint-ink-a08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.pdf-skel-line {
+  height: 13px;
+  width: 100%;
+  border-radius: 5px;
+  background-color: var(--ak-paint-cloud-200);
+  background-image: linear-gradient(
+    115deg,
+    transparent 30%,
+    var(--ak-paint-white-a70) 50%,
+    transparent 70%
+  );
+  background-size: 250% 100%;
+  background-repeat: no-repeat;
+  animation: pdf-shimmer 1.5s linear infinite;
+}
+.pdf-skel-line:nth-child(odd) {
+  width: 95%;
+}
+.pdf-skel-line:nth-child(even) {
+  width: 82%;
+}
+.pdf-skel-line:last-child {
+  width: 45%;
+}
+.pdf-skel-title {
+  height: 26px;
+  width: 60% !important;
+  border-radius: 6px;
+}
+.pdf-skel-sub {
+  height: 15px;
+  width: 38% !important;
+}
+.pdf-skel-gap {
+  height: 0.75rem;
+}
+.pdf-loading {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: var(--ak-text-xs);
+  color: var(--ak-color-text-muted);
+}
+
+@keyframes pdf-shimmer {
+  0% {
+    background-position: 150% 0;
+  }
+  100% {
+    background-position: -150% 0;
+  }
+}

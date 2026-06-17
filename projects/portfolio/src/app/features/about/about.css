@@ -93,11 +93,11 @@
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 1rem;
-  font-size: 1.2rem;
+  font-size: var(--ak-text-lg);
 }
 
 .wave {
-  font-size: 1.5rem;
+  font-size: var(--ak-text-2xl);
   animation: wave 2s infinite;
   transform-origin: 70% 70%;
 }
@@ -249,14 +249,14 @@
 }
 
 .stat-number {
-  font-size: 2rem;
+  font-size: var(--ak-text-2xl);
   font-weight: 800;
   color: var(--ak-paint-graphite-700);
   margin-bottom: 0.5rem;
 }
 
 .stat-label {
-  font-size: 0.9rem;
+  font-size: var(--ak-text-sm);
   color: var(--ak-paint-slate-600);
   font-weight: 700;
   text-transform: uppercase;
@@ -274,7 +274,7 @@
   padding: 1rem 2rem;
   border: none;
   border-radius: 50px;
-  font-size: 1rem;
+  font-size: var(--ak-text-md);
   font-weight: 600;
   cursor: pointer;
   transition: transform 0.3s ease;
@@ -446,11 +446,11 @@
   }
 
   .name {
-    font-size: 2.5rem;
+    font-size: var(--ak-text-4xl);
   }
 
   .title-container {
-    font-size: 1.4rem;
+    font-size: var(--ak-text-xl);
   }
 
   .stats-container {
@@ -509,12 +509,12 @@
 }
 
 .badge-icon {
-  font-size: 1rem;
+  font-size: var(--ak-text-md);
 }
 
 .badge-text {
   color: white;
-  font-size: 0.8rem;
+  font-size: var(--ak-text-xs);
   font-weight: 600;
 }
 
@@ -638,7 +638,7 @@
 }
 
 .stat-detail {
-  font-size: 0.8rem;
+  font-size: var(--ak-text-xs);
   color: var(--ak-paint-white);
   margin-top: 0.3rem;
   opacity: 0;
@@ -661,14 +661,14 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  font-size: 1.8rem;
+  font-size: var(--ak-text-3xl);
   margin-bottom: 2rem;
   color: var(--ak-paint-graphite-700);
   font-weight: 800;
 }
 
 .title-icon {
-  font-size: 1.5rem;
+  font-size: var(--ak-text-lg);
   filter: none;
 }
 
@@ -798,14 +798,14 @@
 }
 
 .card-header h4 {
-  font-size: 1.2rem;
+  font-size: var(--ak-text-lg);
   margin-bottom: 0.5rem;
   color: var(--ak-paint-graphite-700);
   font-weight: 700;
 }
 
 .card-subtitle {
-  font-size: 0.9rem;
+  font-size: var(--ak-text-sm);
   color: var(--ak-paint-steel-650);
   font-style: italic;
 }
@@ -888,7 +888,7 @@
 }
 
 .timeline-icon {
-  font-size: 2rem;
+  font-size: var(--ak-text-2xl);
   filter: drop-shadow(0 0 10px var(--timeline-color));
 }
 
@@ -900,7 +900,7 @@
 }
 
 .timeline-header h4 {
-  font-size: 1.3rem;
+  font-size: var(--ak-text-lg);
   color: var(--ak-paint-white);
 }
 
@@ -909,14 +909,14 @@
   color: var(--ak-paint-white);
   padding: 0.3rem 0.8rem;
   border-radius: 15px;
-  font-size: 0.8rem;
+  font-size: var(--ak-text-xs);
   font-weight: 700;
   border: 1px solid var(--ak-paint-white-a12);
 }
 
 .timeline-details p {
   margin-bottom: 0.5rem;
-  font-size: 0.95rem;
+  font-size: var(--ak-text-sm);
 }
 
 .timeline-degree {

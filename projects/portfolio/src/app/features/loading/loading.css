@@ -86,7 +86,7 @@
 }
 
 .counter-number {
-  font-size: 180px;
+  font-size: var(--ak-text-display-2xl);
   font-weight: 900;
   color: var(--ak-paint-onyx-850);
   line-height: 0.85;
@@ -94,7 +94,7 @@
 }
 
 .counter-percent {
-  font-size: 180px;
+  font-size: var(--ak-text-display-2xl);
   font-weight: 900;
   color: var(--ak-paint-onyx-850);
   line-height: 0.85;
@@ -115,7 +115,7 @@
 
   .counter-number,
   .counter-percent {
-    font-size: 140px;
+    font-size: var(--ak-text-display-xl);
     letter-spacing: -6px;
   }
 }
@@ -128,7 +128,7 @@
 
   .counter-number,
   .counter-percent {
-    font-size: 120px;
+    font-size: var(--ak-text-display-lg);
     letter-spacing: -5px;
   }
 
@@ -166,7 +166,7 @@
 
   .counter-number,
   .counter-percent {
-    font-size: 90px;
+    font-size: var(--ak-text-display-md);
     letter-spacing: -4px;
   }
 
@@ -204,7 +204,7 @@
 
   .counter-number,
   .counter-percent {
-    font-size: 70px;
+    font-size: var(--ak-text-display-sm);
     letter-spacing: -3px;
   }
 
