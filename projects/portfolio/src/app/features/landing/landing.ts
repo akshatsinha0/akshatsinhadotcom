@@ -18,7 +18,7 @@ import { LANDING_CARDS, LANDING_CGPA, LANDING_FEATURED, LANDING_HERO_META } from
   selector: 'app-landing',
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './landing.html',
-  styleUrl: './landing.css',
+  styleUrls: ['./landing.css', './landing.search-responsive.css'],
 })
 export class Landing {
   readonly entered = output<void>();

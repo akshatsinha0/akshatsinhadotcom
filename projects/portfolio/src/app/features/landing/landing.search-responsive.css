@@ -1,0 +1,143 @@
+/* =============================================================================
+   Landing search bar — device-segregated responsive behaviour.
+   Component-scoped (loaded via styleUrls alongside landing.css).
+
+   Media queries key off CSS viewport width (device-independent px), NOT physical
+   resolution. Physical pixels map to CSS px via devicePixelRatio — e.g. iPhone 14
+   is 1170 physical px ÷ 3 (@3x) = 390 CSS px. The device notes on each block name
+   the hardware that lands in that CSS-px range.
+
+   Desktop (>=769px) keeps the nav-consuming sweep from landing.css unchanged.
+   On phones the nav is display:none, so we switch to a native-app pattern: the
+   bar opens FULL-WIDTH while the logo and action buttons collapse away.
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   TABLET & LARGE  —  601-768px
+   iPad mini portrait (768), small Android tablets, large foldables unfolded.
+   Nav already hidden; the bar opens to a fixed wide pill over the logo while the
+   action buttons stay in place (a scaled-down desktop feel).
+   ----------------------------------------------------------------------------- */
+@media (min-width: 601px) and (max-width: 768px) {
+  .search-bar {
+    --sw: 420px;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   PHONES  —  <=600px  (full-width overlay, reflow-free)
+   The shell is ordered LAST so its right edge is a stable anchor (= header
+   content right) that never moves when siblings change. The bar then grows left
+   to full width via a single composited width animation, sweeping over the logo
+   and buttons, which simply fade out (opacity only = no layout shift, no shake).
+   ----------------------------------------------------------------------------- */
+@media (max-width: 600px) {
+  /* On open the bar detaches to a viewport-fixed, horizontally-centered pill and
+     grows from the centre. Anchoring to the viewport (not the wrapping header)
+     guarantees it stays exactly 1rem inside both edges and never overflows. */
+  .search-bar.is-open {
+    position: fixed;
+    top: 0.75rem;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: calc(100vw - 2rem);
+    --sw: calc(100vw - 2rem);
+    z-index: var(--ak-z-1001);
+  }
+
+  /* Logo + buttons fade behind the bar. Opacity only (GPU-composited) — no
+     layout animation, so no reflow shake. */
+  .landing-logo,
+  .bookmark-btn,
+  .enter-btn {
+    transition: opacity 0.35s ease;
+  }
+  .landing-header.is-searching .landing-logo,
+  .landing-header.is-searching .bookmark-btn,
+  .landing-header.is-searching .enter-btn {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   STANDARD & LARGE PHONES  —  390-600px
+   iPhone 12-15 (390/393), 15 Pro Max (430), Pixel 7/8 (412), phablets.
+   Comfortable baseline sizing.
+   ----------------------------------------------------------------------------- */
+@media (min-width: 390px) and (max-width: 600px) {
+  .search-input {
+    font-size: var(--ak-text-sm);
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   SMALL PHONES  —  361-389px
+   iPhone SE2/3 & 13 mini (375), Galaxy S8/S9 (360), Galaxy S2x (~384).
+   Smaller glyph + tighter type so the bar stays roomy.
+   ----------------------------------------------------------------------------- */
+@media (min-width: 361px) and (max-width: 389px) {
+  .search-input {
+    font-size: var(--ak-text-xs);
+  }
+  .search-glyph svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   ULTRA-SMALL  —  <=360px
+   iPhone SE 1st gen (320), Galaxy Fold cover (280), legacy Android.
+   Smallest icons, trimmed right gap, compact cancel target.
+   ----------------------------------------------------------------------------- */
+@media (max-width: 360px) {
+  .search-input {
+    font-size: var(--ak-text-xs);
+    padding-right: 2.3rem;
+  }
+  .search-glyph svg {
+    width: 16px;
+    height: 16px;
+  }
+  .search-cancel {
+    right: 0.25rem;
+    width: 26px;
+    height: 26px;
+  }
+  .search-cancel svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   LANDSCAPE / SHORT VIEWPORTS  —  height <= 480px, landscape
+   Slim the touch targets a touch so the bar fits a thin header band.
+   ----------------------------------------------------------------------------- */
+@media (max-height: 480px) and (orientation: landscape) {
+  .search-shell,
+  .search-bar,
+  .search-glyph {
+    height: 42px;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   TOUCH DEVICES  —  coarse pointer, <=600px
+   Snappier, shorter-feeling motion than the desktop sweep.
+   ----------------------------------------------------------------------------- */
+@media (max-width: 600px) and (pointer: coarse) {
+  .search-bar {
+    transition:
+      width 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+      background 0.35s ease,
+      border-color 0.35s ease;
+  }
+  .search-glyph {
+    transition:
+      transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+      color 0.25s ease;
+  }
+}
