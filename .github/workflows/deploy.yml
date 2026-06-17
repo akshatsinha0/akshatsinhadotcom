@@ -31,6 +31,25 @@ jobs:
         with:
           node-version: 24
 
+      # Cache Bun's package store so deps aren't re-downloaded each run.
+      - name: Cache Bun packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('bun.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-
+
+      # Cache Angular's persistent build cache so ng build runs incrementally.
+      - name: Cache Angular build cache
+        uses: actions/cache@v4
+        with:
+          path: .angular/cache
+          key: ${{ runner.os }}-angular-${{ hashFiles('bun.lock') }}-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-angular-${{ hashFiles('bun.lock') }}-
+            ${{ runner.os }}-angular-
+
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
 
