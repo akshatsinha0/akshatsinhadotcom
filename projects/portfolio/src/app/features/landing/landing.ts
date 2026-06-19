@@ -30,6 +30,11 @@ export class Landing {
   protected readonly scrambledCgpa = signal('');
   protected readonly hoveredCard = signal<number | null>(null);
 
+  /** Decorative completion value per card, generated once at construction. */
+  private readonly cardProgress = new Map<number, number>(
+    LANDING_CARDS.map((card) => [card.id, 20 + Math.floor(Math.random() * 66)]),
+  );
+
   /** Expanding search bar: open state, live query, and the input to focus. */
   protected readonly searchOpen = signal(false);
   protected readonly searchQuery = signal('');
@@ -60,6 +65,10 @@ export class Landing {
 
   protected enter(): void {
     this.entered.emit();
+  }
+
+  protected progressOf(id: number): number {
+    return this.cardProgress.get(id) ?? 0;
   }
 
   /** Toggle the search bar; focus the field as it opens, clear the query as it closes. */

@@ -275,20 +275,92 @@
   }
 }
 
-.enter-btn {
-  background: var(--ak-paint-linkedin-solid);
-  border: none;
+/* Custom identity avatar (replaces the nav "Visit Portfolio" button). */
+.nav-avatar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  overflow: hidden;
+  border: 2px solid var(--ak-paint-white-a30);
+  border-radius: var(--ak-radius-pill);
+  background: linear-gradient(135deg, var(--ak-paint-linkedin-solid), var(--ak-paint-ocean-600));
   color: var(--ak-paint-white);
-  padding: 0.9rem 2.5rem;
-  border-radius: var(--ak-radius-6);
-  font-weight: 800;
-  font-size: var(--ak-text-sm);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition:
+    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
-.enter-btn:hover {
-  background: var(--ak-paint-ocean-600);
+.nav-avatar-svg {
+  position: relative;
+  z-index: 1;
+  width: 28px;
+  height: 28px;
+  margin-top: 5px; /* drop the silhouette so head + shoulders fill the circle */
+  animation: ak-avatar-depth 2.7s ease-in-out infinite;
+}
+
+.nav-avatar:hover {
+  transform: scale(1.08);
+  border-color: var(--ak-paint-linkedin-solid);
+  box-shadow: 0 0 0 4px var(--ak-paint-linkedin-a30);
+}
+
+/* Soft radial sheen behind the figure — opacity and scale only, on its own
+   cadence; the colour composition never shifts hue. */
+.nav-avatar::before {
+  content: '';
+  position: absolute;
+  inset: -25%;
+  border-radius: var(--ak-radius-pill);
+  background: radial-gradient(circle at 50% 42%, var(--ak-paint-white-a30), transparent 62%);
+  opacity: 0.4;
+  pointer-events: none;
+  animation: ak-avatar-sheen 4.2s ease-in-out infinite;
+}
+
+@keyframes ak-avatar-sheen {
+  0% {
+    transform: scale(0.82);
+    opacity: 0.22;
+  }
+  45% {
+    transform: scale(1.18);
+    opacity: 0.6;
+  }
+  72% {
+    transform: scale(1);
+    opacity: 0.38;
+  }
+  100% {
+    transform: scale(0.82);
+    opacity: 0.22;
+  }
+}
+
+/* Gentle depth on the figure's edge — blur radius only, fixed colour. */
+@keyframes ak-avatar-depth {
+  0% {
+    filter: drop-shadow(0 0 0 var(--ak-paint-abyss-900));
+  }
+  50% {
+    filter: drop-shadow(0 1px 4px var(--ak-paint-abyss-900));
+  }
+  100% {
+    filter: drop-shadow(0 0 0 var(--ak-paint-abyss-900));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-avatar::before,
+  .nav-avatar-svg {
+    animation: none;
+  }
 }
 
 .hero-section {
@@ -457,7 +529,11 @@
   border-radius: 0;
   overflow: visible;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition:
+    transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.32s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
   position: relative;
   clip-path: polygon(
     0 10px,
@@ -566,14 +642,117 @@
   pointer-events: none;
 }
 
+/* Hover: the card lifts above its neighbours, sheds the notched frame, and an
+   expanded detail panel drops out beneath it. */
 .portfolio-card:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 20px var(--ak-paint-linkedin-a30);
+  transform: scale(1.28);
+  transform-origin: center center; /* expand outward on all sides, frustum-style */
+  z-index: var(--ak-z-5);
+  clip-path: none;
+  background: var(--ak-paint-abyss-880);
+  border: 1px solid var(--ak-paint-linkedin-solid);
+  border-bottom: none;
+  border-radius: var(--ak-radius-8) var(--ak-radius-8) 0 0;
+  box-shadow: 0 18px 44px var(--ak-paint-ink-a40);
 }
 
 .portfolio-card:hover::before {
-  border-color: var(--ak-paint-linkedin-solid);
-  border-width: 2px;
+  display: none;
+}
+
+.portfolio-card:hover .card-image {
+  border-radius: var(--ak-radius-8) var(--ak-radius-8) 0 0;
+}
+
+.card-expand {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.7rem 0.85rem 0.9rem;
+  background: var(--ak-paint-abyss-880);
+  border: 1px solid var(--ak-paint-linkedin-solid);
+  border-top: none;
+  border-radius: 0 0 var(--ak-radius-8) var(--ak-radius-8);
+  box-shadow: 0 18px 44px var(--ak-paint-ink-a40);
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition:
+    opacity 0.3s ease,
+    transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio-card:hover .card-expand {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.ce-top {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.ce-play {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.7rem;
+  background: var(--ak-paint-white);
+  color: var(--ak-paint-abyss-900);
+  border: none;
+  border-radius: var(--ak-radius-4);
+  font-size: var(--ak-text-2xs);
+  font-weight: 800;
+  cursor: pointer;
+}
+.ce-play:hover {
+  background: var(--ak-paint-linkedin-solid);
+  color: var(--ak-paint-white);
+}
+.ce-tag {
+  font-size: var(--ak-text-2xs);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--ak-paint-white-a70);
+}
+.ce-accolade {
+  margin: 0;
+  font-size: var(--ak-text-xs);
+  font-weight: 700;
+  color: var(--ak-paint-white);
+}
+.ce-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: var(--ak-text-2xs);
+  font-weight: 600;
+  color: var(--ak-paint-white-a70);
+}
+.ce-rating {
+  padding: 0 0.3rem;
+  border: 1px solid var(--ak-paint-white-a30);
+  border-radius: var(--ak-radius-3);
+  font-weight: 700;
+}
+.ce-dot {
+  color: var(--ak-paint-white-a30);
+}
+.ce-desc {
+  margin: 0;
+  font-size: var(--ak-text-2xs);
+  line-height: 1.5;
+  color: var(--ak-paint-white-a70);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .card-image {
@@ -641,8 +820,38 @@
   letter-spacing: 0.3px;
 }
 
+/* Completion strip pinned to the thumbnail's bottom edge; fill sweeps open on hover. */
+.card-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: var(--ak-paint-white-a20);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.portfolio-card:hover .card-progress {
+  opacity: 1;
+}
+
+.card-progress-fill {
+  height: 100%;
+  background: var(--ak-paint-white);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.08s;
+}
+
+.portfolio-card:hover .card-progress-fill {
+  transform: scaleX(1);
+}
+
 .card-content {
-  padding: 0.75rem 0.25rem;
+  /* Match the expand panel's horizontal padding so the title/category line up
+     with the detail text below it. */
+  padding: 0.85rem 0.85rem 0.5rem;
 }
 
 .card-title {
@@ -896,9 +1105,9 @@
     gap: 0.5rem;
   }
 
-  .enter-btn {
-    padding: 0.6rem 1.25rem;
-    font-size: var(--ak-text-sm);
+  .nav-avatar {
+    width: 40px;
+    height: 40px;
   }
 
   .bookmark-btn {

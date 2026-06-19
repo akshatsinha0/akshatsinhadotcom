@@ -50,12 +50,12 @@
      layout animation, so no reflow shake. */
   .landing-logo,
   .bookmark-btn,
-  .enter-btn {
+  .nav-avatar {
     transition: opacity 0.35s ease;
   }
   .landing-header.is-searching .landing-logo,
   .landing-header.is-searching .bookmark-btn,
-  .landing-header.is-searching .enter-btn {
+  .landing-header.is-searching .nav-avatar {
     opacity: 0;
     pointer-events: none;
   }
