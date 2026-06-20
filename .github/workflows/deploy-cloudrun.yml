@@ -2,9 +2,12 @@ name: Deploy to Cloud Run
 
 # Container deploy on merge to main, keyless via Workload Identity Federation.
 # Runs alongside the Vercel workflow (Vercel stays the primary live host).
+# Auto-deploy disabled: the Cloud Run resources were torn down. Re-enable by
+# restoring the push trigger below once the service/registry are provisioned again.
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:
+  # push:
+  #   branches: [main]
 
 permissions:
   contents: read
